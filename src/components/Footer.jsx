@@ -48,11 +48,11 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
               </a>
               <a href="tel:+919876543210" className="contact-line" title="Call customer helpline">
                 <Phone size={15} className="contact-icon" />
-                <span>+91 98765 43210 (Mon-Sat, 9am-8pm)</span>
+                <span>+91 98765 43210 (Mon-Sat, 9am-7pm)</span>
               </a>
               <Link to="/contact" className="contact-line" title="View office locations & directions">
                 <MapPin size={15} className="contact-icon" />
-                <span>Tech Park, Bangalore & Delhi NCR, India</span>
+                <span>A60 Sector 58, Noida, Uttar Pradesh, India</span>
               </Link>
             </div>
 
@@ -226,10 +226,10 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
                 type="button"
                 className="footer-tenant-trial-btn"
                 onClick={() => onOpenTrial && onOpenTrial('Professional')}
-                title="Launch your 14-day free workspace trial"
+                title="Request CRM setup and pricing"
               >
                 <Sparkles size={14} color="#818cf8" />
-                <span>Start 14-Day Free Trial</span>
+                <span>Request CRM Setup</span>
               </button>
             </div>
           </div>
@@ -239,7 +239,7 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
         <div className="footer-bottom">
           <div className="footer-bottom-left">
             <p className="footer-copyright">
-              &copy; {CURRENT_YEAR} SalesAvatar Technologies Inc. All rights reserved.
+              &copy; {CURRENT_YEAR} Bharat Group. All rights reserved.
             </p>
             <span className="footer-craft-tag">
               <span className="flag-icon" role="img" aria-label="India Flag">🇮🇳</span>

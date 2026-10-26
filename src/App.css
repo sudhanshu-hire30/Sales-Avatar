@@ -268,8 +268,24 @@ input[type="reset"] {
 
 .mobile-toggle {
   display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  justify-self: end;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   background: transparent;
   color: #1e293b;
+  line-height: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.mobile-toggle:hover,
+.mobile-toggle:focus-visible {
+  background: #f8fafc;
+  border-color: #cbd5e1;
 }
 
 /* Mobile Drawer */
@@ -1884,7 +1900,87 @@ input[type="reset"] {
   margin-bottom: 0;
 }
 
+.home-conversion-bar {
+  padding: 18px var(--content-gutter);
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.home-conversion-inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+}
+
+.home-conversion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.home-conversion-item > svg {
+  color: #ea580c;
+  flex-shrink: 0;
+}
+
+.home-conversion-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.home-conversion-item strong {
+  color: #1e293b;
+  font-size: 12.5px;
+}
+
+.home-conversion-item span {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.home-conversion-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.home-conversion-cta:hover {
+  background: #1e293b;
+}
+
 @media (max-width: 768px) {
+  .home-conversion-bar {
+    padding: 16px var(--content-gutter-mobile);
+  }
+
+  .home-conversion-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 12px;
+  }
+
+  .home-conversion-item:last-of-type {
+    grid-column: 1 / -1;
+  }
+
+  .home-conversion-cta {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
   .clean-enterprise-home .floating-laptop-tag {
     display: none;
   }
@@ -3378,7 +3474,7 @@ input[type="reset"] {
   }
 
   .mobile-toggle {
-    display: block;
+    display: inline-flex;
   }
 
   .mobile-drawer {
@@ -4562,7 +4658,7 @@ input[type="reset"] {
   }
 
   .mobile-toggle {
-    display: block;
+    display: inline-flex;
   }
 
   .mobile-drawer {

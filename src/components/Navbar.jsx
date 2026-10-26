@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { TrendingUp, ArrowRight, Menu, X } from 'lucide-react';
 
-export default function Navbar({ onOpenTrial }) {
+export default function Navbar({ onOpenTrial, onOpenDemo }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -56,7 +56,7 @@ export default function Navbar({ onOpenTrial }) {
         {/* Right CTA Buttons */}
         <div className="nav-actions">
           <button type="button" className="btn-get-started" onClick={() => onOpenTrial('Professional')}>
-            Get Started Free <ArrowRight size={16} />
+            Book a Demo <ArrowRight size={16} />
           </button>
         </div>
 
@@ -81,8 +81,8 @@ export default function Navbar({ onOpenTrial }) {
           <NavLink to="/faq" onClick={() => setMobileMenuOpen(false)}>FAQ</NavLink>
           <NavLink to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
           <div className="mobile-drawer-actions">
-            <button type="button" className="btn-get-started" onClick={() => { setMobileMenuOpen(false); onOpenTrial('Professional'); }}>
-              Get Started Free <ArrowRight size={16} />
+            <button type="button" className="btn-get-started" onClick={() => { setMobileMenuOpen(false); onOpenDemo(); }}>
+              Book a Demo <ArrowRight size={16} />
             </button>
           </div>
         </div>

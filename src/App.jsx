@@ -81,6 +81,7 @@ export default function App() {
       {/* Global Multi-Page Navbar */}
       <Navbar
         onOpenTrial={() => handleOpenTrial('Business')}
+        onOpenDemo={() => setDemoModalOpen(true)}
       />
 
       {/* Page Routing */}

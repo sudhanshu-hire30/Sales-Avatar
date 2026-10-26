@@ -191,7 +191,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
             </div>
             <div className="check-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>14-day free trial</span>
+              <span>Guided onboarding</span>
             </div>
           </div>
 
@@ -200,9 +200,9 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
             <button
               type="button"
               className="btn-hero-primary"
-              onClick={() => onOpenTrial('Professional')}
+              onClick={onOpenDemo}
             >
-              Start Free Trial <ArrowRight size={17} />
+              Book a Demo <ArrowRight size={17} />
             </button>
             <Link
               to="/crm-tour"

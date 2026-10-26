@@ -225,7 +225,7 @@ export default function CrmLightboxModal({
                       onOpenTrial('Professional');
                     }}
                   >
-                    <span>Start 14-Day Free Trial</span>
+                    <span>Request CRM Setup</span>
                     <ArrowRight size={14} />
                   </button>
                 )}

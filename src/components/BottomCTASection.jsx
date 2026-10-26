@@ -14,8 +14,8 @@ export default function BottomCTASection({
   badgeText = 'GET STARTED IN MINUTES',
   title = 'Ready to Turn Sales Chaos Into',
   titleHighlight = 'Predictable Monthly Revenue?',
-  subtitle = 'Join 240+ Indian businesses closing deals faster with SalesAvatar. Start your 14-day free trial today or book a personalized 1-on-1 walkthrough.',
-  primaryBtnText = 'Start 14-Day Free Trial',
+  subtitle = 'Join Indian businesses closing deals faster with SalesAvatar. Book a personalized walkthrough and get a plan built for your sales operation.',
+  primaryBtnText = 'Request CRM Setup',
   secondaryBtnText = 'Book a 1-on-1 Demo',
   checks = [
     'No credit card required',

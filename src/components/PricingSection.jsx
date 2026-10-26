@@ -219,7 +219,7 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
                       className="btn-plan btn-plan-popular"
                       onClick={() => onSelectPlan(p.name, billingCycle)}
                     >
-                      <span>Get Started</span>
+                      <span>Choose Plan</span>
                       <ArrowRight size={15} />
                     </button>
                   ) : (
@@ -228,7 +228,7 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
                       className="btn-plan btn-plan-outline"
                       onClick={() => onSelectPlan(p.name, billingCycle)}
                     >
-                      <span>Get Started</span>
+                      <span>Choose Plan</span>
                       <ArrowRight size={15} />
                     </button>
                   )}

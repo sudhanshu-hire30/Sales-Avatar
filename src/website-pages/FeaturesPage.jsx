@@ -252,7 +252,7 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
                 className="btn-subpage-primary" 
                 onClick={() => onOpenTrial('Business')}
               >
-                Start 14-Day Free Trial <ArrowRight size={16} />
+                Request CRM Setup <ArrowRight size={16} />
               </button>
               <Link
                 to="/crm-tour"

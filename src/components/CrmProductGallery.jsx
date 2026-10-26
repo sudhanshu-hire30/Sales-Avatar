@@ -244,7 +244,7 @@ export default function CrmProductGallery({
                   className="btn-hero-primary"
                   onClick={() => onOpenTrial('Professional')}
                 >
-                  Start Free Trial <ArrowRight size={16} />
+                  Choose a Plan <ArrowRight size={16} />
                 </button>
               )}
               {onOpenDemo && (

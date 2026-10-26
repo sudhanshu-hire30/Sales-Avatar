@@ -59,8 +59,7 @@ function TrialModalContent({ onClose, defaultPlan, billingCycle }) {
         colors: ['#ff6b2b', '#f97316', '#ea580c', '#f59e0b', '#10b981']
       });
     } catch {
-      // If server unreachable, still provide graceful feedback
-      setSubmitted(true);
+      setErrorMessage('We could not submit your registration right now. Please try again or contact our sales team.');
     } finally {
       setIsSubmitting(false);
     }
@@ -78,21 +77,21 @@ function TrialModalContent({ onClose, defaultPlan, billingCycle }) {
             <div className="success-icon-bubble">
               <CheckCircle2 size={44} color="#10b981" />
             </div>
-            <h3 className="success-title">Tenant Workspace Registered!</h3>
+            <h3 className="success-title">CRM Setup Request Received</h3>
             <p className="success-desc">
-              Your company tenant for <strong>{formData.company || 'your organization'}</strong> on the <strong>{formData.plan} Plan</strong> has been provisioned. We've sent your initial Company Administrator verification link to <strong>{formData.email}</strong>.
+              We have received your request for <strong>{formData.company || 'your organization'}</strong> and the <strong>{formData.plan} Plan</strong>. Our sales team will contact <strong>{formData.email}</strong> to confirm pricing, onboarding, and next steps.
             </p>
             <div className="success-highlights">
-              <div className="highlight-pill">✓ Dedicated Tenant ID Assigned</div>
-              <div className="highlight-pill">✓ Company Admin Workspace Ready</div>
-              <div className="highlight-pill">✓ 14-Day Free Trial Activated</div>
+              <div className="highlight-pill">✓ Plan fit confirmed with your team</div>
+              <div className="highlight-pill">✓ Guided onboarding available</div>
+              <div className="highlight-pill">✓ Secure company workspace setup</div>
             </div>
             <button
               type="button"
               className="btn-modal-action"
               onClick={onClose}
             >
-              Continue to Workspace
+              Back to website
             </button>
           </div>
         ) : (
@@ -100,11 +99,11 @@ function TrialModalContent({ onClose, defaultPlan, billingCycle }) {
             <div className="modal-header-block">
               <div className="modal-pill-tag">
                 <Sparkles size={13} />
-                <span>COMPANY REGISTRATION & ONBOARDING</span>
+                <span>CRM SETUP & ONBOARDING</span>
               </div>
-              <h3 className="modal-title">Rent Your Cloud CRM</h3>
+              <h3 className="modal-title">Plan Your CRM Setup</h3>
               <p className="modal-subtitle">
-                Set up your company tenant in 2 minutes. No credit card required.
+                Tell us about your team and we will recommend the right plan and onboarding path.
               </p>
             </div>
 
@@ -218,7 +217,7 @@ function TrialModalContent({ onClose, defaultPlan, billingCycle }) {
                 className="btn-modal-submit"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Creating Company Tenant...' : 'Complete Registration & Start Trial →'}
+                {isSubmitting ? 'Sending Request...' : 'Request Pricing & Setup →'}
               </button>
 
               <div className="modal-trust-footer">
@@ -244,12 +243,14 @@ export function DemoModal({ isOpen, onClose }) {
   });
   const [demoSent, setDemoSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [demoError, setDemoError] = useState('');
 
   if (!isOpen) return null;
 
   const handleDemoSchedule = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+    setDemoError('');
     try {
       await apiFetch('/demo', {
         method: 'POST',
@@ -262,7 +263,7 @@ export function DemoModal({ isOpen, onClose }) {
         origin: { y: 0.6 }
       });
     } catch {
-      setDemoSent(true);
+      setDemoError('We could not reserve your demo right now. Please try again or contact our sales team.');
     } finally {
       setSubmitting(false);
     }
@@ -331,6 +332,10 @@ export function DemoModal({ isOpen, onClose }) {
           <div className="demo-form-col">
             <h3 className="demo-col-title">Book a 1-on-1 Guided Demo</h3>
             <p className="demo-col-sub">See how SalesAvatar fits your exact sales workflow.</p>
+
+            {demoError && (
+              <div className="modal-error-box">{demoError}</div>
+            )}
 
             {demoSent ? (
               <div className="demo-sent-box">

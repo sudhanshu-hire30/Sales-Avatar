@@ -29,8 +29,8 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
       a: 'We accept all major corporate credit cards, debit cards, UPI (Google Pay, PhonePe, Paytm), Net Banking via Razorpay, and direct NEFT/RTGS for annual enterprise plans.'
     },
     {
-      q: 'Is there a free trial before we commit?',
-      a: 'Yes! We offer a full-featured 14-day free trial on any plan without requiring a credit card. You can test lead capture, pipeline boards, and mobile attendance immediately.'
+      q: 'How do we choose the right plan before we commit?',
+      a: 'Our team helps you select the right plan, configure your workspace, and start onboarding quickly. We can arrange a guided walkthrough before you commit.'
     },
     {
       q: 'What happens to our customer data if we decide to cancel?',
@@ -54,13 +54,13 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
               <span className="gradient-text">Built to Scale With Your Team</span>
             </h1>
             <p className="subpage-hero-subtitle">
-              No hidden setup fees. No forced annual contracts. Every plan includes full 14-day trial access, 18% GST Input Tax Credit (ITC) invoices, and dedicated onboarding assistance.
+              Clear monthly or annual plans, transparent GST invoices, and dedicated onboarding assistance for your sales team.
             </p>
 
             <div className="subpage-hero-checks">
               <div className="subpage-check-item">
                 <ShieldCheck size={14} color="#10b981" />
-                <span>14-Day Free Trial (No Card Needed)</span>
+                <span>Guided onboarding for every plan</span>
               </div>
               <div className="subpage-check-item">
                 <Check size={14} color="#10b981" />
@@ -126,7 +126,7 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
               </div>
 
               <div className="pricing-guide-footer">
-                <span><ShieldCheck size={15} /> 14-day trial on every plan</span>
+                <span><ShieldCheck size={15} /> Secure onboarding and support</span>
                 <button type="button" onClick={() => onOpenTrial('Professional')}>
                   Explore plans <ArrowRight size={14} />
                 </button>

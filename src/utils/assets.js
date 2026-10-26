@@ -18,7 +18,7 @@ export const FALLBACK_IMAGES = {
 };
 
 /**
- * Resolves a public asset path considering Vite's base URL (e.g. for GitHub Pages deployment)
+ * Resolves a public asset path from the site's root public directory.
  * @param {string} path - Relative path inside public folder
  * @returns {string} - Correctly formatted URL with base prefix
  */
