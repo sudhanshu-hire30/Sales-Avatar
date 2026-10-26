@@ -1,5 +1,5 @@
 /* ============================================================
-   SUBPAGES STYLESHEET (Features, Pricing, Why Us, Testimonials, FAQ, Contact)
+   SUBPAGES STYLESHEET (Features, Pricing, Why Us, FAQ, Contact)
    ============================================================ */
 
 /* 1. Generic Subpage Layout */
@@ -504,7 +504,6 @@ h1, h2, h3, h4, h5, h6 {
 .why-metrics-container,
 .why-compare-container,
 .why-industries-container,
-.testimonials-container,
 .faq-page-container,
 .contact-container,
 .legal-container {
@@ -1031,137 +1030,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #0f172a;
 }
 
-/* 7. Testimonials Subpage */
-.testimonials-stats-bar {
-  background: #0f172a;
-  padding: 32px 24px;
-  color: #ffffff;
-}
-
-.stats-bar-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.stat-col {
-  text-align: center;
-}
-
-.stat-big {
-  font-size: 32px;
-  font-weight: 800;
-  color: #a78bfa;
-  display: block;
-}
-
-.stat-lbl {
-  font-size: 13px;
-  color: #cbd5e1;
-  font-weight: 500;
-}
-
-.stat-divider {
-  width: 1px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.testimonials-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 24px;
-  margin-top: 32px;
-}
-
-.test-full-card {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 28px 24px;
-  display: flex;
-  flex-direction: column;
-}
-
-.test-top-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.test-stars-row {
-  display: flex;
-  gap: 4px;
-}
-
-.test-impact-badge {
-  font-size: 11px;
-  font-weight: 700;
-  background: #ecfdf5;
-  color: #059669;
-  padding: 4px 10px;
-  border-radius: 9999px;
-}
-
-.test-quote-text {
-  font-size: 14.5px;
-  color: #334155;
-  line-height: 1.6;
-  margin: 0 0 20px;
-  font-style: italic;
-}
-
-.test-author-row {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-top: 1px solid #f1f5f9;
-  padding-top: 16px;
-}
-
-.test-avatar-bubble {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.test-author-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.test-author-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0;
-}
-
-.test-author-role {
-  font-size: 12.5px;
-  color: #64748b;
-}
-
-.test-author-company {
-  font-size: 12px;
-  font-weight: 600;
-  color: #ea580c;
-}
-
-/* 8. FAQ Subpage Search & Layout */
+/* 7. FAQ Subpage Search & Layout */
 .pricing-faq-section {
   background: #ffffff;
 }
@@ -1678,7 +1547,6 @@ h1, h2, h3, h4, h5, h6 {
   .why-metrics-container,
   .why-compare-container,
   .why-industries-container,
-  .testimonials-container,
   .faq-page-container,
   .contact-container,
   .legal-container,

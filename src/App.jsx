@@ -10,7 +10,6 @@ import CrmTourPage from './website-pages/CrmTourPage';
 import FeaturesPage from './website-pages/FeaturesPage';
 import PricingPage from './website-pages/PricingPage';
 import WhyUsPage from './website-pages/WhyUsPage';
-import TestimonialsPage from './website-pages/TestimonialsPage';
 import FAQPage from './website-pages/FAQPage';
 import ContactPage from './website-pages/ContactPage';
 import { PrivacyPage, TermsPage, SecurityPage, CancellationRefundPage } from './website-pages/LegalPages';
@@ -147,15 +146,6 @@ export default function App() {
             path="/solutions"
             element={
               <WhyUsPage
-                onOpenTrial={handleOpenTrial}
-                onOpenDemo={() => setDemoModalOpen(true)}
-              />
-            }
-          />
-          <Route
-            path="/testimonials"
-            element={
-              <TestimonialsPage
                 onOpenTrial={handleOpenTrial}
                 onOpenDemo={() => setDemoModalOpen(true)}
               />

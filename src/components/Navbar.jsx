@@ -45,9 +45,6 @@ export default function Navbar({ onOpenTrial }) {
           <NavLink to="/why-us" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Why Us
           </NavLink>
-          <NavLink to="/testimonials" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            Testimonials
-          </NavLink>
           <NavLink to="/faq" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             FAQ
           </NavLink>
@@ -81,7 +78,6 @@ export default function Navbar({ onOpenTrial }) {
           <NavLink to="/features" onClick={() => setMobileMenuOpen(false)}>Features</NavLink>
           <NavLink to="/pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</NavLink>
           <NavLink to="/why-us" onClick={() => setMobileMenuOpen(false)}>Why Us</NavLink>
-          <NavLink to="/testimonials" onClick={() => setMobileMenuOpen(false)}>Testimonials</NavLink>
           <NavLink to="/faq" onClick={() => setMobileMenuOpen(false)}>FAQ</NavLink>
           <NavLink to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
           <div className="mobile-drawer-actions">

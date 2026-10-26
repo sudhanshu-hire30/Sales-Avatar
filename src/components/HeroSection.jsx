@@ -169,29 +169,29 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
           {/* Badge */}
           <div className="hero-badge">
             <span className="hero-status-dot"></span>
-            <span>BUILT FOR HIGH-VELOCITY SALES TEAMS</span>
+            <span>CRM FOR GROWING SALES TEAMS</span>
           </div>
 
           {/* Headline */}
           <h1 className="hero-title">
-            Stop Losing Leads to <br />
-            <span className="gradient-text">Messy Excel & WhatsApp</span>
+            Turn More Leads Into <br />
+            <span className="gradient-text">Predictable Revenue</span>
           </h1>
 
           {/* Subtitle */}
           <p className="hero-subtitle">
-            The all-in-one cloud CRM to automate leads, track field reps with GPS, and forecast sales with clarity.
+            SalesAvatar brings leads, follow-ups, field teams, and sales reporting into one simple CRM built for Indian businesses.
           </p>
 
           {/* Trust Checkmarks */}
           <div className="hero-checks">
             <div className="check-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>15-Minute Setup &bull; No Dev Required</span>
+              <span>15-minute setup</span>
             </div>
             <div className="check-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>DPDP Act &bull; 100% Indian Cloud</span>
+              <span>14-day free trial</span>
             </div>
           </div>
 
@@ -202,7 +202,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
               className="btn-hero-primary"
               onClick={() => onOpenTrial('Professional')}
             >
-              Start 14-Day Free Trial <ArrowRight size={17} />
+              Start Free Trial <ArrowRight size={17} />
             </button>
             <Link
               to="/crm-tour"
@@ -211,7 +211,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
               <div className="play-icon-bubble">
                 <Play size={12} fill="#2563eb" color="#2563eb" />
               </div>
-              Full Product Tour
+              See the CRM in action
             </Link>
           </div>
         </div>

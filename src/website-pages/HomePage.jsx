@@ -1,29 +1,25 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
-import FeaturesQuickBar from '../components/FeaturesQuickBar';
 import WhyUsSection from '../components/WhyUsSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import TestimonialsAndFAQ from '../components/TestimonialsAndFAQ';
 
 export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) {
   return (
-    <div className="home-page-view">
+    <div className="home-page-view clean-enterprise-home">
       {/* 1. Hero Section */}
       <HeroSection 
         onOpenTrial={onOpenTrial}
         onOpenDemo={onOpenDemo}
       />
 
-      {/* 2. Quick Ribbon Bar */}
-      <FeaturesQuickBar />
-
-      {/* 3. Why Us / Grow Without Chaos */}
+      {/* 2. Why Us / Grow Without Chaos */}
       <WhyUsSection />
 
-      {/* 4. How It Works (3 Steps) */}
+      {/* 3. How It Works (3 Steps) */}
       <HowItWorksSection />
 
-      {/* 5. Social Proof Testimonials & FAQ */}
+      {/* 4. Social Proof Testimonials */}
       <TestimonialsAndFAQ />
 
     </div>

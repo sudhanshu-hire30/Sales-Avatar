@@ -192,7 +192,6 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
               </li>
               <li><Link to="/why-us" title="Why subscription CRM rental beats heavy legacy software">Why Rent a Cloud CRM</Link></li>
               <li><Link to="/pricing" title="Explore monthly and annual subscription tiers">Monthly & Annual Plans</Link></li>
-              <li><Link to="/testimonials" title="Read verified client case studies and feedback">Subscriber Case Studies</Link></li>
               <li><Link to="/faq" title="Answers to common questions about deployment and billing">Frequently Asked Questions</Link></li>
               <li><Link to="/contact" title="Get in touch with our technical assistance team">Contact Support Desk</Link></li>
               <li>

@@ -1756,6 +1756,239 @@ input[type="reset"] {
   }
 }
 
+/* Homepage: restrained enterprise presentation */
+.clean-enterprise-home .hero-section {
+  background: #ffffff;
+  padding-bottom: 24px;
+}
+
+.clean-enterprise-home .hero-badge,
+.clean-enterprise-home .why-us-badge {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.clean-enterprise-home .hero-title {
+  max-width: 680px;
+  font-size: clamp(36px, 3.2vw, 46px);
+  letter-spacing: -0.035em;
+}
+
+.clean-enterprise-home .hero-subtitle {
+  max-width: 570px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #475569;
+}
+
+.clean-enterprise-home .hero-checks {
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.clean-enterprise-home .check-item {
+  padding: 6px 12px;
+  background: #ffffff;
+  font-size: 12.5px;
+  box-shadow: none;
+}
+
+.clean-enterprise-home .hero-cta-group {
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.clean-enterprise-home .btn-hero-primary {
+  padding: 14px 24px;
+  background: #ea580c;
+  box-shadow: 0 8px 18px -5px rgba(234, 88, 12, 0.4);
+}
+
+.clean-enterprise-home .btn-hero-primary:hover {
+  background: #c2410c;
+}
+
+.clean-enterprise-home .btn-hero-secondary {
+  padding: 13px 20px;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  box-shadow: none;
+}
+
+.clean-enterprise-home .btn-hero-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.clean-enterprise-home .hero-trust-strip {
+  margin-top: 32px;
+  padding-top: 24px;
+  padding-bottom: 20px;
+  background: #f8fafc;
+  backdrop-filter: none;
+}
+
+.clean-enterprise-home .hero-trust-container {
+  gap: 12px;
+}
+
+.clean-enterprise-home .why-us-section {
+  padding: 72px 0;
+}
+
+.clean-enterprise-home .arrow-backdrop,
+.clean-enterprise-home .image-base-glow,
+.clean-enterprise-home .floating-metric-badge {
+  display: none;
+}
+
+.clean-enterprise-home .dynamic-image-frame {
+  height: 440px;
+}
+
+.clean-enterprise-home .why-us-title {
+  font-size: clamp(32px, 3.2vw, 40px);
+}
+
+.clean-enterprise-home .benefit-card {
+  border-color: #e2e8f0;
+  box-shadow: none;
+}
+
+.clean-enterprise-home .how-it-works-section {
+  padding: 72px 0;
+  background: #f8fafc;
+}
+
+.clean-enterprise-home .section-center-header {
+  margin-bottom: 40px;
+}
+
+.clean-enterprise-home .step-connector-arrow,
+.clean-enterprise-home .ready-grow-callout {
+  display: none;
+}
+
+.clean-enterprise-home .steps-flow-row {
+  justify-content: center;
+}
+
+.clean-enterprise-home .social-proof-and-faq-wrap {
+  padding: 72px 0;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.clean-enterprise-home .testimonials-section {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .clean-enterprise-home .floating-laptop-tag {
+    display: none;
+  }
+
+  .clean-enterprise-home .hero-title {
+    font-size: 34px;
+  }
+
+  .clean-enterprise-home .hero-cta-group {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .clean-enterprise-home .btn-hero-primary,
+  .clean-enterprise-home .btn-hero-secondary {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Shared clean enterprise system */
+.multi-page-site .subpage-hero-banner,
+.multi-page-site .crm-tour-hero-banner {
+  background: #ffffff;
+  border-bottom-color: #e2e8f0;
+}
+
+.multi-page-site .subpage-hero-banner::before,
+.multi-page-site .crm-tour-hero-banner::before {
+  display: none;
+}
+
+.multi-page-site .subpage-hero-title,
+.multi-page-site .crm-tour-hero-title {
+  letter-spacing: -0.035em;
+}
+
+.multi-page-site .subpage-hero-subtitle,
+.multi-page-site .crm-tour-hero-subtitle {
+  color: #64748b;
+}
+
+.multi-page-site .btn-subpage-primary {
+  background: #ea580c;
+  box-shadow: 0 8px 18px -5px rgba(234, 88, 12, 0.3);
+}
+
+.multi-page-site .btn-subpage-primary:hover {
+  background: #c2410c;
+  box-shadow: 0 10px 22px -5px rgba(194, 65, 12, 0.35);
+}
+
+.multi-page-site .hero-preview-glass-card {
+  border-radius: 18px;
+  box-shadow: 0 12px 30px -12px rgba(15, 23, 42, 0.16);
+}
+
+.multi-page-site .section-main-title {
+  letter-spacing: -0.03em;
+}
+
+.multi-page-site .footer-wrapper {
+  background: #f8fafc;
+  border-top-color: #e2e8f0;
+}
+
+.multi-page-site .footer-top-accent {
+  height: 1px;
+  background: #cbd5e1;
+}
+
+.multi-page-site .footer-wrapper .brand-purple {
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: #ea580c;
+}
+
+.multi-page-site .link-badge {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #64748b;
+}
+
+.multi-page-site .footer-tenant-login-btn {
+  background: #ea580c;
+  box-shadow: 0 6px 14px rgba(234, 88, 12, 0.2);
+}
+
+.multi-page-site .footer-tenant-login-btn:hover {
+  background: #c2410c;
+}
+
+@media (max-width: 768px) {
+  .multi-page-site .subpage-hero-banner,
+  .multi-page-site .crm-tour-hero-banner {
+    padding-bottom: 28px;
+  }
+
+  .multi-page-site .subpage-hero-title,
+  .multi-page-site .crm-tour-hero-title {
+    font-size: clamp(30px, 8vw, 40px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .quick-bar-track {
     animation: none;
