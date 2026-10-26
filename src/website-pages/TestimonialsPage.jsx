@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Sparkles, 
   Star, 
@@ -6,7 +7,6 @@ import {
   ArrowRight,
   ShieldCheck
 } from 'lucide-react';
-import BottomCTASection from '../components/BottomCTASection';
 
 export default function TestimonialsPage({ onOpenTrial, onOpenDemo }) {
   const [filter, setFilter] = useState('all');
@@ -136,13 +136,9 @@ export default function TestimonialsPage({ onOpenTrial, onOpenDemo }) {
               >
                 Explore Case Studies <ArrowRight size={16} />
               </button>
-              <button 
-                type="button" 
-                className="btn-subpage-ghost"
-                onClick={onOpenDemo}
-              >
-                Book a Demo
-              </button>
+              <Link to="/crm-tour" className="btn-subpage-ghost">
+                Full Product Tour
+              </Link>
             </div>
           </div>
 
@@ -324,56 +320,6 @@ export default function TestimonialsPage({ onOpenTrial, onOpenDemo }) {
         </div>
       </section>
 
-      {/* Case Study Spotlight Banner */}
-      <section className="case-study-spotlight-section">
-        <div className="case-study-container">
-          <div className="case-study-card">
-            <div className="case-left">
-              <span className="case-badge">CASE STUDY SPOTLIGHT</span>
-              <h2>How Apex Realty Closed ₹42 Crore in 90 Days</h2>
-              <p>
-                By replacing unorganized WhatsApp chat groups with SalesAvatar's instant lead routing and automated GPS site-visit check-ins, Apex Realty slashed their lead response time from 36 hours down to 90 seconds.
-              </p>
-              <div className="case-highlights-row">
-                <div className="case-high-item">
-                  <b>3.2x</b>
-                  <span>Site Visits Done</span>
-                </div>
-                <div className="case-high-item">
-                  <b>0%</b>
-                  <span>Lead Drops</span>
-                </div>
-                <div className="case-high-item">
-                  <b>90 Sec</b>
-                  <span>Average Response</span>
-                </div>
-              </div>
-            </div>
-            <div className="case-right">
-              <button 
-                type="button" 
-                className="btn-case-action" 
-                onClick={() => onOpenTrial('Business')}
-              >
-                Replicate These Results <ArrowRight size={16} />
-              </button>
-              <button 
-                type="button" 
-                className="btn-case-ghost" 
-                onClick={onOpenDemo}
-              >
-                Book Guided Walkthrough
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <BottomCTASection 
-        onOpenTrial={() => onOpenTrial('Business')}
-        onOpenDemo={onOpenDemo}
-      />
     </div>
   );
 }

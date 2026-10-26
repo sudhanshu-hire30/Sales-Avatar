@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   X, 
   ChevronLeft, 
   ChevronRight, 
-  ExternalLink, 
   CheckCircle2, 
   Sparkles,
   ArrowRight,
@@ -136,16 +136,6 @@ export default function CrmLightboxModal({
                 <LayoutGrid size={15} />
                 <span className="btn-label-desktop">{showFilmstrip ? 'Hide Scroller' : 'Show Scroller'}</span>
               </button>
-              <a 
-                href={imageUrl} 
-                target="_blank" 
-                rel="noreferrer" 
-                className="crm-lightbox-btn-icon" 
-                title="Open full resolution capture in new tab"
-              >
-                <ExternalLink size={15} />
-                <span className="btn-label-desktop">Full Size</span>
-              </a>
               <button 
                 type="button" 
                 className="crm-lightbox-btn-close" 
@@ -240,16 +230,12 @@ export default function CrmLightboxModal({
                   </button>
                 )}
                 {onOpenDemo && (
-                  <button
-                    type="button"
+                  <Link
+                    to="/crm-tour"
                     className="pane-cta-secondary-btn"
-                    onClick={() => {
-                      onClose();
-                      onOpenDemo();
-                    }}
                   >
-                    <span>Schedule Live 1-on-1 Demo</span>
-                  </button>
+                    <span>Full Product Tour</span>
+                  </Link>
                 )}
               </div>
             )}

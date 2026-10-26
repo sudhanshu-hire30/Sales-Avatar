@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { 
   Sparkles, 
@@ -14,7 +15,6 @@ import {
   Store
 } from 'lucide-react';
 import HowItWorksSection from '../components/HowItWorksSection';
-import BottomCTASection from '../components/BottomCTASection';
 
 export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
   const location = useLocation();
@@ -157,13 +157,9 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
               >
                 Get Started <ArrowRight size={16} />
               </button>
-              <button 
-                type="button" 
-                className="btn-subpage-ghost" 
-                onClick={onOpenDemo}
-              >
-                Book a Demo
-              </button>
+              <Link to="/crm-tour" className="btn-subpage-ghost">
+                Full Product Tour
+              </Link>
             </div>
           </div>
 
@@ -383,11 +379,6 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
       {/* 3 Step Framework */}
       <HowItWorksSection />
 
-      {/* Bottom CTA */}
-      <BottomCTASection 
-        onOpenTrial={() => onOpenTrial('Business')}
-        onOpenDemo={onOpenDemo}
-      />
     </div>
   );
 }

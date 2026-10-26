@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { TrendingUp, ArrowRight, Menu, X } from 'lucide-react';
 
-export default function Navbar({ onOpenTrial, onOpenLogin }) {
+export default function Navbar({ onOpenTrial }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -36,13 +36,6 @@ export default function Navbar({ onOpenTrial, onOpenLogin }) {
           <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Home
           </NavLink>
-          <NavLink 
-            to="/crm-tour" 
-            className={({ isActive }) => `nav-link nav-tour-pill ${isActive ? 'active' : ''}`}
-          >
-            <span className="live-dot-green"></span>
-            Live CRM Tour
-          </NavLink>
           <NavLink to="/features" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Features
           </NavLink>
@@ -65,9 +58,6 @@ export default function Navbar({ onOpenTrial, onOpenLogin }) {
 
         {/* Right CTA Buttons */}
         <div className="nav-actions">
-          <button type="button" className="btn-login" onClick={onOpenLogin}>
-            Login
-          </button>
           <button type="button" className="btn-get-started" onClick={() => onOpenTrial('Professional')}>
             Get Started Free <ArrowRight size={16} />
           </button>
@@ -88,14 +78,6 @@ export default function Navbar({ onOpenTrial, onOpenLogin }) {
       {mobileMenuOpen && (
         <div className="mobile-drawer">
           <NavLink to="/" end onClick={() => setMobileMenuOpen(false)}>Home</NavLink>
-          <NavLink 
-            to="/crm-tour" 
-            onClick={() => setMobileMenuOpen(false)} 
-            className={({ isActive }) => `mobile-nav-tour-link ${isActive ? 'active' : ''}`}
-            style={{ color: '#ea580c', fontWeight: 700 }}
-          >
-            ✨ Live CRM Tour
-          </NavLink>
           <NavLink to="/features" onClick={() => setMobileMenuOpen(false)}>Features</NavLink>
           <NavLink to="/pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</NavLink>
           <NavLink to="/why-us" onClick={() => setMobileMenuOpen(false)}>Why Us</NavLink>
@@ -103,9 +85,6 @@ export default function Navbar({ onOpenTrial, onOpenLogin }) {
           <NavLink to="/faq" onClick={() => setMobileMenuOpen(false)}>FAQ</NavLink>
           <NavLink to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
           <div className="mobile-drawer-actions">
-            <button type="button" className="btn-login" onClick={() => { setMobileMenuOpen(false); onOpenLogin(); }}>
-              Login
-            </button>
             <button type="button" className="btn-get-started" onClick={() => { setMobileMenuOpen(false); onOpenTrial('Professional'); }}>
               Get Started Free <ArrowRight size={16} />
             </button>

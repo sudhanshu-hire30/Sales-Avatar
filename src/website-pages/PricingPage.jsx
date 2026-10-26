@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Sparkles, 
   Check, 
@@ -10,7 +11,6 @@ import {
   ChevronDown
 } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
-import BottomCTASection from '../components/BottomCTASection';
 
 export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) {
   const [openFaq, setOpenFaq] = useState(null);
@@ -37,11 +37,6 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
       a: 'Your data is strictly yours. You can export all leads, pipeline history, attendance records, and ticket logs to CSV/Excel at any time with one click.'
     }
   ];
-
-  const [teamSize, setTeamSize] = useState(15);
-  const estimatedCost = teamSize <= 5 ? 999 : teamSize <= 10 ? 1699 : teamSize <= 20 ? 2499 : teamSize <= 50 ? 4999 : teamSize * 150;
-  const legacyCrmCost = teamSize * 2200;
-  const monthlySavings = legacyCrmCost - estimatedCost;
 
   return (
     <div className="subpage-view pricing-page">
@@ -89,96 +84,51 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
               >
                 View Plans & Features <ArrowRight size={16} />
               </button>
-              <button 
-                type="button" 
+              <Link
+                to="/crm-tour"
                 className="btn-subpage-ghost"
-                onClick={onOpenDemo}
               >
-                Schedule Demo Walkthrough
-              </button>
+                Full Product Tour
+              </Link>
             </div>
           </div>
 
-          {/* Right Column: Interactive Quick Plan & ROI Estimator */}
+          {/* Right Column: Plan Selection Guide */}
           <div className="subpage-hero-right">
-            <div className="hero-preview-glass-card">
+            <div className="hero-preview-glass-card pricing-guide-card">
               <div className="preview-card-header">
                 <div className="preview-header-left">
                   <span className="live-pulse-dot" />
-                  <span className="preview-header-title">Quick ROI & Plan Estimator</span>
+                  <span className="preview-header-title">Find Your Best Fit</span>
                 </div>
-                <span className="preview-header-badge">Instant Calculator</span>
+                <span className="preview-header-badge">Simple Plans</span>
               </div>
 
-              {/* Slider / Team Size Selector */}
-              <div style={{ marginBottom: 16 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                  <span style={{ fontSize: 13, fontWeight: 700, color: '#334155' }}>Your Active Sales Reps:</span>
-                  <span style={{ fontSize: 15, fontWeight: 800, color: '#ea580c', background: '#fff7ed', padding: '2px 10px', borderRadius: 8 }}>
-                    {teamSize} Reps
-                  </span>
+              <div className="pricing-guide-intro">
+                <span className="pricing-guide-kicker">Built around your team</span>
+                <h3>Start small. Scale without switching platforms.</h3>
+                <p>Every tier includes the tools your sales team needs to move faster.</p>
+              </div>
+
+              <div className="pricing-guide-list">
+                <div className="pricing-guide-row">
+                  <span className="pricing-guide-icon"><Check size={14} /></span>
+                  <div><b>Growing teams</b><span>Starter to Professional plans</span></div>
                 </div>
-                <input 
-                  type="range" 
-                  min="2" 
-                  max="60" 
-                  step="1" 
-                  value={teamSize}
-                  onChange={(e) => setTeamSize(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: '#ea580c', cursor: 'pointer' }}
-                />
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
-                  <span>5 Reps (Starter)</span>
-                  <span>20 Reps (Professional)</span>
-                  <span>60+ (Enterprise)</span>
+                <div className="pricing-guide-row">
+                  <span className="pricing-guide-icon"><Check size={14} /></span>
+                  <div><b>Multi-branch sales</b><span>Business workflows and controls</span></div>
+                </div>
+                <div className="pricing-guide-row">
+                  <span className="pricing-guide-icon"><Check size={14} /></span>
+                  <div><b>Enterprise operations</b><span>Custom scale, SLA, and onboarding</span></div>
                 </div>
               </div>
 
-              {/* Savings Highlight Box */}
-              <div style={{ 
-                background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)', 
-                border: '1.5px solid #86efac', 
-                borderRadius: 14, 
-                padding: '14px 16px',
-                marginBottom: 16,
-                textAlign: 'left'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
-                  <span style={{ fontSize: 12, fontWeight: 700, color: '#166534', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                    Estimated Monthly Savings:
-                  </span>
-                  <span style={{ fontSize: 20, fontWeight: 900, color: '#15803d' }}>
-                    ~₹{monthlySavings.toLocaleString('en-IN')}/mo
-                  </span>
-                </div>
-                <p style={{ margin: 0, fontSize: 11.5, color: '#166534', lineHeight: 1.4 }}>
-                  vs. traditional enterprise CRMs charging ₹2,200+/user without Indian GST support or GPS attendance.
-                </p>
-              </div>
-
-              {/* Recommended Tier Pill */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', background: '#f8fafc', borderRadius: 10, border: '1px solid #e2e8f0', marginBottom: 14 }}>
-                <div style={{ textAlign: 'left' }}>
-                  <span style={{ display: 'block', fontSize: 10.5, fontWeight: 700, color: '#64748b', textTransform: 'uppercase' }}>Recommended Tier</span>
-                  <b style={{ fontSize: 14, color: '#0f172a' }}>
-                    {teamSize <= 5 ? 'Starter (Up to 5 Users)' : teamSize <= 10 ? 'Growth (Up to 10 Users)' : teamSize <= 20 ? 'Professional (Popular)' : teamSize <= 50 ? 'Business (Up to 50 Users)' : 'Enterprise Custom'}
-                  </b>
-                </div>
-                <button
-                  type="button"
-                  style={{
-                    background: '#0f172a',
-                    color: '#ffffff',
-                    border: 'none',
-                    padding: '8px 14px',
-                    borderRadius: 8,
-                    fontSize: 12,
-                    fontWeight: 700,
-                    cursor: 'pointer'
-                  }}
-                  onClick={() => onOpenTrial(teamSize <= 5 ? 'Starter' : teamSize <= 10 ? 'Growth' : teamSize <= 20 ? 'Professional' : teamSize <= 50 ? 'Business' : 'Enterprise')}
-                >
-                  Start Trial →
+              <div className="pricing-guide-footer">
+                <span><ShieldCheck size={15} /> 14-day trial on every plan</span>
+                <button type="button" onClick={() => onOpenTrial('Professional')}>
+                  Explore plans <ArrowRight size={14} />
                 </button>
               </div>
             </div>
@@ -393,11 +343,6 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <BottomCTASection 
-        onOpenTrial={() => onOpenTrial('Business')}
-        onOpenDemo={onOpenDemo}
-      />
     </div>
   );
 }

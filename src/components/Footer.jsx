@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   TrendingUp,
@@ -7,7 +7,6 @@ import {
   MapPin,
   Sparkles,
   ArrowRight,
-  CheckCircle2,
   ShieldCheck,
   Lock
 } from 'lucide-react';
@@ -15,68 +14,13 @@ import {
 const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnterprise }) {
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (newsletterEmail.trim()) {
-      setSubscribed(true);
-      setTimeout(() => {
-        setNewsletterEmail('');
-      }, 3500);
-    }
-  };
-
   return (
     <footer className="footer-wrapper" aria-label="Website Footer">
       {/* Decorative Top Glow Bar */}
       <div className="footer-top-accent" />
 
       <div className="footer-container">
-        {/* 1. Newsletter & Intelligence Banner */}
-        <div className="footer-newsletter-banner">
-          <div className="newsletter-text-col">
-            <div className="newsletter-badge">
-              <Sparkles size={13} className="badge-sparkle" />
-              <span>CRM RENTAL & PRODUCT UPDATES</span>
-            </div>
-            <h3 className="newsletter-title">
-              Stay ahead with cloud CRM best practices
-            </h3>
-            <p className="newsletter-subtitle">
-              Get product release notes, sales pipeline playbooks, and multi-tenant rental feature updates.
-            </p>
-          </div>
-
-          <form onSubmit={handleSubscribe} className="newsletter-form-col">
-            {subscribed ? (
-              <div className="newsletter-success">
-                <CheckCircle2 size={18} className="success-icon" />
-                <span>You're in! Check your inbox for the CRM setup guide.</span>
-              </div>
-            ) : (
-              <div className="newsletter-input-wrap">
-                <Mail size={17} className="input-mail-icon" />
-                <input
-                  type="email"
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="Enter your work email address..."
-                  required
-                  className="newsletter-input"
-                  aria-label="Work email address"
-                />
-                <button type="submit" className="newsletter-submit-btn">
-                  <span>Subscribe</span>
-                  <ArrowRight size={15} />
-                </button>
-              </div>
-            )}
-          </form>
-        </div>
-
-        {/* 2. Main Navigation Columns */}
+        {/* Main Navigation Columns */}
         <div className="footer-columns">
           {/* Brand Info & Trust Badges */}
           <div className="footer-col brand-col">
@@ -252,15 +196,10 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
               <li><Link to="/faq" title="Answers to common questions about deployment and billing">Frequently Asked Questions</Link></li>
               <li><Link to="/contact" title="Get in touch with our technical assistance team">Contact Support Desk</Link></li>
               <li>
-                <button
-                  type="button"
-                  className="footer-link-btn"
-                  onClick={onOpenDemo}
-                  title="Book a live interactive 1-on-1 walkthrough"
-                >
-                  <span>Book a Live 1-on-1 Demo</span>
-                  <ArrowRight size={13} style={{ marginLeft: 6, color: '#818cf8' }} />
-                </button>
+                <Link to="/crm-tour" title="Explore the complete SalesAvatar product tour">
+                  <span>Full Product Tour</span>
+                  <ArrowRight size={13} style={{ marginLeft: 6, color: '#86be8f' }} />
+                </Link>
               </li>
             </ul>
           </div>

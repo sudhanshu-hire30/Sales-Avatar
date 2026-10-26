@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Users, 
   Filter, 
@@ -14,7 +14,6 @@ import {
   Maximize2,
   Eye
 } from 'lucide-react';
-import BottomCTASection from '../components/BottomCTASection';
 import CrmLightboxModal from '../components/CrmLightboxModal';
 import { CRM_SCREENSHOTS, getScreenshotUrl } from '../data/crmScreenshots';
 
@@ -255,13 +254,12 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
               >
                 Start 14-Day Free Trial <ArrowRight size={16} />
               </button>
-              <button 
-                type="button" 
+              <Link
+                to="/crm-tour"
                 className="btn-subpage-ghost" 
-                onClick={onOpenDemo}
               >
-                Schedule Live Demo
-              </button>
+                Full Product Tour
+              </Link>
             </div>
           </div>
 
@@ -504,12 +502,6 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
           </div>
         </div>
       </section>
-
-      {/* Bottom CTA */}
-      <BottomCTASection 
-        onOpenTrial={() => onOpenTrial('Business')}
-        onOpenDemo={onOpenDemo}
-      />
 
       {/* Lightbox Modal */}
       <CrmLightboxModal

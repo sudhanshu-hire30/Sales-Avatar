@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Sparkles, 
   Mail, 
@@ -12,7 +13,6 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { apiFetch } from '../api';
-import BottomCTASection from '../components/BottomCTASection';
 
 export default function ContactPage({ onOpenTrial, onOpenDemo }) {
   const [formData, setFormData] = useState({
@@ -94,13 +94,12 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
               >
                 Send Us a Message <ArrowRight size={16} />
               </button>
-              <button 
-                type="button" 
+              <Link
+                to="/crm-tour"
                 className="btn-subpage-ghost"
-                onClick={onOpenDemo}
               >
-                Schedule Virtual Demo
-              </button>
+                Full Product Tour
+              </Link>
             </div>
           </div>
 
@@ -159,8 +158,8 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
               </div>
 
               {/* Instant Action CTA */}
-              <button
-                type="button"
+              <Link
+                to="/crm-tour"
                 style={{
                   width: '100%',
                   background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)',
@@ -176,11 +175,10 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                   justifyContent: 'center',
                   gap: 8
                 }}
-                onClick={onOpenDemo}
               >
-                <span>Request 15-Minute Live Demo</span>
+                <span>Full Product Tour</span>
                 <ArrowRight size={14} />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -372,11 +370,6 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <BottomCTASection 
-        onOpenTrial={() => onOpenTrial('Business')}
-        onOpenDemo={onOpenDemo}
-      />
     </div>
   );
 }

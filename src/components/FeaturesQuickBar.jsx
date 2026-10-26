@@ -101,53 +101,47 @@ export default function FeaturesQuickBar({ onSelectFeature }) {
   return (
     <section id="features" className="quick-features-bar">
       <div className="quick-bar-container">
-        <div className="quick-bar-scroll">
-          {features.map((item) => {
-            const Icon = item.icon;
-            const isSelected = selectedFeature?.id === item.id;
-            return (
-              <div 
-                key={item.id} 
-                className={`quick-pill-card ${isSelected ? 'selected' : ''}`}
-                onClick={() => {
-                  const next = isSelected ? null : item;
-                  setSelectedFeature(next);
-                  if (onSelectFeature) onSelectFeature(next);
-                }}
-                style={{
-                  '--pill-accent': item.color,
-                  '--pill-bg-light': item.bgLight
-                }}
+        <div className="quick-bar-scroll" aria-label="SalesAvatar product features">
+          <div className="quick-bar-track">
+            {[0, 1].map((groupIndex) => (
+              <div
+                className="quick-bar-group"
+                key={`feature-group-${groupIndex}`}
+                aria-hidden={groupIndex === 1}
               >
-                <div className="quick-pill-icon-box">
-                  <Icon size={18} color={item.color} strokeWidth={2.4} />
-                </div>
-                <div className="quick-pill-text">
-                  <span className="quick-pill-title">{item.title}</span>
-                  <span className="quick-pill-sub">{item.subtitle}</span>
-                </div>
+                {features.map((item) => {
+                  const Icon = item.icon;
+                  const isSelected = selectedFeature?.id === item.id;
+                  return (
+                    <div
+                      key={`${groupIndex}-${item.id}`}
+                      className={`quick-pill-card ${isSelected ? 'selected' : ''}`}
+                      onClick={() => {
+                        const next = isSelected ? null : item;
+                        setSelectedFeature(next);
+                        if (onSelectFeature) onSelectFeature(next);
+                      }}
+                      style={{
+                        '--pill-accent': item.color,
+                        '--pill-bg-light': item.bgLight
+                      }}
+                    >
+                      <div className="quick-pill-icon-box">
+                        <Icon size={18} color={item.color} strokeWidth={2.4} />
+                      </div>
+                      <div className="quick-pill-text">
+                        <span className="quick-pill-title">{item.title}</span>
+                        <span className="quick-pill-sub">{item.subtitle}</span>
+                        <span className="quick-pill-desc">{item.desc}</span>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
-        {/* Selected Feature Drawer/Popup */}
-        {selectedFeature && (
-          <div className="feature-popup-banner">
-            <div className="popup-left">
-              <span className="popup-dot" style={{ background: selectedFeature.color }}></span>
-              <strong>{selectedFeature.title} ({selectedFeature.subtitle}):</strong>
-              <span>{selectedFeature.desc}</span>
-            </div>
-            <button 
-              type="button" 
-              className="popup-close-btn"
-              onClick={() => setSelectedFeature(null)}
-            >
-              &times;
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );

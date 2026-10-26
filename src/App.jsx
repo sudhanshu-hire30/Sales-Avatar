@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { TrialModal, DemoModal, LoginModal, EnterpriseModal } from './components/Modals';
+import { TrialModal, DemoModal, LoginModal, EnterpriseModal, QuickInquiryModal } from './components/Modals';
 
 // Multi-Page Website Components
 import HomePage from './website-pages/HomePage';
@@ -45,8 +45,24 @@ export default function App() {
   const [demoModalOpen, setDemoModalOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [enterpriseModalOpen, setEnterpriseModalOpen] = useState(false);
+  const [quickInquiryOpen, setQuickInquiryOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState('Business');
   const [billingCycle, setBillingCycle] = useState('monthly');
+
+  useEffect(() => {
+    const quickInquiryShownKey = 'salesavatar-quick-inquiry-shown';
+
+    if (window.localStorage.getItem(quickInquiryShownKey) === 'true') {
+      return undefined;
+    }
+
+    const timer = window.setTimeout(() => {
+      setQuickInquiryOpen(true);
+      window.localStorage.setItem(quickInquiryShownKey, 'true');
+    }, 700);
+
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const handleOpenTrial = (plan = 'Business', cycle = 'monthly') => {
     setSelectedPlan(plan);
@@ -66,7 +82,6 @@ export default function App() {
       {/* Global Multi-Page Navbar */}
       <Navbar
         onOpenTrial={() => handleOpenTrial('Business')}
-        onOpenLogin={() => setLoginModalOpen(true)}
       />
 
       {/* Page Routing */}
@@ -212,6 +227,11 @@ export default function App() {
         isOpen={enterpriseModalOpen}
         onClose={() => setEnterpriseModalOpen(false)}
         planName={selectedPlan}
+      />
+
+      <QuickInquiryModal
+        isOpen={quickInquiryOpen}
+        onClose={() => setQuickInquiryOpen(false)}
       />
     </div>
   );

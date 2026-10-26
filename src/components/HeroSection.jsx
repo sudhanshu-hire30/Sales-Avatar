@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getAssetUrl } from '../utils/assets';
 import {
   ArrowRight,
   Play,
@@ -202,16 +204,15 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
             >
               Start 14-Day Free Trial <ArrowRight size={17} />
             </button>
-            <button
-              type="button"
+            <Link
+              to="/crm-tour"
               className="btn-hero-secondary"
-              onClick={onOpenDemo}
             >
               <div className="play-icon-bubble">
                 <Play size={12} fill="#2563eb" color="#2563eb" />
               </div>
-              Book a Live 1-on-1 Demo
-            </button>
+              Full Product Tour
+            </Link>
           </div>
         </div>
 
@@ -319,22 +320,6 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                         <Settings size={12} className="crm-nav-icon" />
                         <span>Settings</span>
                       </div>
-                    </div>
-
-                    {/* Full Product Tour Quick Button */}
-                    <div className="crm-sidebar-tour-wrap">
-                      <button
-                        type="button"
-                        className="crm-sidebar-tour-btn"
-                        onClick={() => {
-                          setLightboxIndex(0);
-                          setLightboxOpen(true);
-                        }}
-                        title="Browse the complete cloud CRM application suite"
-                      >
-                        <Sparkles size={11} color="#f59e0b" />
-                        <span>Full Product Tour</span>
-                      </button>
                     </div>
 
                     {/* Bottom User Profile */}
@@ -810,28 +795,25 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
           <span className="trust-strip-title">POWERING HIGH-GROWTH SALES TEAMS ACROSS INDIA</span>
           <div className="trust-logos-row">
             <div className="trust-logo-item">
-              <span className="trust-logo-symbol">⚡</span>
-              <span>Bharat Eco Fuels</span>
+              <img src={getAssetUrl('company-logos/bharat-eco-fuels.png')} alt="Bharat Eco Fuels" />
             </div>
             <div className="trust-logo-item">
-              <span className="trust-logo-symbol">🔷</span>
-              <span>Apex Polytech</span>
+              <img src={getAssetUrl('company-logos/bharat-energreen.png')} alt="Bharat Energreen" />
             </div>
             <div className="trust-logo-item">
-              <span className="trust-logo-symbol">🏗️</span>
-              <span>InfraBuild Projects</span>
+              <img src={getAssetUrl('company-logos/bharat-ecocharge.png')} alt="Bharat Ecocharge" />
             </div>
             <div className="trust-logo-item">
-              <span className="trust-logo-symbol">🏢</span>
-              <span>Skyline Landmark</span>
+              <img src={getAssetUrl('company-logos/bharat-power-lubes.png')} alt="Bharat Power Lubes" />
             </div>
             <div className="trust-logo-item">
-              <span className="trust-logo-symbol">⚙️</span>
-              <span>Vardhman Industrial</span>
+              <img src={getAssetUrl('company-logos/bharat-ecosolar.png')} alt="Bharat Ecosolar" />
             </div>
             <div className="trust-logo-item">
-              <span className="trust-logo-symbol">☀️</span>
-              <span>Zenith Solar Energy</span>
+              <img src={getAssetUrl('company-logos/connectyfy.png')} alt="Connectyfy" />
+            </div>
+            <div className="trust-logo-item">
+              <img src={getAssetUrl('company-logos/hire30.png')} alt="Hire30" />
             </div>
           </div>
         </div>

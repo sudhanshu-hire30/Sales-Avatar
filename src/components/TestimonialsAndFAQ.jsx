@@ -10,7 +10,6 @@ import {
   ShieldCheck, 
   CreditCard, 
   TrendingUp, 
-  ArrowRight,
   HelpCircle,
   CheckCircle2
 } from 'lucide-react';
@@ -130,7 +129,7 @@ const testimonials = [
     }
   ];
 
-export default function TestimonialsAndFAQ({ onOpenDemo, onOpenTrial }) {
+export default function TestimonialsAndFAQ() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [openFaqId, setOpenFaqId] = useState('how-crm-rental-works');
@@ -368,76 +367,8 @@ export default function TestimonialsAndFAQ({ onOpenDemo, onOpenTrial }) {
             )}
           </div>
 
-          {/* Bottom "Still Have Questions?" Help Banner */}
-          <div className="faq-help-banner">
-            <div className="faq-help-left">
-              <div className="faq-avatar-stack">
-                <img
-                  src={IMAGES.businessman1}
-                  alt="Specialist"
-                  className="help-avatar"
-                  onError={(e) => {
-                    if (e.currentTarget.src !== FALLBACK_IMAGES.businessman1) {
-                      e.currentTarget.src = FALLBACK_IMAGES.businessman1;
-                    }
-                  }}
-                />
-                <img
-                  src={IMAGES.businesswoman2}
-                  alt="Specialist"
-                  className="help-avatar"
-                  onError={(e) => {
-                    if (e.currentTarget.src !== FALLBACK_IMAGES.businesswoman2) {
-                      e.currentTarget.src = FALLBACK_IMAGES.businesswoman2;
-                    }
-                  }}
-                />
-                <img
-                  src={IMAGES.businessman3}
-                  alt="Specialist"
-                  className="help-avatar"
-                  onError={(e) => {
-                    if (e.currentTarget.src !== FALLBACK_IMAGES.businessman3) {
-                      e.currentTarget.src = FALLBACK_IMAGES.businessman3;
-                    }
-                  }}
-                />
-                <span className="faq-avatar-pulse-dot" />
-              </div>
-              <div className="faq-help-text">
-                <div className="faq-live-status">
-                  <span className="live-status-dot" />
-                  <span className="live-status-text">Product Specialists Online • ~2 min response</span>
-                </div>
-                <h3 className="faq-help-title">Still have questions or need custom workflows?</h3>
-                <p className="faq-help-subtitle">
-                  Speak directly with an enterprise solution engineer to evaluate your sales process.
-                </p>
-              </div>
-            </div>
-
-            <div className="faq-help-actions">
-              <button
-                type="button"
-                className="faq-btn-demo"
-                onClick={onOpenDemo}
-              >
-                <span>Book a Live Demo</span>
-                <ArrowRight size={16} />
-              </button>
-              <button
-                type="button"
-                className="faq-btn-trial"
-                onClick={() => onOpenTrial && onOpenTrial('Business')}
-              >
-                <Zap size={15} />
-                <span>Start Free Trial</span>
-              </button>
-            </div>
-          </div>
         </div>
       </section>
     </div>
   );
 }
-

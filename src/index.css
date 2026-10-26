@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap');
 
 :root {
+  --content-max-width: 1280px;
+  --content-gutter: 32px;
+  --content-gutter-mobile: 20px;
+  --page-top-spacing: 64px;
+  --page-top-spacing-mobile: 48px;
+  --hero-bottom-spacing: 32px;
   --primary: #f97316;
   --primary-dark: #ea580c;
   --primary-deep: #c2410c;

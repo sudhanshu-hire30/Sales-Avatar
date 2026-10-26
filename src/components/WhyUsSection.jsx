@@ -6,8 +6,7 @@ import {
   MapPin,
   LineChart,
   Crown,
-  ArrowUpRight,
-  Star
+  ArrowUpRight
 } from 'lucide-react';
 import { IMAGES, FALLBACK_IMAGES } from '../utils/assets';
 
@@ -188,44 +187,6 @@ export default function WhyUsSection() {
             </div>
           </div>
 
-          {/* Social Proof Avatars & Rating under Persona Image */}
-          <div className="why-us-social-proof">
-            <div className="avatar-stack">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                alt="Client 1"
-                className="avatar-img"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
-                alt="Client 2"
-                className="avatar-img"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80"
-                alt="Client 3"
-                className="avatar-img"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
-                alt="Client 4"
-                className="avatar-img"
-              />
-            </div>
-            <div className="social-proof-text">
-              <div className="proof-sub">
-                <strong>240+ Companies</strong> trust SalesAvatar daily
-              </div>
-              <div className="proof-stars">
-                <div className="stars-row">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="#f59e0b" color="#f59e0b" />
-                  ))}
-                </div>
-                <span className="rating-score">4.9/5 from 1,800+ sales reps</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Right Side: Copy & 6 Feature Benefit Cards */}

@@ -538,6 +538,7 @@ export function EnterpriseModal({ isOpen, onClose, planName = 'Enterprise' }) {
     } finally {
       setSubmitting(false);
     }
+
   };
 
   return (
@@ -628,6 +629,139 @@ export function EnterpriseModal({ isOpen, onClose, planName = 'Enterprise' }) {
 
               <button type="submit" className="btn-modal-submit" disabled={submitting}>
                 {submitting ? 'Submitting to MySQL...' : 'Request Custom Enterprise Quote →'}
+              </button>
+            </form>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export function QuickInquiryModal({ isOpen, onClose }) {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    requirement: ''
+  });
+  const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  if (!isOpen) return null;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+
+    try {
+      await apiFetch('/contact', {
+        method: 'POST',
+        body: form
+      });
+      setSent(true);
+      confetti({
+        particleCount: 55,
+        spread: 60,
+        origin: { y: 0.6 }
+      });
+    } catch {
+      setSent(true);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal-dialog quick-inquiry-dialog" onClick={(e) => e.stopPropagation()}>
+        <button type="button" className="modal-close-btn" onClick={onClose} aria-label="Close quick enquiry">
+          <X size={20} />
+        </button>
+
+        {sent ? (
+          <div className="modal-success-view">
+            <div className="success-icon-bubble">
+              <CheckCircle2 size={40} color="#10b981" />
+            </div>
+            <h3 className="success-title">Enquiry Received!</h3>
+            <p className="success-desc">
+              Thanks for reaching out. Our team will contact you shortly to understand your CRM requirements.
+            </p>
+            <button type="button" className="btn-modal-action" onClick={onClose}>Done</button>
+          </div>
+        ) : (
+          <div className="modal-body-content">
+            <div className="modal-header-block">
+              <div className="modal-pill-tag">
+                <Sparkles size={13} />
+                <span>QUICK ENQUIRY</span>
+              </div>
+              <h3 className="modal-title">How can we help your team?</h3>
+              <p className="modal-subtitle">
+                Share a few details and our CRM specialist will get in touch with you.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="modal-form">
+              <div className="form-row-2">
+                <div className="form-group">
+                  <label>Your Name *</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Your name"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Company Name</label>
+                  <input
+                    type="text"
+                    placeholder="Company name"
+                    value={form.company}
+                    onChange={(e) => setForm({ ...form, company: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              <div className="form-row-2">
+                <div className="form-group">
+                  <label>Business Email *</label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="name@company.com"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Phone Number *</label>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+91 98765 43210"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>What would you like to know?</label>
+                <textarea
+                  rows={3}
+                  placeholder="Tell us briefly about your CRM requirements..."
+                  value={form.requirement}
+                  onChange={(e) => setForm({ ...form, requirement: e.target.value })}
+                />
+              </div>
+
+              <button type="submit" className="btn-modal-submit" disabled={submitting}>
+                {submitting ? 'Sending Enquiry...' : 'Send Quick Enquiry →'}
               </button>
             </form>
           </div>

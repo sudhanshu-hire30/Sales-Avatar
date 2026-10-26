@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Sparkles,
   HelpCircle,
@@ -9,7 +10,6 @@ import {
   ShieldCheck,
   CheckCircle2
 } from 'lucide-react';
-import BottomCTASection from '../components/BottomCTASection';
 
 export default function FAQPage({ onOpenTrial, onOpenDemo }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -225,8 +225,8 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
                   </span>
                   <b style={{ fontSize: 13, color: '#ffffff' }}>Direct Line: +91 98765 43210</b>
                 </div>
-                <button
-                  type="button"
+                <Link
+                  to="/crm-tour"
                   style={{
                     background: '#60a5fa',
                     color: '#0f172a',
@@ -237,10 +237,9 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
                     fontWeight: 700,
                     cursor: 'pointer'
                   }}
-                  onClick={onOpenDemo}
                 >
-                  Live Demo
-                </button>
+                  Full Product Tour
+                </Link>
               </div>
             </div>
           </div>
@@ -322,11 +321,6 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <BottomCTASection
-        onOpenTrial={() => onOpenTrial('Business')}
-        onOpenDemo={onOpenDemo}
-      />
     </div>
   );
 }
