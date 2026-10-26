@@ -34,7 +34,12 @@ jobs:
         run: npm ci
 
       - name: Build React app
+        env:
+          VITE_BASE_PATH: /SalesAvatar/
         run: npm run build
+
+      - name: Support client-side routes
+        run: cp dist/index.html dist/404.html
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
