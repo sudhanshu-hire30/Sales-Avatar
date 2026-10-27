@@ -11,10 +11,21 @@ import {
   ArrowRight, 
   Sparkles, 
   ShieldCheck,
+  Eye,
   Maximize2,
-  Eye
+  RefreshCw,
+  Scale,
+  Percent,
+  Building,
+  UserCheck,
+  Radio,
+  PieChart,
+  Zap,
+  Timer
 } from 'lucide-react';
 import CrmLightboxModal from '../components/CrmLightboxModal';
+import LeadDistributionSection from '../components/LeadDistributionSection';
+import AdvancedCapabilitiesSection from '../components/AdvancedCapabilitiesSection';
 import { CRM_SCREENSHOTS, getScreenshotUrl } from '../data/crmScreenshots';
 
 const featureList = [
@@ -341,11 +352,11 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
         <div className="features-container">
           <div className="features-filter-nav">
             {[
-              { id: 'all', label: 'All Modules' },
-              { id: 'pipeline', label: 'Leads, Customers & Pipelines' },
-              { id: 'tasks', label: 'Follow-up Reminders' },
+              { id: 'all', label: 'Core CRM Modules (8)' },
+              { id: 'pipeline', label: 'Leads & Pipeline' },
+              { id: 'tasks', label: 'Follow-ups & Collaboration' },
               { id: 'field', label: 'Field Officers & Dealers' },
-              { id: 'analytics', label: 'Reports & Sales Targets' }
+              { id: 'analytics', label: 'Analytics & Quotas' }
             ].map(cat => (
               <button
                 key={cat.id}
@@ -435,6 +446,12 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
               );
             })}
           </div>
+
+          {/* Automated Lead Distribution Engine (5 Routing Rules) */}
+          <LeadDistributionSection isEmbedded={true} />
+
+          {/* 3 Deep Platform Superpowers (Meta Ads CAPI, Loss Forensics, Device Security) */}
+          <AdvancedCapabilitiesSection onOpenTrial={onOpenTrial} />
 
           {/* Comparison Matrix Table */}
           <div className="comparison-table-wrapper">

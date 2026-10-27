@@ -239,7 +239,7 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
         <div className="footer-bottom">
           <div className="footer-bottom-left">
             <p className="footer-copyright">
-              &copy; {CURRENT_YEAR} Bharat Group. All rights reserved.
+              &copy; {CURRENT_YEAR} SalesAvatar. All rights reserved.
             </p>
             <span className="footer-craft-tag">
               <span className="flag-icon" role="img" aria-label="India Flag">🇮🇳</span>

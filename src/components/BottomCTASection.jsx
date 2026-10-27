@@ -63,7 +63,7 @@ export default function BottomCTASection({
 
           {/* Heading */}
           <h2 className="cta-title">
-            {title} <br />
+            {title} <br className="cta-title-br" />
             <span className="gradient-highlight">{titleHighlight}</span>
           </h2>
 

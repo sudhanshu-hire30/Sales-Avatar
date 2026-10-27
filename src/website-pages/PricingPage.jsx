@@ -158,6 +158,10 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
             </p>
           </div>
 
+          <div className="table-scroll-hint" aria-hidden="true">
+            <span>⇄ Swipe horizontally to compare all 5 tiers</span>
+          </div>
+
           <div className="table-responsive-box">
             <table className="comparison-table pricing-spec-table">
               <thead>

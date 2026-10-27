@@ -58,7 +58,7 @@ export default function App() {
     const timer = window.setTimeout(() => {
       setQuickInquiryOpen(true);
       window.localStorage.setItem(quickInquiryShownKey, 'true');
-    }, 700);
+    }, 45000);
 
     return () => window.clearTimeout(timer);
   }, []);

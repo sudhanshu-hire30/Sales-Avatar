@@ -25,13 +25,20 @@ export function TrialModal({ isOpen, onClose, defaultPlan = 'Professional', bill
 }
 
 function TrialModalContent({ onClose, defaultPlan, billingCycle }) {
+  const usersByPlan = {
+    Starter: '1-5 Users',
+    Growth: '6-10 Users',
+    Professional: '11-20 Users',
+    Business: '21-50 Users',
+    Enterprise: '50+ Users'
+  };
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     company: '',
     industry: 'Real Estate & Properties',
-    usersCount: '1-5 Users',
+    usersCount: usersByPlan[defaultPlan] || '1-5 Users',
     plan: defaultPlan,
     billingCycle: billingCycle,
     agreedToTerms: true

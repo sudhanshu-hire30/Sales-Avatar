@@ -54,39 +54,80 @@ export default function TestimonialsAndFAQ() {
             </p>
           </div>
 
-          <div className="testimonials-grid">
-            {testimonials.map((t, idx) => (
-              <div key={idx} className="testimonial-card">
-                <div className="testimonial-card-top">
-                  <div className="stars-row">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} size={15} fill="#f59e0b" color="#f59e0b" />
-                    ))}
+          <div className="testimonials-marquee-wrapper" aria-label="Customer testimonials">
+            <div className="testimonials-track">
+              {/* Group 1: Primary set */}
+              <div className="testimonials-group">
+                {testimonials.map((t, idx) => (
+                  <div key={`test-1-${idx}`} className="testimonial-card">
+                    <div className="testimonial-card-top">
+                      <div className="stars-row">
+                        {[...Array(t.rating)].map((_, i) => (
+                          <Star key={i} size={15} fill="#f59e0b" color="#f59e0b" />
+                        ))}
+                      </div>
+                      <span className="testimonial-metric-chip">{t.metric}</span>
+                    </div>
+                    <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
+                    <div className="testimonial-author">
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        className="author-avatar"
+                        onError={(e) => {
+                          if (t.fallback && e.currentTarget.src !== t.fallback) {
+                            e.currentTarget.src = t.fallback;
+                          }
+                        }}
+                      />
+                      <div className="author-info">
+                        <h4 className="author-name">{t.name}</h4>
+                        <span className="author-role">{t.role}</span>
+                        <span className="author-company-line">
+                          <strong>{t.company}</strong> &bull; {t.location}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <span className="testimonial-metric-chip">{t.metric}</span>
-                </div>
-                <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
-                <div className="testimonial-author">
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    className="author-avatar"
-                    onError={(e) => {
-                      if (t.fallback && e.currentTarget.src !== t.fallback) {
-                        e.currentTarget.src = t.fallback;
-                      }
-                    }}
-                  />
-                  <div className="author-info">
-                    <h4 className="author-name">{t.name}</h4>
-                    <span className="author-role">{t.role}</span>
-                    <span className="author-company-line">
-                      <strong>{t.company}</strong> &bull; {t.location}
-                    </span>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+
+              {/* Group 2: Seamless loop duplicate for mobile/tablet marquee */}
+              <div className="testimonials-group" aria-hidden="true">
+                {testimonials.map((t, idx) => (
+                  <div key={`test-2-${idx}`} className="testimonial-card">
+                    <div className="testimonial-card-top">
+                      <div className="stars-row">
+                        {[...Array(t.rating)].map((_, i) => (
+                          <Star key={i} size={15} fill="#f59e0b" color="#f59e0b" />
+                        ))}
+                      </div>
+                      <span className="testimonial-metric-chip">{t.metric}</span>
+                    </div>
+                    <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
+                    <div className="testimonial-author">
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        className="author-avatar"
+                        onError={(e) => {
+                          if (t.fallback && e.currentTarget.src !== t.fallback) {
+                            e.currentTarget.src = t.fallback;
+                          }
+                        }}
+                      />
+                      <div className="author-info">
+                        <h4 className="author-name">{t.name}</h4>
+                        <span className="author-role">{t.role}</span>
+                        <span className="author-company-line">
+                          <strong>{t.company}</strong> &bull; {t.location}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

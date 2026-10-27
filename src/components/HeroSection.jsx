@@ -42,6 +42,16 @@ import {
 } from '../data/crmScreenshots';
 import CrmLightboxModal from './CrmLightboxModal';
 
+const TRUST_LOGOS = [
+  { file: 'company-logos/bharat-eco-fuels.png', alt: 'Bharat Eco Fuels' },
+  { file: 'company-logos/bharat-energreen.png', alt: 'Bharat Energreen' },
+  { file: 'company-logos/bharat-ecocharge.png', alt: 'Bharat Ecocharge' },
+  { file: 'company-logos/bharat-power-lubes.png', alt: 'Bharat Power Lubes' },
+  { file: 'company-logos/bharat-ecosolar.png', alt: 'Bharat Ecosolar' },
+  { file: 'company-logos/connectyfy.png', alt: 'Connectyfy' },
+  { file: 'company-logos/hire30.png', alt: 'Hire30' }
+];
+
 const SIDEBAR_SCREENS = {
   'Dashboard': {
     id: 'dashboard-overview',
@@ -174,7 +184,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
           {/* Headline */}
           <h1 className="hero-title">
-            Turn More Leads Into <br />
+            Turn More Leads Into <br className="hero-title-br" />
             <span className="gradient-text">Predictable Revenue</span>
           </h1>
 
@@ -244,7 +254,8 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
               {/* Laptop Screen Inside */}
               <div className="laptop-screen">
-                <div className="crm-screen-body">
+                {/* Desktop View: Interactive CRM Screen Body with Sidebar */}
+                <div className="crm-screen-body crm-desktop-screen-body">
                   {/* Left Sidebar inside laptop */}
                   <div className="crm-sidebar">
                     {/* Header: DW Demo */}
@@ -400,7 +411,10 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                                 <span className="crm-approval-sub">Approve here so it counts toward the monthly goal.</span>
                               </div>
                             </div>
-                            <button className="crm-approval-btn">
+                            <button className="crm-approval-btn" type="button" onClick={(event) => {
+                              event.currentTarget.textContent = 'APPROVED ✓';
+                              event.currentTarget.disabled = true;
+                            }}>
                               APPROVE &rarr;
                             </button>
                           </div>
@@ -442,7 +456,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                               <div className="crm-target-pill">
                                 <span className="target-pct-badge">%</span>
                                 <div className="target-copy">
-                                  <span className="target-label">THIS MONTH TARGET</span>
+                                  <span className="target-label">THIS MONTH'S TARGET</span>
                                   <div className="target-person">
                                     <img
                                       src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=40&auto=format&fit=crop&q=80"
@@ -777,6 +791,30 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                     )}
                   </div>
                 </div>
+
+                {/* Mobile View: High-Resolution CRM Dashboard Image properly fitted to laptop */}
+                <div
+                  className="crm-mobile-screen-view"
+                  onClick={() => handleOpenScreenshot('dashboard-overview')}
+                  title="Click to explore full dashboard resolution"
+                >
+                  <img
+                    src={getScreenshotUrl('6766b2b0-f170-47b7-b227-70f5f2c2d8dc.jpg')}
+                    alt="SalesAvatar CRM Executive Dashboard"
+                    className="crm-mobile-dashboard-img"
+                    loading="eager"
+                  />
+                  <div className="crm-mobile-screen-badge-bar">
+                    <span className="crm-mobile-badge-live">
+                      <Sparkles size={11} />
+                      <span>Executive Dashboard</span>
+                    </span>
+                    <span className="crm-mobile-badge-tap">
+                      <Maximize2 size={11} />
+                      <span>Tap for full view</span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -793,27 +831,22 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
       <div className="hero-trust-strip">
         <div className="hero-trust-container">
           <span className="trust-strip-title">POWERING HIGH-GROWTH SALES TEAMS ACROSS INDIA</span>
-          <div className="trust-logos-row">
-            <div className="trust-logo-item">
-              <img src={getAssetUrl('company-logos/bharat-eco-fuels.png')} alt="Bharat Eco Fuels" />
-            </div>
-            <div className="trust-logo-item">
-              <img src={getAssetUrl('company-logos/bharat-energreen.png')} alt="Bharat Energreen" />
-            </div>
-            <div className="trust-logo-item">
-              <img src={getAssetUrl('company-logos/bharat-ecocharge.png')} alt="Bharat Ecocharge" />
-            </div>
-            <div className="trust-logo-item">
-              <img src={getAssetUrl('company-logos/bharat-power-lubes.png')} alt="Bharat Power Lubes" />
-            </div>
-            <div className="trust-logo-item">
-              <img src={getAssetUrl('company-logos/bharat-ecosolar.png')} alt="Bharat Ecosolar" />
-            </div>
-            <div className="trust-logo-item">
-              <img src={getAssetUrl('company-logos/connectyfy.png')} alt="Connectyfy" />
-            </div>
-            <div className="trust-logo-item">
-              <img src={getAssetUrl('company-logos/hire30.png')} alt="Hire30" />
+          <div className="trust-logos-wrapper" aria-label="Customer trust logos">
+            <div className="trust-logos-track">
+              <div className="trust-logos-group">
+                {TRUST_LOGOS.map((logo, idx) => (
+                  <div key={`trust-logo-1-${idx}`} className="trust-logo-item">
+                    <img src={getAssetUrl(logo.file)} alt={logo.alt} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+              <div className="trust-logos-group" aria-hidden="true">
+                {TRUST_LOGOS.map((logo, idx) => (
+                  <div key={`trust-logo-2-${idx}`} className="trust-logo-item">
+                    <img src={getAssetUrl(logo.file)} alt={logo.alt} loading="lazy" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

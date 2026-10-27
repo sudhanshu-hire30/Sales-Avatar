@@ -115,6 +115,15 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
     }
   ];
 
+  const industryActionLabels = {
+    manufacturing: 'Deploy for Manufacturing',
+    'real-estate': 'Deploy for Real Estate',
+    field: 'Deploy for Field Teams',
+    dealerships: 'Deploy for Wholesale',
+    b2b: 'Deploy for B2B Services',
+    bfsi: 'Deploy for BFSI'
+  };
+
   return (
     <div className="subpage-view why-us-page">
       {/* Subpage Header Banner */}
@@ -367,7 +376,7 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
                     className="btn-ind-action"
                     onClick={() => onOpenTrial('Business')}
                   >
-                    Deploy for {ind.title.split(' ')[0]} <ArrowRight size={14} />
+                    {industryActionLabels[ind.id]} <ArrowRight size={14} />
                   </button>
                 </div>
               );

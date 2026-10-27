@@ -24,7 +24,7 @@ export function PrivacyPage() {
           <div className="legal-card">
             <h3>1. Introduction & Scope</h3>
             <p>
-              SalesAvatar Technologies Inc. ("SalesAvatar", "we", "us", or "our") is dedicated to protecting the confidentiality and security of customer data, sales records, lead data, and personal information processed through our sales CRM platform.
+              SalesAvatar Technologies ("SalesAvatar", "we", "us", or "our") is dedicated to protecting the confidentiality and security of customer data, sales records, lead data, and personal information processed through our sales CRM platform.
             </p>
 
             <h3>2. Data Collection & Processing</h3>
@@ -81,7 +81,7 @@ export function TermsPage() {
 
             <h3>2. Subscription & User Seats</h3>
             <p>
-              Access to SalesAvatar is provided on a subscription basis under your chosen plan (Starter, Growth, Business, Professional, or Enterprise). Each user login is assigned to a specific individual and may not be shared concurrently across multiple people.
+              Access to SalesAvatar is provided on a subscription basis under your chosen plan (Starter, Growth, Professional, Business, or Enterprise). Each user login is assigned to a specific individual and may not be shared concurrently across multiple people.
             </p>
 
             <h3>3. 99.9% Service Level Agreement (SLA)</h3>
