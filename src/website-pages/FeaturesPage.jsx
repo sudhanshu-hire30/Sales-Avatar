@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import usePageSeo from '../utils/usePageSeo';
 import { 
   Users, 
   Filter, 
@@ -184,6 +185,13 @@ const featureList = [
   ];
 
 export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
+  usePageSeo({
+    title: 'Cloud CRM Features & Modules — Leads, Pipelines, WhatsApp & GPS | SalesAvatar',
+    description: 'Explore SalesAvatar CRM modules: automated 30s lead capture, visual Kanban deals, field officer GPS check-in, WhatsApp 1-click messaging, and executive BI analytics.',
+    keywords: 'CRM features India, lead capture automation, sales pipeline Kanban, field GPS attendance, WhatsApp sales integration, dealer management CRM, executive sales reporting',
+    canonicalPath: '/features'
+  });
+
   const [activeCategory, setActiveCategory] = useState('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);

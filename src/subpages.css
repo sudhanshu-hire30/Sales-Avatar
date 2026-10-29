@@ -27,9 +27,16 @@ h1, h2, h3, h4, h5, h6 {
     radial-gradient(circle at 86% 16%, rgba(245, 158, 11, 0.12) 0%, transparent 45%),
     radial-gradient(circle at 50% 90%, rgba(251, 146, 60, 0.08) 0%, transparent 50%),
     #ffffff;
-  padding: var(--page-top-spacing) var(--content-gutter) var(--hero-bottom-spacing);
+  padding: var(--page-top-spacing) 0 var(--hero-bottom-spacing);
   border-bottom: 1px solid #f1f5f9;
   overflow: hidden;
+}
+
+@media (max-width: 1344px) {
+  .subpage-hero-banner {
+    padding-left: var(--content-gutter);
+    padding-right: var(--content-gutter);
+  }
 }
 
 .subpage-hero-banner::before {

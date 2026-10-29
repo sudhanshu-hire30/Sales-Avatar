@@ -412,26 +412,44 @@ export function LoginModal({ isOpen, onClose }) {
   const [password, setPassword] = useState('');
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
+  const [loginError, setLoginError] = useState('');
 
   if (!isOpen) return null;
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoggingIn(true);
+    setLoginError('');
 
-    setTimeout(() => {
-      setIsLoggingIn(false);
-      setLoginSuccess(true);
-      confetti({
-        particleCount: 55,
-        spread: 60,
-        origin: { y: 0.6 }
+    try {
+      const res = await apiFetch('/auth/login', {
+        method: 'POST',
+        body: { email, password }
       });
-    }, 600);
+
+      if (res.success && res.token) {
+        localStorage.setItem('salesavatar_admin_token', res.token);
+        localStorage.setItem('salesavatar_admin_user', JSON.stringify(res.user));
+        setLoginSuccess(true);
+        confetti({
+          particleCount: 55,
+          spread: 60,
+          origin: { y: 0.6 }
+        });
+        setTimeout(() => {
+          window.location.href = '/admin';
+        }, 1200);
+      }
+    } catch (err) {
+      setLoginError(err.message || 'Invalid email or password');
+    } finally {
+      setIsLoggingIn(false);
+    }
   };
 
   const handleClose = () => {
     setLoginSuccess(false);
+    setLoginError('');
     onClose();
   };
 
@@ -469,11 +487,17 @@ export function LoginModal({ isOpen, onClose }) {
             </div>
 
             <form onSubmit={handleLogin} className="modal-form">
+              {loginError && (
+                <div style={{ padding: '0.65rem 0.9rem', background: '#fee2e2', border: '1px solid #f87171', color: '#b91c1c', borderRadius: 8, fontSize: '0.85rem', marginBottom: 12 }}>
+                  {loginError}
+                </div>
+              )}
               <div className="form-group">
                 <label>Work Email</label>
                 <input
                   type="email"
                   required
+                  autoComplete="username"
                   placeholder="name@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -497,6 +521,7 @@ export function LoginModal({ isOpen, onClose }) {
                 <input
                   type="password"
                   required
+                  autoComplete="current-password"
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -670,7 +695,10 @@ export function QuickInquiryModal({ isOpen, onClose }) {
     try {
       await apiFetch('/contact', {
         method: 'POST',
-        body: form
+        body: {
+          ...form,
+          source: 'Quick Inquiry Popup'
+        }
       });
       setSent(true);
       confetti({

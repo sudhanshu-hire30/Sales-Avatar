@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import usePageSeo from '../utils/usePageSeo';
 import {
   Sparkles,
   HelpCircle,
@@ -73,6 +74,27 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
       a: 'We integrate with verified payment gateways (such as Razorpay or Stripe). Paid subscriptions are never activated by client-side responses; the backend verifies cryptographically signed webhook events idempotently before updating tenant subscription status.'
     }
   ];
+
+  const faqSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: allFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  }), []);
+
+  usePageSeo({
+    title: 'Frequently Asked Questions & Help Center | SalesAvatar CRM',
+    description: 'Find answers about SalesAvatar cloud CRM onboarding, 18% GST invoicing, Indian DPDP data security, field GPS tracking, and subscription plan management.',
+    keywords: 'CRM FAQ, sales CRM questions, GST invoice CRM, field GPS attendance questions, cloud CRM security India',
+    canonicalPath: '/faq',
+    jsonLd: faqSchema
+  });
 
   const filtered = allFaqs.filter(item => {
     const matchesCat = category === 'all' || item.category === category;

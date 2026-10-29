@@ -1,7 +1,14 @@
 import React from 'react';
+import usePageSeo from '../utils/usePageSeo';
 import { ShieldCheck, Lock, FileText, CheckCircle2 } from 'lucide-react';
 
 export function PrivacyPage() {
+  usePageSeo({
+    title: 'Privacy Policy & DPDP Act Compliance | SalesAvatar CRM',
+    description: 'Read the SalesAvatar Privacy Policy. Learn how we safeguard Indian customer records, sales leads, and business data under the DPDP Act 2023.',
+    canonicalPath: '/privacy'
+  });
+
   return (
     <div className="subpage-view legal-page">
       <section className="subpage-hero-banner">
@@ -54,6 +61,12 @@ export function PrivacyPage() {
 }
 
 export function TermsPage() {
+  usePageSeo({
+    title: 'Terms of Service & SaaS User Agreement | SalesAvatar CRM',
+    description: 'Read the SalesAvatar Terms of Service. Understand subscription rights, 99.9% uptime SLA, user seat allocation, and fair usage guidelines.',
+    canonicalPath: '/terms'
+  });
+
   return (
     <div className="subpage-view legal-page">
       <section className="subpage-hero-banner">
@@ -101,6 +114,12 @@ export function TermsPage() {
 }
 
 export function SecurityPage() {
+  usePageSeo({
+    title: 'Enterprise Security Architecture & DPDP Data Residency | SalesAvatar CRM',
+    description: 'Learn about SalesAvatar enterprise security: 100% Indian Cloud data residency, AES-256 encryption, RBAC permissions, and ISO-aligned controls.',
+    canonicalPath: '/security'
+  });
+
   return (
     <div className="subpage-view legal-page">
       <section className="subpage-hero-banner">
@@ -167,6 +186,12 @@ export function SecurityPage() {
 }
 
 export function CancellationRefundPage() {
+  usePageSeo({
+    title: 'Cancellation & Refund Policy | SalesAvatar CRM',
+    description: 'Review our transparent subscription cancellation and refund guidelines. Cancel anytime from your portal with active access until cycle end.',
+    canonicalPath: '/cancellation-refund'
+  });
+
   return (
     <div className="subpage-view legal-page">
       <section className="subpage-hero-banner">

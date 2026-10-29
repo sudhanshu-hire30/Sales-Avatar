@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import usePageSeo from '../utils/usePageSeo';
 import { 
   Sparkles, 
   Check, 
@@ -17,6 +17,13 @@ import {
 import HowItWorksSection from '../components/HowItWorksSection';
 
 export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
+  usePageSeo({
+    title: 'Why Choose SalesAvatar — Built for High-Growth Indian Sales Teams',
+    description: 'See why Indian companies choose SalesAvatar over spreadsheets and clunky foreign ERPs. Instant 15-min setup, mobile GPS attendance, native WhatsApp, and zero consultants.',
+    keywords: 'why choose salesavatar, CRM vs excel, best Indian CRM, affordable enterprise CRM, sales team software India',
+    canonicalPath: '/why-us'
+  });
+
   const location = useLocation();
 
   useEffect(() => {

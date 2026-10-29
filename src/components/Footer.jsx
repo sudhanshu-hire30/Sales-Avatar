@@ -203,33 +203,33 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
             </ul>
           </div>
 
-          {/* Connect & Tenant Portal */}
+          {/* Speak to Sales & Consultations */}
           <div className="footer-col social-col">
-            <h4 className="footer-heading">Tenant Access</h4>
+            <h4 className="footer-heading">Speak to Sales</h4>
             <p className="social-tagline">
-              Dedicated cloud workspace access for subscribed companies and sales teams.
+              Connect directly with an enterprise CRM solution architect to evaluate team workflows.
             </p>
 
-            {/* Quick Action Interactive Buttons */}
+            {/* Quick Action Customer Inbound Buttons */}
             <div className="footer-tenant-actions">
               <button
                 type="button"
                 className="footer-tenant-login-btn"
-                onClick={onOpenLogin}
-                title="Sign into your company workspace"
+                onClick={onOpenDemo}
+                title="Schedule a 1-on-1 CRM walkthrough"
               >
-                <Lock size={14} />
-                <span>Tenant Workspace Login</span>
+                <Sparkles size={14} />
+                <span>Book a Live Demo</span>
               </button>
 
               <button
                 type="button"
                 className="footer-tenant-trial-btn"
                 onClick={() => onOpenTrial && onOpenTrial('Professional')}
-                title="Request CRM setup and pricing"
+                title="Start your 14-day zero-risk trial"
               >
-                <Sparkles size={14} color="#818cf8" />
-                <span>Request CRM Setup</span>
+                <ArrowRight size={14} color="#818cf8" />
+                <span>Start 14-Day Free Trial</span>
               </button>
             </div>
           </div>

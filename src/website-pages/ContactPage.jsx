@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import usePageSeo from '../utils/usePageSeo';
 import { 
   Sparkles, 
   Mail, 
@@ -15,6 +16,13 @@ import confetti from 'canvas-confetti';
 import { apiFetch } from '../api';
 
 export default function ContactPage({ onOpenTrial, onOpenDemo }) {
+  usePageSeo({
+    title: 'Contact Sales & Schedule 1-on-1 CRM Demo | SalesAvatar',
+    description: 'Speak with a SalesAvatar CRM specialist. Request a customized 15-minute live walkthrough, discuss team pricing, or get instant onboarding support.',
+    keywords: 'contact salesavatar, book CRM demo, sales software consultation India, enterprise CRM sales call',
+    canonicalPath: '/contact'
+  });
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',

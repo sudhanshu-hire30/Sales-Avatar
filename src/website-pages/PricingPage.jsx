@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import usePageSeo from '../utils/usePageSeo';
 import { 
   Sparkles, 
   Check, 
@@ -13,6 +14,13 @@ import {
 import PricingSection from '../components/PricingSection';
 
 export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) {
+  usePageSeo({
+    title: 'Predictable CRM Pricing & Plans — Starting at ₹999/mo | SalesAvatar',
+    description: 'Transparent CRM subscription plans for Indian sales teams. Starting at ₹999/mo with 18% GST tax invoices, guided onboarding, zero setup fees, and cancel anytime.',
+    keywords: 'CRM pricing India, affordable CRM software, CRM price per user, sales CRM plans India, CRM with GST invoice, small business CRM subscription',
+    canonicalPath: '/pricing'
+  });
+
   const [openFaq, setOpenFaq] = useState(null);
 
   const pricingFaqs = [

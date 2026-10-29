@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import usePageSeo from '../utils/usePageSeo';
 import { 
   Sparkles, 
   Layers, 
@@ -9,9 +10,12 @@ import {
 import CrmProductGallery from '../components/CrmProductGallery';
 
 export default function CrmTourPage({ onOpenTrial, onOpenDemo }) {
-  useEffect(() => {
-    document.title = 'Live CRM Product Tour & Screenshots | SalesAvatar';
-  }, []);
+  usePageSeo({
+    title: 'Live CRM Product Tour & Screenshots — Real Application Screens | SalesAvatar',
+    description: 'Explore 15+ production screenshots of SalesAvatar CRM: live lead pipelines, field officer GPS attendance registers, WhatsApp messaging, and executive revenue dashboards.',
+    keywords: 'CRM screenshots, CRM product tour, sales pipeline UI, live CRM demo screenshots, field sales app preview',
+    canonicalPath: '/crm-tour'
+  });
 
   return (
     <div className="subpage-view crm-tour-page-view">
