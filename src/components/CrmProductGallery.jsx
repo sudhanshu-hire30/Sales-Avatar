@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { 
   Search, 
   Sparkles, 
@@ -247,14 +247,7 @@ export default function CrmProductGallery({
                   Choose a Plan <ArrowRight size={16} />
                 </button>
               )}
-              {onOpenDemo && (
-                <Link
-                  to="/crm-tour"
-                  className="btn-hero-secondary"
-                >
-                  Full Product Tour
-                </Link>
-              )}
+
             </div>
           </div>
         )}

@@ -38,7 +38,7 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
             </Link>
 
             <p className="footer-desc">
-              Multi-tenant cloud CRM rental platform. Rent authentic lead management, deal approvals, 20-stage project site tracking, field GPS attendance, and sales quotas on flexible monthly or annual plans.
+              Modern cloud CRM rental platform built for Indian businesses. Streamline lead tracking, field GPS visits, deal approvals, and automated revenue reporting.
             </p>
 
             <div className="footer-contact-items">
@@ -69,25 +69,13 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
             </div>
           </div>
 
-          {/* Product Links - Targeted to specific feature modules */}
+          {/* Product Links - 5 Curated Core Modules */}
           <div className="footer-col">
             <h4 className="footer-heading">CRM Modules</h4>
             <ul className="footer-links">
               <li>
                 <Link to="/features#leads" title="Capture and organize 1,248+ inbound sales leads">
                   Lead Management
-                  <span className="link-badge core">CORE</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/features#customers" title="Customer 360 profiles & communication history timeline">
-                  Customer 360° Records
-                </Link>
-              </li>
-              <li>
-                <Link to="/features#followup" title="Automated calling queue with due and overdue alerts">
-                  Follow-up Tasks & Reminders
-                  <span className="link-badge hot">HOT</span>
                 </Link>
               </li>
               <li>
@@ -96,54 +84,30 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
                 </Link>
               </li>
               <li>
-                <Link to="/crm-tour?screen=deal-approvals" title="Contract value & discount percentage authorization center">
-                  Deal & Won Approvals
-                  <span className="link-badge pop">POPULAR</span>
+                <Link to="/features#followup" title="Automated calling queue with due and overdue alerts">
+                  Follow-up Tasks & Alerts
                 </Link>
               </li>
               <li>
-                <Link to="/features#targets" title="Executive ₹4.80 Cr milestone targets & rep quotas">
-                  Sales Team Quotas & Targets
+                <Link to="/crm-tour?screen=deal-approvals" title="Contract value & discount percentage authorization center">
+                  Deal & Won Approvals
                 </Link>
               </li>
               <li>
                 <Link to="/features#analytics" title="Executive BI dashboards, attribution & drop-off analytics">
-                  Reports & Revenue Analytics
-                </Link>
-              </li>
-              <li>
-                <Link to="/crm-tour?screen=sales-leaderboard" title="Winner of the month podium & sales hall of fame">
-                  Monthly Rep Leaderboard
+                  Reports & Analytics
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Solutions Links - Real Operations from Platform Screenshots */}
+          {/* Operations & Integrations - 5 High-Value Workflows */}
           <div className="footer-col">
             <h4 className="footer-heading">Operations & Suite</h4>
             <ul className="footer-links">
               <li>
-                <Link to="/crm-tour?screen=project-sites" title="28 client project sites across 20-stage handover journey">
-                  Project Sites & Handover
-                  <span className="link-badge auto">20-STAGE</span>
-                </Link>
-              </li>
-              <li>
                 <Link to="/features#attendance" title="GPS check-ins, site selfies & distance calculation">
                   Field Officer GPS Tracking
-                  <span className="link-badge pop">POPULAR</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/crm-tour?screen=attendance-tracking" title="Live daily punch register, late marks & monthly attendance calendar">
-                  Employee Daily Punch Log
-                </Link>
-              </li>
-              <li>
-                <Link to="/crm-tour?screen=marketing-integrations" title="Meta Facebook & Instagram Lead Ads instant webhook sync">
-                  Meta Lead Ads Automation
-                  <span className="link-badge new">SYNC</span>
                 </Link>
               </li>
               <li>
@@ -152,18 +116,13 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
                 </Link>
               </li>
               <li>
-                <Link to="/crm-tour?screen=workspace-chat" title="Internal 1-on-1 and channel messaging with deal card sharing">
-                  Workspace Team Chat
+                <Link to="/crm-tour?screen=marketing-integrations" title="Meta Facebook & Instagram Lead Ads instant webhook sync">
+                  Meta Lead Ads Sync
                 </Link>
               </li>
               <li>
-                <Link to="/crm-tour?screen=company-feed" title="Internal social wall for work anniversaries and big wins">
-                  Company Social Feed
-                </Link>
-              </li>
-              <li>
-                <Link to="/crm-tour?screen=my-storage" title="Sales collateral, brochures, rate cards and pitch deck cloud vault">
-                  Sales Collateral Vault
+                <Link to="/crm-tour?screen=project-sites" title="28 client project sites across 20-stage handover journey">
+                  Project Sites & Handover
                 </Link>
               </li>
               <li>
@@ -173,31 +132,39 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
                   onClick={() => (onOpenEnterprise ? onOpenEnterprise('Enterprise') : onOpenTrial && onOpenTrial('Enterprise'))}
                   title="Configure custom enterprise CRM workflows"
                 >
-                  <span>Custom Enterprise Workflows</span>
-                  <span className="link-badge new">REQUEST</span>
+                  <span>Custom Enterprise Setup</span>
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Platform / Company Links */}
+          {/* Platform / Company Links - 5 Essential Pages */}
           <div className="footer-col">
             <h4 className="footer-heading">Platform</h4>
             <ul className="footer-links">
               <li>
-                <Link to="/crm-tour" title="Take a visual tour of our complete cloud CRM platform with 15+ live screens">
-                  Live CRM Product Tour
-                  <span className="link-badge live">15+ SCREENS</span>
+                <Link to="/crm-tour" title="Take an interactive tour of our complete cloud CRM platform with 15+ live screens">
+                  Interactive CRM Tour
                 </Link>
               </li>
-              <li><Link to="/why-us" title="Why subscription CRM rental beats heavy legacy software">Why Rent a Cloud CRM</Link></li>
-              <li><Link to="/pricing" title="Explore monthly and annual subscription tiers">Monthly & Annual Plans</Link></li>
-              <li><Link to="/faq" title="Answers to common questions about deployment and billing">Frequently Asked Questions</Link></li>
-              <li><Link to="/contact" title="Get in touch with our technical assistance team">Contact Support Desk</Link></li>
               <li>
-                <Link to="/crm-tour" title="Explore the complete SalesAvatar product tour">
-                  <span>Full Product Tour</span>
-                  <ArrowRight size={13} style={{ marginLeft: 6, color: '#86be8f' }} />
+                <Link to="/why-us" title="Why subscription CRM rental beats heavy legacy software">
+                  Why Rent SalesAvatar
+                </Link>
+              </li>
+              <li>
+                <Link to="/pricing" title="Explore monthly and annual subscription tiers">
+                  Plans & Pricing
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" title="Answers to common questions about deployment and billing">
+                  Frequently Asked Questions
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" title="Get in touch with our technical assistance team">
+                  Contact Support Desk
                 </Link>
               </li>
             </ul>

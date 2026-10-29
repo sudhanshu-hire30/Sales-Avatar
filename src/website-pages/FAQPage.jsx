@@ -232,7 +232,7 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
 
               {/* Direct Support Contact Callout */}
               <div style={{
-                background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+                background: 'linear-gradient(135deg, #ff6b2b 0%, #ea580c 100%)',
                 borderRadius: 14,
                 padding: '12px 14px',
                 color: '#ffffff',

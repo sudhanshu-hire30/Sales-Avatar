@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { 
   X, 
   ChevronLeft, 
@@ -337,14 +336,7 @@ export default function CrmLightboxModal({
                     <ArrowRight size={14} />
                   </button>
                 )}
-                {onOpenDemo && (
-                  <Link
-                    to="/crm-tour"
-                    className="pane-cta-secondary-btn"
-                  >
-                    <span>Full Product Tour</span>
-                  </Link>
-                )}
+
               </div>
             )}
           </div>

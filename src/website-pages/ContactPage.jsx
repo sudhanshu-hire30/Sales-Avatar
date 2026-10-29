@@ -173,7 +173,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                 to="/crm-tour"
                 style={{
                   width: '100%',
-                  background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)',
+                  background: 'linear-gradient(135deg, #ff6b2b 0%, #ea580c 100%)',
                   color: '#ffffff',
                   border: 'none',
                   borderRadius: 12,

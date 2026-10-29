@@ -833,20 +833,19 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
           <span className="trust-strip-title">POWERING HIGH-GROWTH SALES TEAMS ACROSS INDIA</span>
           <div className="trust-logos-wrapper" aria-label="Customer trust logos">
             <div className="trust-logos-track">
-              <div className="trust-logos-group">
-                {TRUST_LOGOS.map((logo, idx) => (
-                  <div key={`trust-logo-1-${idx}`} className="trust-logo-item">
-                    <img src={getAssetUrl(logo.file)} alt={logo.alt} loading="lazy" />
-                  </div>
-                ))}
-              </div>
-              <div className="trust-logos-group" aria-hidden="true">
-                {TRUST_LOGOS.map((logo, idx) => (
-                  <div key={`trust-logo-2-${idx}`} className="trust-logo-item">
-                    <img src={getAssetUrl(logo.file)} alt={logo.alt} loading="lazy" />
-                  </div>
-                ))}
-              </div>
+              {[0, 1, 2, 3, 4, 5].map((groupIdx) => (
+                <div
+                  key={`trust-logos-group-${groupIdx}`}
+                  className="trust-logos-group"
+                  aria-hidden={groupIdx > 0 ? "true" : undefined}
+                >
+                  {TRUST_LOGOS.map((logo, idx) => (
+                    <div key={`trust-logo-${groupIdx}-${idx}`} className="trust-logo-item">
+                      <img src={getAssetUrl(logo.file)} alt={logo.alt} loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>

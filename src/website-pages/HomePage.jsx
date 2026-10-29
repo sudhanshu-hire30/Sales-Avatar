@@ -3,10 +3,8 @@ import { ArrowRight, CheckCircle2, Clock3, ShieldCheck } from 'lucide-react';
 import usePageSeo from '../utils/usePageSeo';
 import HeroSection from '../components/HeroSection';
 import IndustrySolutionsSection from '../components/IndustrySolutionsSection';
-import RoiCalculatorSection from '../components/RoiCalculatorSection';
 import WhyUsSection from '../components/WhyUsSection';
 import ComparisonSection from '../components/ComparisonSection';
-import PricingSection from '../components/PricingSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import TestimonialsAndFAQ from '../components/TestimonialsAndFAQ';
 
@@ -60,34 +58,23 @@ export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) 
         </div>
       </section>
 
-      {/* 3. Industry-Tailored Solutions (Real Estate, Manufacturing, Solar, Financial, Agencies) */}
+      {/* 2. Industry-Tailored Solutions (Real Estate, Manufacturing, Solar, Financial, Agencies) */}
       <IndustrySolutionsSection 
         onOpenDemo={onOpenDemo}
       />
 
-      {/* 4. Interactive ROI & Revenue Growth Calculator */}
-      <RoiCalculatorSection 
-        onOpenDemo={onOpenDemo}
-      />
-
-      {/* 5. Why Us & Modern Sales Leadership */}
+      {/* 3. Why Us & Modern Sales Leadership */}
       <WhyUsSection />
 
-      {/* 6. Honest Comparison: SalesAvatar vs Excel vs Legacy Foreign CRMs */}
+      {/* 4. Honest Comparison: SalesAvatar vs Excel vs Legacy Foreign CRMs */}
       <ComparisonSection 
         onOpenDemo={onOpenDemo}
       />
 
-      {/* 7. Transparent Plans & Pricing (Direct on Homepage) */}
-      <PricingSection 
-        onSelectPlan={(plan) => onOpenTrial(plan)}
-        onOpenEnterprise={onOpenEnterprise}
-      />
-
-      {/* 8. Fast 3-Step Onboarding */}
+      {/* 6. Fast 3-Step Onboarding */}
       <HowItWorksSection />
 
-      {/* 9. Authentic Customer Proof & Testimonials */}
+      {/* 7. Authentic Customer Proof & Testimonials */}
       <TestimonialsAndFAQ />
 
     </div>

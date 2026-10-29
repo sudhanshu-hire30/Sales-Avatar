@@ -20,7 +20,7 @@ const INDUSTRIES = [
     name: 'Real Estate & Builders',
     icon: Building2,
     badge: 'Property & Infrastructure',
-    color: '#2563eb',
+    color: '#ea580c',
     headline: 'Stop Losing High-Ticket Property Inquiries to Delayed Callbacks',
     painPoint: '99acres & housing inquiries sit in spreadsheets for hours, site visits get missed, and channel partner (broker) disputes eat up margins.',
     solution: 'Auto-assign property leads in 30 seconds, auto-trigger WhatsApp brochures, and geofence site-visit check-ins with client feedback.',
@@ -130,7 +130,7 @@ export default function IndustrySolutionsSection({ onOpenDemo }) {
       <div className="industry-container">
         {/* Section Header */}
         <div className="section-center-header">
-          <div className="section-pill-badge blue">
+          <div className="section-pill-badge orange">
             <Sparkles size={14} className="badge-sparkle" />
             <span>TAILORED FOR YOUR INDUSTRY</span>
           </div>
@@ -171,7 +171,7 @@ export default function IndustrySolutionsSection({ onOpenDemo }) {
           <div className="industry-detail-grid">
             {/* Left Content Column */}
             <div className="ind-detail-left">
-              <div className="ind-pill-badge" style={{ color: selectedIndustry.color, borderColor: selectedIndustry.color }}>
+              <div className="ind-pill-badge">
                 <span>{selectedIndustry.badge}</span>
               </div>
 
@@ -223,7 +223,7 @@ export default function IndustrySolutionsSection({ onOpenDemo }) {
                 <div className="ind-metrics-stack">
                   {selectedIndustry.metrics.map((m, idx) => (
                     <div key={idx} className="ind-stat-tile">
-                      <span className="ind-stat-val" style={{ color: selectedIndustry.color }}>
+                      <span className="ind-stat-val">
                         {m.val}
                       </span>
                       <span className="ind-stat-label">{m.label}</span>
