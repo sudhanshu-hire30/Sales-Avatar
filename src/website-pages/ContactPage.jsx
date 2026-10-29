@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import usePageSeo from '../utils/usePageSeo';
-import { 
-  Sparkles, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  CheckCircle2, 
-  ShieldCheck, 
+import {
+  Sparkles,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  CheckCircle2,
+  ShieldCheck,
   Building2,
   ArrowRight
 } from 'lucide-react';
@@ -39,9 +39,12 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
     setIsSubmitting(true);
 
     try {
-      await apiFetch('/demo', {
+      await apiFetch('/contact', {
         method: 'POST',
-        body: formData
+        body: {
+          ...formData,
+          source: 'Contact Page Inquiry'
+        }
       });
       setSubmitted(true);
       confetti({
@@ -92,8 +95,8 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
             </div>
 
             <div className="subpage-hero-cta-row">
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn-subpage-primary"
                 onClick={() => {
                   const el = document.getElementById('contact-form-section');
@@ -123,8 +126,8 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
               </div>
 
               <div className="preview-stream-list" style={{ gap: 10, marginBottom: 14 }}>
-                <a 
-                  href="tel:+919876543210" 
+                <a
+                  href="tel:+919876543210"
                   className="stream-item"
                   style={{ textDecoration: 'none' }}
                 >
@@ -138,8 +141,8 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                   </div>
                 </a>
 
-                <a 
-                  href="mailto:sales@salesavatar.com" 
+                <a
+                  href="mailto:sales@salesavatar.com"
                   className="stream-item"
                   style={{ textDecoration: 'none' }}
                 >
@@ -276,9 +279,9 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                     <p>
                       Thank you for contacting SalesAvatar. Our sales engineering team has received your details and will get in touch with you at <strong>{formData.email}</strong> within 2 hours.
                     </p>
-                    <button 
-                      type="button" 
-                      className="btn-subpage-primary" 
+                    <button
+                      type="button"
+                      className="btn-subpage-primary"
                       onClick={() => setSubmitted(false)}
                       style={{ marginTop: 20 }}
                     >
@@ -320,7 +323,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                           <input
                             type="tel"
                             required
-                            placeholder="+91 98765 43210"
+                            placeholder="+91 99999 99999"
                             value={formData.phone}
                             onChange={e => setFormData({ ...formData, phone: e.target.value })}
                           />
@@ -362,9 +365,9 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                         />
                       </div>
 
-                      <button 
-                        type="submit" 
-                        className="btn-contact-submit" 
+                      <button
+                        type="submit"
+                        className="btn-contact-submit"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? 'Sending Message...' : 'Send Inquiry to Sales Team →'}

@@ -158,7 +158,7 @@ function TrialModalContent({ onClose, defaultPlan, billingCycle }) {
                   <input
                     type="tel"
                     required
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 99999 99999"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
@@ -240,13 +240,12 @@ function TrialModalContent({ onClose, defaultPlan, billingCycle }) {
 }
 
 export function DemoModal({ isOpen, onClose }) {
-  const [activeVideoTab, setActiveVideoTab] = useState('overview');
   const [demoForm, setDemoForm] = useState({
     name: '',
     email: '',
     company: '',
     phone: '',
-    teamSize: '10-50'
+    teamSize: '11-50'
   });
   const [demoSent, setDemoSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -261,7 +260,10 @@ export function DemoModal({ isOpen, onClose }) {
     try {
       await apiFetch('/demo', {
         method: 'POST',
-        body: demoForm
+        body: {
+          ...demoForm,
+          source: 'Live Demo Walkthrough Request'
+        }
       });
       setDemoSent(true);
       confetti({
@@ -283,86 +285,47 @@ export function DemoModal({ isOpen, onClose }) {
           <X size={20} />
         </button>
 
-        <div className="demo-modal-layout">
-          {/* Left: Video Showcase */}
-          <div className="demo-video-col">
-            <div className="demo-player-container">
-              {/* Simulated HD video player walkthrough */}
-              <div className="simulated-player">
-                <div className="player-badge">LIVE WALKTHROUGH</div>
-                <div className="player-center-play">
-                  <Play size={28} fill="#ffffff" color="#ffffff" />
-                </div>
-                <div className="player-bottom-bar">
-                  <span className="player-time">03:45 / 07:20</span>
-                  <div className="player-timeline">
-                    <div className="timeline-progress"></div>
-                  </div>
-                  <span className="player-hd">1080p HD</span>
-                </div>
-              </div>
+        {demoSent ? (
+          <div className="modal-success-view">
+            <div className="success-icon-bubble">
+              <CheckCircle2 size={40} color="#10b981" />
             </div>
-
-            <div className="demo-chapters-tabs">
-              <button
-                type="button"
-                className={`chapter-tab ${activeVideoTab === 'overview' ? 'active' : ''}`}
-                onClick={() => setActiveVideoTab('overview')}
-              >
-                1. CRM Workspace
-              </button>
-              <button
-                type="button"
-                className={`chapter-tab ${activeVideoTab === 'leads' ? 'active' : ''}`}
-                onClick={() => setActiveVideoTab('leads')}
-              >
-                2. Leads & Customers
-              </button>
-              <button
-                type="button"
-                className={`chapter-tab ${activeVideoTab === 'attendance' ? 'active' : ''}`}
-                onClick={() => setActiveVideoTab('attendance')}
-              >
-                3. Visual Pipeline
-              </button>
-              <button
-                type="button"
-                className={`chapter-tab ${activeVideoTab === 'payroll' ? 'active' : ''}`}
-                onClick={() => setActiveVideoTab('payroll')}
-              >
-                4. Field Officers & GPS
-              </button>
-            </div>
+            <h3 className="success-title">Demo Session Reserved!</h3>
+            <p className="success-desc">
+              Your request for <strong>{demoForm.company || 'your team'}</strong> has been sent to our sales engineering desk. We will contact <strong>{demoForm.email}</strong> within 2 hours to confirm your 1-on-1 walkthrough.
+            </p>
+            <button type="button" className="btn-modal-action" onClick={onClose}>Done</button>
           </div>
-
-          {/* Right: Schedule 1-on-1 Personalized Demo */}
-          <div className="demo-form-col">
-            <h3 className="demo-col-title">Book a 1-on-1 Guided Demo</h3>
-            <p className="demo-col-sub">See how SalesAvatar fits your exact sales workflow.</p>
+        ) : (
+          <div className="modal-body-content">
+            <div className="modal-header-block">
+              <div className="modal-pill-tag">
+                <Sparkles size={13} />
+                <span>GUIDED WALKTHROUGH</span>
+              </div>
+              <h3 className="modal-title">Book a 1-on-1 Guided Demo</h3>
+              <p className="modal-subtitle">
+                See how SalesAvatar fits your exact sales workflow with a customized 15-minute screen tour.
+              </p>
+            </div>
 
             {demoError && (
               <div className="modal-error-box">{demoError}</div>
             )}
 
-            {demoSent ? (
-              <div className="demo-sent-box">
-                <CheckCircle2 size={36} color="#10b981" />
-                <h4>Demo Session Reserved!</h4>
-                <p>Our sales engineering lead will call you within 2 hours to confirm your screen-share time slot.</p>
-                <button type="button" className="btn-modal-action" onClick={onClose}>Done</button>
+            <form onSubmit={handleDemoSchedule} className="modal-form">
+              <div className="form-group">
+                <label>Your Name *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Prince"
+                  value={demoForm.name}
+                  onChange={(e) => setDemoForm({ ...demoForm, name: e.target.value })}
+                />
               </div>
-            ) : (
-              <form onSubmit={handleDemoSchedule} className="demo-form">
-                <div className="form-group">
-                  <label>Your Name *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Prince"
-                    value={demoForm.name}
-                    onChange={(e) => setDemoForm({ ...demoForm, name: e.target.value })}
-                  />
-                </div>
+
+              <div className="form-row-2">
                 <div className="form-group">
                   <label>Business Email *</label>
                   <input
@@ -378,9 +341,22 @@ export function DemoModal({ isOpen, onClose }) {
                   <input
                     type="tel"
                     required
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 99999 99999"
                     value={demoForm.phone}
                     onChange={(e) => setDemoForm({ ...demoForm, phone: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              <div className="form-row-2">
+                <div className="form-group">
+                  <label>Company / Firm *</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Company Name"
+                    value={demoForm.company}
+                    onChange={(e) => setDemoForm({ ...demoForm, company: e.target.value })}
                   />
                 </div>
                 <div className="form-group">
@@ -389,151 +365,17 @@ export function DemoModal({ isOpen, onClose }) {
                     value={demoForm.teamSize}
                     onChange={(e) => setDemoForm({ ...demoForm, teamSize: e.target.value })}
                   >
-                    <option value="1-10">1 - 10 Reps</option>
+                    <option value="1-5">1 - 5 Reps</option>
+                    <option value="6-10">6 - 10 Reps</option>
                     <option value="11-50">11 - 50 Reps</option>
                     <option value="51-200">51 - 200 Reps</option>
                     <option value="200+">200+ Enterprise</option>
                   </select>
                 </div>
-                <button type="submit" className="btn-modal-submit" disabled={submitting}>
-                  {submitting ? 'Scheduling in MySQL...' : 'Schedule Live Demo →'}
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function LoginModal({ isOpen, onClose }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
-  const [loginSuccess, setLoginSuccess] = useState(false);
-  const [loginError, setLoginError] = useState('');
-
-  if (!isOpen) return null;
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setIsLoggingIn(true);
-    setLoginError('');
-
-    try {
-      const res = await apiFetch('/auth/login', {
-        method: 'POST',
-        body: { email, password }
-      });
-
-      if (res.success && res.token) {
-        localStorage.setItem('salesavatar_admin_token', res.token);
-        localStorage.setItem('salesavatar_admin_user', JSON.stringify(res.user));
-        setLoginSuccess(true);
-        confetti({
-          particleCount: 55,
-          spread: 60,
-          origin: { y: 0.6 }
-        });
-        setTimeout(() => {
-          window.location.href = '/admin';
-        }, 1200);
-      }
-    } catch (err) {
-      setLoginError(err.message || 'Invalid email or password');
-    } finally {
-      setIsLoggingIn(false);
-    }
-  };
-
-  const handleClose = () => {
-    setLoginSuccess(false);
-    setLoginError('');
-    onClose();
-  };
-
-  return (
-    <div className="modal-backdrop" onClick={handleClose}>
-      <div className="modal-dialog login-modal-dialog" onClick={(e) => e.stopPropagation()}>
-        <button type="button" className="modal-close-btn" onClick={handleClose}>
-          <X size={20} />
-        </button>
-
-        {loginSuccess ? (
-          <div className="modal-success-view">
-            <div className="success-icon-bubble">
-              <CheckCircle2 size={38} color="#10b981" />
-            </div>
-            <h3 className="success-title">Signed In!</h3>
-            <p className="success-desc">
-              Welcome back, <strong>{email || 'Member'}</strong>. You are successfully signed in to SalesAvatar.
-            </p>
-            <button type="button" className="btn-modal-action" onClick={handleClose}>
-              Done
-            </button>
-          </div>
-        ) : (
-          <div className="modal-body-content">
-            <div className="modal-header-block">
-              <div className="modal-pill-tag">
-                <Lock size={13} />
-                <span>ACCOUNT LOGIN</span>
-              </div>
-              <h3 className="modal-title">Sign in to SalesAvatar</h3>
-              <p className="modal-subtitle">
-                Access your sales workspace, analytics & account settings.
-              </p>
-            </div>
-
-            <form onSubmit={handleLogin} className="modal-form">
-              {loginError && (
-                <div style={{ padding: '0.65rem 0.9rem', background: '#fee2e2', border: '1px solid #f87171', color: '#b91c1c', borderRadius: 8, fontSize: '0.85rem', marginBottom: 12 }}>
-                  {loginError}
-                </div>
-              )}
-              <div className="form-group">
-                <label>Work Email</label>
-                <input
-                  type="email"
-                  required
-                  autoComplete="username"
-                  placeholder="name@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
               </div>
 
-              <div className="form-group">
-                <div className="label-with-action">
-                  <label>Password</label>
-                  <a
-                    href="#forgot"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      alert('Password reset link sent to your email.');
-                    }}
-                    className="sub-helper"
-                  >
-                    Forgot password?
-                  </a>
-                </div>
-                <input
-                  type="password"
-                  required
-                  autoComplete="current-password"
-                  placeholder="••••••••"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="btn-modal-submit"
-                disabled={isLoggingIn}
-              >
-                {isLoggingIn ? 'Signing in...' : 'Sign In →'}
+              <button type="submit" className="btn-modal-submit" disabled={submitting}>
+                {submitting ? 'Scheduling Demo...' : 'Schedule Live Demo →'}
               </button>
             </form>
           </div>
@@ -549,7 +391,7 @@ export function EnterpriseModal({ isOpen, onClose, planName = 'Enterprise' }) {
     email: '',
     company: '',
     phone: '',
-    requirement: `Inquiring about ${planName} plan: custom deployment, SLA guarantees, and custom API integrations.`
+    requirement: `Inquiring about ${planName} plan: custom deployment, SLA guarantees, and custom integrations.`
   });
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -562,7 +404,11 @@ export function EnterpriseModal({ isOpen, onClose, planName = 'Enterprise' }) {
     try {
       await apiFetch('/contact', {
         method: 'POST',
-        body: form
+        body: {
+          ...form,
+          plan: planName,
+          source: `Enterprise Inquiry (${planName})`
+        }
       });
       setSent(true);
       confetti({
@@ -575,7 +421,6 @@ export function EnterpriseModal({ isOpen, onClose, planName = 'Enterprise' }) {
     } finally {
       setSubmitting(false);
     }
-
   };
 
   return (
@@ -592,7 +437,7 @@ export function EnterpriseModal({ isOpen, onClose, planName = 'Enterprise' }) {
             </div>
             <h3 className="success-title">Enterprise Request Received!</h3>
             <p className="success-desc">
-              Saved in our MySQL database. An enterprise solutions consultant will provide a custom commercial proposal within 4 hours.
+              Your inquiry has been delivered to our enterprise team at <strong>sales@salesavatar.com</strong>. A dedicated solutions consultant will provide a custom commercial proposal within 2 hours.
             </p>
             <button type="button" className="btn-modal-action" onClick={onClose}>Close</button>
           </div>
@@ -637,7 +482,7 @@ export function EnterpriseModal({ isOpen, onClose, planName = 'Enterprise' }) {
                   <input
                     type="tel"
                     required
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 99999 99999"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   />
@@ -665,7 +510,7 @@ export function EnterpriseModal({ isOpen, onClose, planName = 'Enterprise' }) {
               </div>
 
               <button type="submit" className="btn-modal-submit" disabled={submitting}>
-                {submitting ? 'Submitting to MySQL...' : 'Request Custom Enterprise Quote →'}
+                {submitting ? 'Sending Request...' : 'Request Custom Enterprise Quote →'}
               </button>
             </form>
           </div>
@@ -783,7 +628,7 @@ export function QuickInquiryModal({ isOpen, onClose }) {
                   <input
                     type="tel"
                     required
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 99999 99999"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   />

@@ -83,7 +83,7 @@ export default function Navbar({ onOpenTrial, onOpenDemo }) {
 
           {/* Right CTA Buttons */}
           <div className="nav-actions">
-            <button type="button" className="btn-get-started" onClick={() => onOpenTrial('Professional')}>
+            <button type="button" className="btn-get-started" onClick={onOpenDemo}>
               Book a Demo <ArrowRight size={16} />
             </button>
           </div>

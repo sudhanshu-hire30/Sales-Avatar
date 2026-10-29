@@ -221,16 +221,6 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
                 <Sparkles size={14} />
                 <span>Book a Live Demo</span>
               </button>
-
-              <button
-                type="button"
-                className="footer-tenant-trial-btn"
-                onClick={() => onOpenTrial && onOpenTrial('Professional')}
-                title="Start your 14-day zero-risk trial"
-              >
-                <ArrowRight size={14} color="#818cf8" />
-                <span>Start 14-Day Free Trial</span>
-              </button>
             </div>
           </div>
         </div>

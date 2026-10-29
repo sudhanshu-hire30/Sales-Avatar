@@ -41,6 +41,7 @@ input[type="reset"] {
 
 /* 2. NAVBAR */
 .navbar-wrapper {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
@@ -48,6 +49,7 @@ input[type="reset"] {
   z-index: 1100;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
   transition: all 0.25s ease;
 }
@@ -4525,7 +4527,7 @@ input[type="reset"] {
 }
 
 .demo-modal-dialog {
-  max-width: 820px;
+  max-width: 540px;
 }
 
 .modal-close-btn {

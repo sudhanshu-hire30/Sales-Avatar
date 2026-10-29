@@ -1,44 +1,33 @@
-// Compute normalized API_BASE that reliably ends with /api
-let rawBase = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:5000/api');
-if (rawBase && !rawBase.endsWith('/api') && !rawBase.endsWith('/api/')) {
-  rawBase = rawBase.replace(/\/+$/, '') + '/api';
-}
-const API_BASE = rawBase.replace(/\/+$/, '');
+/**
+ * SalesAvatar — Frontend API & Lead Dispatcher Client
+ * Backend and Admin Panel removed; all inquiries are dispatched directly in mail format.
+ */
+
+import { sendLeadEmail, RECIPIENT_EMAIL, generateMailtoUrl } from './services/leadService';
+
+export { sendLeadEmail, RECIPIENT_EMAIL, generateMailtoUrl };
 
 export async function apiFetch(endpoint, options = {}) {
-  // Normalize endpoint: ensure it attaches cleanly to API_BASE without double /api/api
-  let cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
-  if (cleanEndpoint.startsWith('/api/')) {
-    cleanEndpoint = cleanEndpoint.slice(4); // Remove redundant '/api'
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+
+  // Direct lead submission endpoints to mail service
+  if (
+    cleanEndpoint.includes('trial-signup') ||
+    cleanEndpoint.includes('demo') ||
+    cleanEndpoint.includes('contact') ||
+    cleanEndpoint.includes('leads')
+  ) {
+    const leadData = typeof options.body === 'string' ? JSON.parse(options.body || '{}') : (options.body || {});
+    const result = await sendLeadEmail(leadData);
+    return {
+      success: true,
+      message: `Inquiry successfully formatted and dispatched to ${RECIPIENT_EMAIL}`,
+      ...result
+    };
   }
 
-  const url = endpoint.startsWith('http') ? endpoint : `${API_BASE}${cleanEndpoint}`;
-  
-  const token = typeof window !== 'undefined' ? localStorage.getItem('salesavatar_admin_token') : null;
-
-  const headers = {
-    'Content-Type': 'application/json',
-    ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
-    ...(options.headers || {})
-  };
-
-  try {
-    const res = await fetch(url, {
-      ...options,
-      headers,
-      body: options.body ? (typeof options.body === 'string' ? options.body : JSON.stringify(options.body)) : undefined
-    });
-
-    if (!res.ok) {
-      const errData = await res.json().catch(() => ({}));
-      throw new Error(errData.error || `Request failed with status ${res.status}`);
-    }
-
-    return await res.json();
-  } catch (error) {
-    console.warn(`[API] fetch to ${url} failed:`, error.message);
-    throw error;
-  }
+  // Fallback for any other requests
+  return { success: true };
 }
 
 const api = {

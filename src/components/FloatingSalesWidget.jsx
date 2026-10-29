@@ -7,7 +7,8 @@ import {
   Sparkles, 
   ArrowRight,
   ShieldCheck,
-  ChevronUp
+  ChevronUp,
+  Headphones
 } from 'lucide-react';
 
 export default function FloatingSalesWidget({ onOpenDemo, onOpenTrial }) {
@@ -47,31 +48,39 @@ export default function FloatingSalesWidget({ onOpenDemo, onOpenTrial }) {
 
       {/* Popover Card */}
       {isOpen && (
-        <div className="floating-sales-popover">
+        <div className="floating-sales-popover" role="dialog" aria-modal="true">
+          {/* Header */}
           <div className="sales-popover-header">
             <div className="popover-rep-badge">
-              <span className="online-green-dot"></span>
+              <div className="specialist-avatar">
+                <Headphones size={18} color="#ffffff" />
+                <span className="online-green-dot"></span>
+              </div>
               <div className="popover-rep-meta">
                 <strong>SalesAvatar Specialist</strong>
-                <span>Online &bull; Replies in ~2 mins</span>
+                <span>⚡ Online &bull; Replies in &lt;2 mins</span>
               </div>
             </div>
             <button 
               type="button" 
               className="popover-close-btn"
               onClick={() => setIsOpen(false)}
-              aria-label="Close widget"
+              aria-label="Close consultation popup"
             >
-              <X size={16} />
+              <X size={18} />
             </button>
           </div>
 
+          {/* Body */}
           <div className="sales-popover-body">
-            <p className="popover-greeting">
-              Namaste! 🙏 Looking to streamline your leads, follow-ups, or field sales team?
-            </p>
+            <div className="popover-greeting-box">
+              <p className="popover-greeting">
+                Namaste! 🙏 Looking to stop lead leakage, track field visits, or see a live demo of SalesAvatar?
+              </p>
+            </div>
 
             <div className="popover-actions-list">
+              {/* WhatsApp Option */}
               <a 
                 href={whatsappUrl}
                 target="_blank" 
@@ -80,14 +89,16 @@ export default function FloatingSalesWidget({ onOpenDemo, onOpenTrial }) {
                 onClick={() => setIsOpen(false)}
               >
                 <div className="wa-icon-bubble">
-                  <MessageCircle size={18} fill="#ffffff" color="#ffffff" />
+                  <MessageCircle size={20} fill="#ffffff" color="#ffffff" />
                 </div>
                 <div className="wa-btn-text">
                   <strong>Chat on WhatsApp</strong>
-                  <span>Instant reply from CRM consultant</span>
+                  <span>Instant reply from sales engineering</span>
                 </div>
+                <ArrowRight size={16} className="popover-action-arrow" />
               </a>
 
+              {/* Book 1-on-1 Demo Option */}
               <button 
                 type="button"
                 className="btn-popover-demo"
@@ -97,19 +108,31 @@ export default function FloatingSalesWidget({ onOpenDemo, onOpenTrial }) {
                 }}
               >
                 <div className="demo-icon-bubble">
-                  <Calendar size={18} color="#2563eb" />
+                  <Calendar size={20} color="#ea580c" />
                 </div>
                 <div className="demo-btn-text">
                   <strong>Book a 1-on-1 Demo</strong>
                   <span>15-min guided screen walkthrough</span>
                 </div>
+                <ArrowRight size={16} className="popover-action-arrow" />
               </button>
+
+              {/* Direct Call Quick Link */}
+              <a 
+                href="tel:+919565501189" 
+                className="btn-popover-call"
+                title="Call SalesAvatar direct helpline"
+              >
+                <PhoneCall size={14} color="#ea580c" />
+                <span>Sales Helpline: <strong>+91 95655 01189</strong></span>
+              </a>
             </div>
           </div>
 
+          {/* Footer */}
           <div className="sales-popover-footer">
             <ShieldCheck size={14} color="#10b981" />
-            <span>DPDP compliant &bull; 100% Indian Cloud</span>
+            <span>DPDP Compliant &bull; 100% Indian Cloud</span>
           </div>
         </div>
       )}
@@ -127,7 +150,8 @@ export default function FloatingSalesWidget({ onOpenDemo, onOpenTrial }) {
         </div>
         {!isOpen && (
           <span className="trigger-tooltip">
-            💬 Need a Custom CRM Demo?
+            <span className="tooltip-pulse-dot"></span>
+            <span className="tooltip-text">Need a Custom CRM Demo?</span>
           </span>
         )}
       </button>

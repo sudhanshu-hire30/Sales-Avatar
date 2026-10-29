@@ -2,7 +2,6 @@ import React from 'react';
 import { ArrowRight, CheckCircle2, Clock3, ShieldCheck } from 'lucide-react';
 import usePageSeo from '../utils/usePageSeo';
 import HeroSection from '../components/HeroSection';
-import InteractiveSandboxSection from '../components/InteractiveSandboxSection';
 import IndustrySolutionsSection from '../components/IndustrySolutionsSection';
 import RoiCalculatorSection from '../components/RoiCalculatorSection';
 import WhyUsSection from '../components/WhyUsSection';
@@ -10,7 +9,6 @@ import ComparisonSection from '../components/ComparisonSection';
 import PricingSection from '../components/PricingSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import TestimonialsAndFAQ from '../components/TestimonialsAndFAQ';
-import BottomCTASection from '../components/BottomCTASection';
 
 export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) {
   usePageSeo({
@@ -62,12 +60,6 @@ export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) 
         </div>
       </section>
 
-      {/* 2. Interactive Live CRM Sandbox (Test Drive directly on Homepage) */}
-      <InteractiveSandboxSection 
-        onOpenDemo={onOpenDemo}
-        onOpenTrial={onOpenTrial}
-      />
-
       {/* 3. Industry-Tailored Solutions (Real Estate, Manufacturing, Solar, Financial, Agencies) */}
       <IndustrySolutionsSection 
         onOpenDemo={onOpenDemo}
@@ -98,22 +90,6 @@ export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) 
       {/* 9. Authentic Customer Proof & Testimonials */}
       <TestimonialsAndFAQ />
 
-      {/* 10. High-Impact Closing CTA Banner */}
-      <BottomCTASection 
-        onOpenTrial={onOpenTrial}
-        onOpenDemo={onOpenDemo}
-        badgeText="ZERO RISK ONBOARDING"
-        title="Ready to Stop Lead Leakage &"
-        titleHighlight="Scale Your Sales Floor?"
-        subtitle="Join forward-thinking Indian businesses closing deals faster with SalesAvatar. Get your team provisioned in under 15 minutes."
-        primaryBtnText="Request CRM Setup"
-        secondaryBtnText="Book Guided Walkthrough"
-        checks={[
-          'Setup in 15 minutes',
-          'Valid 18% GST Invoices with ITC',
-          'Zero setup fees & cancel anytime'
-        ]}
-      />
     </div>
   );
 }

@@ -1,133 +1,66 @@
-# Bharat Group · Sales Avatar CRM Portal
+# SalesAvatar · Cloud CRM Platform
 
-A full-stack, enterprise-grade CRM portal built for **Bharat Group**, replicating the reference Stitch design (`web application/stitch/projects/9613086492402635766/screens/e165d7d218924afdb87ff9d760f66941`) with pixel-level precision, responsive layout, full interactivity, and MySQL/Node.js integration.
+A modern, high-converting enterprise CRM platform website built with React, Vite, and modern CSS aesthetics.
 
 ---
 
 ## 🎨 Theme & Visual Palette
 
-- **Main Background**: `#06152B`
-- **Sidebar Background**: `#071B35`
-- **Card Background**: `#0B203C` (Border: `#193B60`)
-- **Sales Avatar Orange**: `#FF7A24`
-- **Light Blue Highlight**: `#55C7FF`
-- **Primary Text**: `#F5F8FF`
-- **Secondary Text**: `#9DB2CC`
-- **Success Emerald**: `#20C997`
-- **Gold Laureate Frame**: `#F5A623`
+- **Primary Gradient**: Orange to Amber (`#ff6b2b` → `#f97316` → `#ea580c`)
+- **Main Background**: `#f8fafc` (Clean, sleek enterprise light mode)
+- **Primary Text**: `#0f172a` (Slate 900)
+- **Secondary Text**: `#475569` (Slate 600)
+- **Accent Emerald**: `#10b981`
 
 ---
 
 ## 🚀 Architecture & Stack
 
-- **Frontend**: React 19, Vite, Lucide React icons, Canvas Confetti, Vanilla CSS custom design system.
-- **Backend**: Node.js, Express.js (REST API on port `5000`).
-- **Database**: MySQL 8.0 with `mysql2/promise` connection pool, automated table creation (`server/schema.sql`), and intelligent local store synchronization.
+- **Frontend**: React 18, Vite, React Router 6, Lucide React icons, Canvas Confetti.
+- **Lead Capture & Notifications**: Client-side form-to-email dispatcher delivering incoming leads straight to `sales@salesavatar.com` (supports FormSubmit, Formspree, Web3Forms, and mailto fallback) with zero backend server or database maintenance.
 
 ---
 
 ## 📁 Repository Structure
 
 ```
-c:/Projects-BEF/Sales-avatar/
-├── index.html                   # HTML entry with Plus Jakarta Sans & JetBrains Mono
+SalesAvatar/
+├── index.html                   # HTML entry with modern typography & meta tags
 ├── package.json                 # Frontend dependencies (React, Vite, Lucide, Confetti)
+├── .env                         # Configured recipient email (sales@salesavatar.com)
 ├── src/
-│   ├── api.js                   # API client connecting frontend to Node.js backend
-│   ├── App.jsx                  # Root state orchestration, routes, modals & toasts
-│   ├── index.css                # Dark theme design system matching reference screenshot
-│   └── components/
-│       ├── Sidebar.jsx          # Bharat Group logo, nav, Sales Command, profile
-│       ├── TopNavbar.jsx        # Breadcrumb, tabs, search (Ctrl+K), export, notifications
-│       ├── DashboardView.jsx    # Complete reference dashboard view with all 5 rows
-│       ├── LeadsPipelineView.jsx# Visual Kanban pipeline with stages & deal totals
-│       ├── WorkspaceView.jsx    # Chat, Feed, My Storage, Leaderboard, Attendance, Leave
-│       ├── TicketsView.jsx      # Help & Tickets support center with SLA cards & timeline
-│       └── Modals.jsx           # Apply Leave, Add Lead, Raise Ticket, Global Search
-└── server/
-    ├── package.json             # Express, mysql2, cors, dotenv
-    ├── .env                     # Database credentials & port configuration
-    ├── schema.sql               # MySQL 8.0 relational schema DDL
-    └── src/
-        ├── index.js             # Express API server with RESTful endpoints
-        ├── db.js                # MySQL pool connection and table initialisation
-        └── seedData.js          # Synchronized reference dataset from screenshot
+│   ├── api.js                   # Frontend lead submission bridge
+│   ├── App.jsx                  # Main application routing, sticky navbar, modals
+│   ├── index.css                # Global tokens and CSS resets
+│   ├── App.css                  # Core design system & responsive styling
+│   ├── subpages.css             # Page-specific styling for website routes
+│   ├── services/
+│   │   └── leadService.js       # Structured email lead generator & dispatcher
+│   ├── components/
+│   │   ├── Navbar.jsx           # Sticky blur-backdrop navigation bar
+│   │   ├── Footer.jsx           # Comprehensive company footer
+│   │   ├── Modals.jsx           # Trial, Demo, Enterprise & Quick Inquiry Modals
+│   │   └── FloatingSalesWidget.jsx # Quick contact & WhatsApp widget
+│   └── website-pages/           # Public pages (Home, Tour, Features, Pricing, WhyUs, FAQ, Contact, Legal)
 ```
 
 ---
 
 ## ⚡ Getting Started
 
-### 1. Start the Backend API (Port 5000)
+### 1. Install Dependencies
 ```powershell
-cd server
 npm install
-node src/index.js
 ```
 
-### 2. Configure MySQL Database
-Edit [server/.env](file:///c:/Projects-BEF/Sales-avatar/server/.env) with your credentials (already pre-configured and connected):
-```env
-PORT=5000
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=4545
-DB_NAME=sales_avatar
-```
-
-### 3. Production Deployment & Single-Port Hosting
-The application is pre-configured so that Express serves both the REST API and the production React frontend build from `dist/`:
-```powershell
-# Build frontend
-npm run build
-
-# Start production server (hosts frontend + backend on port 5000)
-npm start
-```
-For process managers (PM2 / Systemd):
-```bash
-pm2 start server/src/index.js --name "sales-avatar"
-```
-
-### 4. Start the Frontend in Development Mode (Port 5173 with HMR)
+### 2. Start Development Server
 ```powershell
 npm run dev
 ```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
----
-
-## ✨ Key Features & Interactive Flows
-
-1. **Dashboard (Matching Screenshot)**:
-   - Personalized greeting banner: *Good afternoon, Prince 👋* with interactive punch-in toggle (`SINCE 9:23 AM -> Punched In`).
-   - 4 Quick-Stats cards: *Attendance today (Present)*, *Next leave (No leave planned)*, *Next holiday (Diwali · In 24 days)*, *Monthly Rate (96.4% Good Standing)*.
-   - October Attendance bar (83%) with sprint badge and 6-state status breakdown.
-   - My Profile details card for Prince Tiwari (`prince.t@hire30.ai`, `+919565501189`).
-   - 4 Primary KPI cards: *Active Pipeline Leads (142)*, *Follow-ups Due Today (28)*, *Closed Won Deals (34)*, *Pipeline Revenue (₹4.2 Cr)*.
-   - **Recognition & Excellence**:
-     - Winner of the Month gold card for **Pooja Kapri** (*Customer Champion*) with gold corner brackets, crown emblem, and quote.
-     - Interactive celebration: 👍 Like (15), 👏 Celebrate (2), ❤️ Love (10), 💡 Insight, 🔥 Fire (4) with celebratory confetti.
-     - Pinned founder comment and live congratulatory message sender.
-   - **High-Intent Leads & Floor Pipeline**:
-     - Exact records for Ananya Kapoor (Tata Capital), Rohan Deshmukh (Infosys), Siddharth Mehta (Reliance), Meenakshi Sundaram (Adani).
-     - Live search filter, stage badge indicators, export CSV button, and pagination.
-
-2. **Visual Sales Pipeline**:
-   - Kanban stages: *Discovery Stage*, *Qualified*, *Proposal Sent*, *Negotiation*, *Contract Signed*, *Won*, *Lost*.
-   - Live stage switching and total deal value counters.
-
-3. **Workspace**:
-   - **Chat**: Channels (`#sales-floor`, `#general`), direct messages, message composer.
-   - **Feed**: Intranet win celebrations with rich post composer.
-   - **My Storage**: Documents, sales playbooks, download actions, mock uploader.
-   - **Leaderboard**: Top sales floor rankers, deals closed, quota achievements.
-   - **Attendance**: 31-day calendar view, daily check-in logs.
-   - **Leave & Holidays**: Entitlement counters, upcoming festival calendar, application workflow.
-
-4. **Help & Tickets**:
-   - Open, In Progress, Waiting on You, and Resolved summary cards.
-   - Filter by status and search ticket numbers (`TKT-1042`, etc.).
-   - Raise a Ticket modal with category, priority, and description.
-
-5. **Global Shortcuts**:
-   - Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to open the global search modal anytime.
+### 3. Production Build
+```powershell
+npm run build
+```
+Creates an optimized static production bundle in `dist/` ready to host on Vercel, Netlify, Cloudflare Pages, AWS S3, or any static hosting provider.

@@ -12,7 +12,6 @@ import PricingPage from './website-pages/PricingPage';
 import WhyUsPage from './website-pages/WhyUsPage';
 import FAQPage from './website-pages/FAQPage';
 import ContactPage from './website-pages/ContactPage';
-import AdminLeadsPage from './website-pages/AdminLeadsPage';
 import { PrivacyPage, TermsPage, SecurityPage, CancellationRefundPage } from './website-pages/LegalPages';
 
 import './App.css';
@@ -76,20 +75,15 @@ export default function App() {
     setEnterpriseModalOpen(true);
   };
 
-  const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/admin') || location.pathname.startsWith('/leads');
-
   return (
-    <div className={`sales-avatar-app ${isAdminRoute ? 'admin-layout-wrapper' : 'multi-page-site'}`}>
+    <div className="sales-avatar-app multi-page-site">
       <ScrollToTop />
 
-      {/* Global Multi-Page Navbar - Hidden on Admin Dashboard */}
-      {!isAdminRoute && (
-        <Navbar
-          onOpenTrial={() => handleOpenTrial('Business')}
-          onOpenDemo={() => setDemoModalOpen(true)}
-        />
-      )}
+      {/* Global Multi-Page Navbar */}
+      <Navbar
+        onOpenTrial={() => handleOpenTrial('Business')}
+        onOpenDemo={() => setDemoModalOpen(true)}
+      />
 
       {/* Page Routing */}
       <main className="site-main-content">
@@ -191,20 +185,16 @@ export default function App() {
           <Route path="/security" element={<SecurityPage />} />
           <Route path="/cancellation-refund" element={<CancellationRefundPage />} />
           <Route path="/refund" element={<CancellationRefundPage />} />
-          <Route path="/admin" element={<AdminLeadsPage />} />
-          <Route path="/leads" element={<AdminLeadsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 
-      {/* Global Multi-Page Footer - Hidden on Admin Dashboard */}
-      {!isAdminRoute && (
-        <Footer
-          onOpenDemo={() => setDemoModalOpen(true)}
-          onOpenTrial={handleOpenTrial}
-          onOpenEnterprise={handleOpenEnterprise}
-        />
-      )}
+      {/* Global Multi-Page Footer */}
+      <Footer
+        onOpenDemo={() => setDemoModalOpen(true)}
+        onOpenTrial={handleOpenTrial}
+        onOpenEnterprise={handleOpenEnterprise}
+      />
 
       {/* Interactive Global Modals */}
       <TrialModal
@@ -225,20 +215,16 @@ export default function App() {
         planName={selectedPlan}
       />
 
-      {!isAdminRoute && (
-        <QuickInquiryModal
-          isOpen={quickInquiryOpen}
-          onClose={() => setQuickInquiryOpen(false)}
-        />
-      )}
+      <QuickInquiryModal
+        isOpen={quickInquiryOpen}
+        onClose={() => setQuickInquiryOpen(false)}
+      />
 
-      {/* Sticky High-Converting Floating WhatsApp & Demo Specialist Widget - Hidden on Admin Dashboard */}
-      {!isAdminRoute && (
-        <FloatingSalesWidget
-          onOpenDemo={() => setDemoModalOpen(true)}
-          onOpenTrial={handleOpenTrial}
-        />
-      )}
+      {/* Sticky High-Converting Floating WhatsApp & Demo Specialist Widget */}
+      <FloatingSalesWidget
+        onOpenDemo={() => setDemoModalOpen(true)}
+        onOpenTrial={handleOpenTrial}
+      />
     </div>
   );
 }

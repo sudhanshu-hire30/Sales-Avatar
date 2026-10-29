@@ -288,36 +288,6 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
         </div>
       </section>
 
-      {/* Enterprise Custom Card */}
-      <section className="pricing-enterprise-callout">
-        <div className="pricing-enterprise-card">
-          <div className="ent-card-left">
-            <div className="ent-badge">
-              <Building2 size={16} />
-              <span>CUSTOM ENTERPRISE SCALE</span>
-            </div>
-            <h2>Managing 100+ Sales Reps or Multiple Branches?</h2>
-            <p>
-              Get customized volume pricing, dedicated cloud VPC, custom CRM integration, and on-site sales team training.
-            </p>
-            <div className="ent-perks-row">
-              <div className="ent-perk"><Check size={15} color="#10b981" /> Custom SLA Contracts</div>
-              <div className="ent-perk"><Check size={15} color="#10b981" /> Dedicated Account Manager</div>
-              <div className="ent-perk"><Check size={15} color="#10b981" /> Single Sign-On (SAML/Okta)</div>
-            </div>
-          </div>
-          <div className="ent-card-right">
-            <button 
-              type="button" 
-              className="btn-ent-action"
-              onClick={() => onOpenEnterprise('Enterprise')}
-            >
-              Contact Sales Engineering <ArrowRight size={16} />
-            </button>
-            <span className="ent-phone-note">Or call directly at +91 98765 43210</span>
-          </div>
-        </div>
-      </section>
 
       {/* Pricing FAQs */}
       <section className="pricing-faq-section">
