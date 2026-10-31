@@ -80,7 +80,7 @@ export default function RoiCalculatorSection({ onOpenDemo }) {
           <div className="roi-inputs-card">
             <div className="roi-card-header">
               <div className="roi-header-icon-wrap">
-                <Zap size={20} color="#ea580c" />
+                <Zap size={20} color="#1e40af" />
               </div>
               <div>
                 <h3 className="roi-card-title">Your Current Sales Numbers</h3>

@@ -24,7 +24,7 @@ export default function TestimonialsAndFAQ() {
         <div className="section-container">
           <div className="section-center-header">
             <div className="section-pill-badge purple">
-              <CheckCircle2 size={13} color="#ea580c" />
+              <CheckCircle2 size={13} color="#1e40af" />
               <span>AUTHENTIC CUSTOMER STORIES</span>
             </div>
             <h2 className="section-main-title">Real Sales Teams. Real Measurable Growth.</h2>
@@ -39,7 +39,7 @@ export default function TestimonialsAndFAQ() {
                   {testimonials.map((testimonial, index) => (
                     <article key={`${group}-${index}`} className="testimonial-card">
                       <div className="testimonial-card-top">
-                        <div className="stars-row">{Array.from({ length: testimonial.rating }, (_, star) => <Star key={star} size={15} fill="#f59e0b" color="#f59e0b" />)}</div>
+                        <div className="stars-row">{Array.from({ length: testimonial.rating }, (_, star) => <Star key={star} size={15} fill="#3b82f6" color="#3b82f6" />)}</div>
                         <span className="testimonial-metric-chip">{testimonial.metric}</span>
                       </div>
                       <p className="testimonial-quote">&ldquo;{testimonial.quote}&rdquo;</p>

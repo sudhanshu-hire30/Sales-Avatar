@@ -284,7 +284,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
             title="Click to explore the complete CRM application in full resolution"
           >
             <div className="tag-icon-ring">
-              <Sparkles size={14} color="#ea580c" />
+              <Sparkles size={14} color="#1e40af" />
             </div>
             <div className="tag-text">
               <span className="tag-title">Explore Live CRM Platform &rarr;</span>
@@ -698,7 +698,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                                       cy="50"
                                       r="37"
                                       fill="none"
-                                      stroke="#f97316"
+                                      stroke="#1d4ed8"
                                       strokeWidth="12"
                                       strokeDasharray="55.8 176.68"
                                       strokeDashoffset="-18.6"

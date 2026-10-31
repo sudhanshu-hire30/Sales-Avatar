@@ -46,8 +46,8 @@ export default function FeaturesQuickBar({ onSelectFeature }) {
       id: 'sales-pipeline',
       title: 'Sales Pipeline',
       subtitle: 'Visual Kanban Stages',
-      color: '#ea580c',
-      bgLight: '#fff7ed',
+      color: '#1e40af',
+      bgLight: '#eff6ff',
       icon: BarChart2,
       desc: 'Drag-and-drop visual pipeline stages, deal velocity tracking, revenue forecasts, probability weighting, and win/loss reason analysis.'
     },
@@ -64,8 +64,8 @@ export default function FeaturesQuickBar({ onSelectFeature }) {
       id: 'dealer-management',
       title: 'Dealers & Network',
       subtitle: 'Distributor Orders',
-      color: '#f97316',
-      bgLight: '#fff7ed',
+      color: '#1d4ed8',
+      bgLight: '#eff6ff',
       icon: Building2,
       desc: 'Manage dealer and distributor networks, partner order requests, regional territory allocation, and channel partner communications.'
     },
@@ -73,8 +73,8 @@ export default function FeaturesQuickBar({ onSelectFeature }) {
       id: 'sales-targets',
       title: 'Sales Targets',
       subtitle: '& Team Quotas',
-      color: '#f97316',
-      bgLight: '#fff7ed',
+      color: '#1d4ed8',
+      bgLight: '#eff6ff',
       icon: Award,
       desc: 'Set monthly and quarterly sales quotas, track rep achievement in real time, and incentivize team closers with transparent leaderboards.'
     },
@@ -82,8 +82,8 @@ export default function FeaturesQuickBar({ onSelectFeature }) {
       id: 'reports-analytics',
       title: 'Reports & Analytics',
       subtitle: 'Executive Dashboards',
-      color: '#eab308',
-      bgLight: '#fefce8',
+      color: '#3b82f6',
+      bgLight: '#eff6ff',
       icon: LineChart,
       desc: 'Executive summaries, conversion funnel bottlenecks, sales rep performance scorecards, and automated daily exportable reports.'
     },

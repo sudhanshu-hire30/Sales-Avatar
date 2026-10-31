@@ -270,7 +270,7 @@ export default function AdvancedCapabilitiesSection({ onOpenTrial }) {
                     <span className="reason-percent">38% (70 deals)</span>
                   </div>
                   <div className="bar-track">
-                    <div className="bar-fill" style={{ width: '38%', background: '#f59e0b' }} />
+                    <div className="bar-fill" style={{ width: '38%', background: '#3b82f6' }} />
                   </div>
                 </div>
 

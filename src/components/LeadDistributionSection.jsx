@@ -50,8 +50,8 @@ const DISTRIBUTION_METHODS = [
     name: 'Weighted %',
     tagline: 'Seniority & capacity shares',
     icon: Percent,
-    color: '#ea580c',
-    bgLight: '#fff7ed',
+    color: '#1e40af',
+    bgLight: '#eff6ff',
     desc: 'Splits leads by custom percentages that you allocate per rep.',
     example: 'You set Amit 50%, Priya 30%, Rahul 20%. Out of the next 100 leads, roughly 50 go to Amit, 30 to Priya, and 20 to Rahul.',
     bestFor: 'Seniors, star performers, or full-time closers who should carry more pipeline than juniors or part-timers.',
@@ -108,7 +108,7 @@ export default function LeadDistributionSection({ isEmbedded = false }) {
     <div className="distribution-engine-section" id="lead-distribution">
       <div className="dist-engine-header">
             <div className="section-pill-badge purple">
-              <Sparkles size={13} color="#ea580c" />
+              <Sparkles size={13} color="#1e40af" />
               <span>AUTOMATION &amp; ROUTING ENGINE</span>
             </div>
             <h2 className="dist-main-title">
@@ -218,7 +218,7 @@ export default function LeadDistributionSection({ isEmbedded = false }) {
           <div className="dist-advanced-grid">
             <div className="dist-advanced-card">
               <div className="adv-card-top">
-                <div className="adv-icon-box" style={{ background: '#fff7ed', color: '#ea580c' }}>
+                <div className="adv-icon-box" style={{ background: '#eff6ff', color: '#1e40af' }}>
                   <Zap size={18} />
                 </div>
                 <span className="adv-step-badge">STEP 2 &bull; TIMING MODES</span>

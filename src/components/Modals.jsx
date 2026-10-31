@@ -63,7 +63,7 @@ function TrialModalContent({ onClose, defaultPlan, billingCycle }) {
         particleCount: 90,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#ff6b2b', '#f97316', '#ea580c', '#f59e0b', '#10b981']
+        colors: ['#2563eb', '#1d4ed8', '#1e40af', '#3b82f6', '#10b981']
       });
     } catch {
       setErrorMessage('We could not submit your registration right now. Please try again or contact our sales team.');

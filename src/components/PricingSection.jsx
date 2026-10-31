@@ -103,7 +103,7 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise, compact
         {/* Top Header */}
         <div className="section-center-header">
           <div className="section-pill-badge purple">
-            <Zap size={13} color="#ea580c" />
+            <Zap size={13} color="#1e40af" />
             <span>TRANSPARENT, HONEST PRICING</span>
           </div>
           <h2 className="section-main-title">

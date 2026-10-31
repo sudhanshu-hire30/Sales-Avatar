@@ -108,7 +108,7 @@ export default function FloatingSalesWidget({ onOpenDemo, onOpenTrial }) {
                 }}
               >
                 <div className="demo-icon-bubble">
-                  <Calendar size={20} color="#ea580c" />
+                  <Calendar size={20} color="#1e40af" />
                 </div>
                 <div className="demo-btn-text">
                   <strong>Book a 1-on-1 Demo</strong>
@@ -123,7 +123,7 @@ export default function FloatingSalesWidget({ onOpenDemo, onOpenTrial }) {
                 className="btn-popover-call"
                 title="Call SalesAvatar direct helpline"
               >
-                <PhoneCall size={14} color="#ea580c" />
+                <PhoneCall size={14} color="#1e40af" />
                 <span>Sales Helpline: <strong>+91 95655 01189</strong></span>
               </a>
             </div>

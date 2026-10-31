@@ -4,7 +4,6 @@ import usePageSeo from '../utils/usePageSeo';
 import HeroSection from '../components/HeroSection';
 import WhyUsSection from '../components/WhyUsSection';
 import IndustrySolutionsSection from '../components/IndustrySolutionsSection';
-import ComparisonSection from '../components/ComparisonSection';
 import PricingSection from '../components/PricingSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import TestimonialsAndFAQ from '../components/TestimonialsAndFAQ';
@@ -68,8 +67,6 @@ export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) 
       <WhyUsSection />
 
       <IndustrySolutionsSection onOpenDemo={onOpenDemo} />
-
-      <ComparisonSection onOpenDemo={onOpenDemo} />
 
       <WorkflowStorySection />
 

@@ -19,11 +19,11 @@ export default function WhyUsSection() {
 
   const benefits = [
     { icon: TrendingUp, color: '#2563eb', bgLight: '#eff6ff', title: 'Zero High Upfront Capex', description: 'Rent cloud CRM on flexible monthly or annual subscriptions' },
-    { icon: Zap, color: '#f97316', bgLight: '#fff7ed', title: 'Instant Company Onboarding', description: 'Dedicated isolated company workspace ready in minutes' },
+    { icon: Zap, color: '#1d4ed8', bgLight: '#eff6ff', title: 'Instant Company Onboarding', description: 'Dedicated isolated company workspace ready in minutes' },
     { icon: Users, color: '#ec4899', bgLight: '#fdf2f8', title: 'Lead & Customer 360°', description: 'Centralized customer database and automated follow-ups' },
     { icon: MapPin, color: '#06b6d4', bgLight: '#ecfeff', title: 'Office & Field Team Unity', description: 'Mobile GPS attendance and client site check-ins' },
     { icon: LineChart, color: '#10b981', bgLight: '#ecfdf5', title: 'Real-Time Pipeline Intelligence', description: 'Visual Kanban deal stages and executive reports' },
-    { icon: Crown, color: '#eab308', bgLight: '#fefce8', title: 'Scale User Seats As You Grow', description: 'Upgrade from Starter (5 users) to 50+ seamlessly' }
+    { icon: Crown, color: '#3b82f6', bgLight: '#eff6ff', title: 'Scale User Seats As You Grow', description: 'Upgrade from Starter (5 users) to 50+ seamlessly' }
   ];
   return (
     <section id="why-us" className="why-us-section">
@@ -31,7 +31,7 @@ export default function WhyUsSection() {
         <div className="why-us-visual" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
           <div className="arrow-backdrop">
             <svg viewBox="0 0 160 220" className="purple-upward-arrow">
-              <defs><linearGradient id="purpleArrowGrad" x1="0" y1="1" x2="0.6" y2="0"><stop offset="0%" stopColor="#f59e0b" stopOpacity="0.5" /><stop offset="50%" stopColor="#f97316" stopOpacity="0.9" /><stop offset="100%" stopColor="#ea580c" stopOpacity="1" /></linearGradient></defs>
+              <defs><linearGradient id="purpleArrowGrad" x1="0" y1="1" x2="0.6" y2="0"><stop offset="0%" stopColor="#3b82f6" stopOpacity="0.5" /><stop offset="50%" stopColor="#1d4ed8" stopOpacity="0.9" /><stop offset="100%" stopColor="#1e40af" stopOpacity="1" /></linearGradient></defs>
               <path d="M 60,210 L 60,95 L 20,95 L 80,10 L 140,95 L 100,95 L 100,210 Z" fill="url(#purpleArrowGrad)" />
             </svg>
           </div>
