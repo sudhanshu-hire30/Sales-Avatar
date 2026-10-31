@@ -116,7 +116,7 @@ export function TermsPage() {
 export function SecurityPage() {
   usePageSeo({
     title: 'Enterprise Security Architecture & DPDP Data Residency | SalesAvatar CRM',
-    description: 'Learn about SalesAvatar enterprise security: 100% Indian Cloud data residency, AES-256 encryption, RBAC permissions, and ISO-aligned controls.',
+    description: 'Learn about SalesAvatar data handling, access controls, encryption, and hosting arrangements.',
     canonicalPath: '/security'
   });
 
@@ -126,13 +126,13 @@ export function SecurityPage() {
         <div className="subpage-hero-container">
           <div className="section-pill-badge blue">
             <ShieldCheck size={13} />
-            <span>ENTERPRISE GRADE SECURITY</span>
+            <span>SECURITY & DATA HANDLING</span>
           </div>
           <h1 className="subpage-hero-title" style={{ textAlign: 'center' }}>
             Security & <span className="gradient-text">Compliance</span>
           </h1>
           <p className="subpage-hero-subtitle" style={{ textAlign: 'center' }}>
-            Built to meet the highest security standards for Indian enterprises, BFSI, and healthcare organizations.
+            Review the safeguards and data handling practices that help protect customer and sales information.
           </p>
         </div>
       </section>
@@ -149,16 +149,16 @@ export function SecurityPage() {
               <div className="sec-item">
                 <CheckCircle2 size={20} color="#10b981" />
                 <div>
-                  <b>ISO/IEC 27001 Aligned Controls</b>
-                  <p>Comprehensive information security management policies, vulnerability scanning, and audit trails.</p>
+                  <b>Security practices</b>
+                  <p>Contact SalesAvatar for details about current security controls, audits, and vulnerability management.</p>
                 </div>
               </div>
 
               <div className="sec-item">
                 <CheckCircle2 size={20} color="#10b981" />
                 <div>
-                  <b>Indian DPDP Act Compliance</b>
-                  <p>Strict local data residency in AWS Mumbai with no unauthorized cross-border personal data transfers.</p>
+                  <b>Data location</b>
+                  <p>Confirm current hosting regions, subprocessors, and data transfer arrangements with SalesAvatar before onboarding.</p>
                 </div>
               </div>
 
@@ -166,7 +166,7 @@ export function SecurityPage() {
                 <CheckCircle2 size={20} color="#10b981" />
                 <div>
                   <b>Role-Based Access Control (RBAC)</b>
-                  <p>Granular field-level permissions preventing reps from exporting or tampering with proprietary lead records.</p>
+                  <p>Role-based permissions help administrators manage access. Ask us about available permission levels for your plan.</p>
                 </div>
               </div>
 
@@ -174,7 +174,7 @@ export function SecurityPage() {
                 <CheckCircle2 size={20} color="#10b981" />
                 <div>
                   <b>Continuous Database Backups</b>
-                  <p>Automated point-in-time recovery (PITR) with encrypted secondary backups across multiple availability zones.</p>
+                  <p>Ask SalesAvatar for current backup frequency, retention periods, and recovery commitments.</p>
                 </div>
               </div>
             </div>

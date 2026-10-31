@@ -192,7 +192,7 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
                   style={{ cursor: 'pointer' }}
                   onClick={() => setCategory('start')}
                 >
-                  <div className="stream-icon-box" style={{ background: '#ecfdf5', color: '#10b981' }}>
+                  <div className="stream-icon-box" style={{ background: '#eff6ff', color: '#1d4ed8' }}>
                     <Sparkles size={16} />
                   </div>
                   <div className="stream-content">
@@ -220,7 +220,7 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
                   style={{ cursor: 'pointer' }}
                   onClick={() => setCategory('billing')}
                 >
-                  <div className="stream-icon-box" style={{ background: '#fef3c7', color: '#d97706' }}>
+                  <div className="stream-icon-box" style={{ background: '#f1f5f9', color: '#475569' }}>
                     <CheckCircle2 size={16} />
                   </div>
                   <div className="stream-content">
@@ -232,7 +232,7 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
 
               {/* Direct Support Contact Callout */}
               <div style={{
-                background: 'linear-gradient(135deg, #ff6b2b 0%, #ea580c 100%)',
+                background: '#1d4ed8',
                 borderRadius: 14,
                 padding: '12px 14px',
                 color: '#ffffff',
@@ -250,8 +250,8 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
                 <Link
                   to="/crm-tour"
                   style={{
-                    background: '#60a5fa',
-                    color: '#0f172a',
+                    background: '#dbeafe',
+                    color: '#1e40af',
                     border: 'none',
                     borderRadius: 8,
                     padding: '6px 12px',
@@ -300,14 +300,19 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
                   <div
                     key={idx}
                     className={`faq-accordion-item ${isOpen ? 'open' : ''}`}
-                    onClick={() => setOpenIndex(isOpen ? null : idx)}
                   >
-                    <div className="faq-question-row">
+                    <button
+                      type="button"
+                      className="faq-question-row faq-question-button"
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-answer-${idx}`}
+                      onClick={() => setOpenIndex(isOpen ? null : idx)}
+                    >
                       <span className="faq-q-text">{item.q}</span>
                       <ChevronDown size={18} className={`faq-arrow-icon ${isOpen ? 'rotate' : ''}`} />
-                    </div>
+                    </button>
                     {isOpen && (
-                      <div className="faq-answer-block">
+                      <div id={`faq-answer-${idx}`} className="faq-answer-block">
                         <p>{item.a}</p>
                       </div>
                     )}

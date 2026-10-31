@@ -58,13 +58,13 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
 
             {/* Trust & Compliance Badges */}
             <div className="footer-compliance-row">
-              <Link to="/security" className="compliance-chip clickable" title="Read our Indian DPDP Act & GDPR compliance policy">
+              <Link to="/security" className="compliance-chip clickable" title="Read about data protection and privacy controls">
                 <ShieldCheck size={13} className="chip-icon" />
-                <span>DPDP & GDPR Compliant</span>
+                <span>Privacy & data controls</span>
               </Link>
-              <Link to="/security" className="compliance-chip clickable" title="Read our AES-256 bank-grade encryption architecture">
+              <Link to="/security" className="compliance-chip clickable" title="Read about encryption and access controls">
                 <Lock size={13} className="chip-icon" />
-                <span>AES-256 Encrypted</span>
+                <span>Encryption details</span>
               </Link>
             </div>
           </div>

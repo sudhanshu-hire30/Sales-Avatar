@@ -132,7 +132,7 @@ export default function FloatingSalesWidget({ onOpenDemo, onOpenTrial }) {
           {/* Footer */}
           <div className="sales-popover-footer">
             <ShieldCheck size={14} color="#10b981" />
-            <span>DPDP Compliant &bull; 100% Indian Cloud</span>
+            <span>Privacy and hosting details available</span>
           </div>
         </div>
       )}

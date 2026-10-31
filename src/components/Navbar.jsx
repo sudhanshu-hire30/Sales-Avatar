@@ -95,6 +95,7 @@ export default function Navbar({ onOpenTrial, onOpenDemo }) {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation-menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -102,7 +103,7 @@ export default function Navbar({ onOpenTrial, onOpenDemo }) {
 
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
-          <div className="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+          <div id="mobile-navigation-menu" className="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
             <NavLink 
               to="/" 
               end 
@@ -170,4 +171,3 @@ export default function Navbar({ onOpenTrial, onOpenDemo }) {
     </>
   );
 }
-

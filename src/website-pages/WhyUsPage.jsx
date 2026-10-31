@@ -48,8 +48,8 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
       id: "manufacturing",
       title: "Manufacturing & Distribution",
       icon: Factory,
-      color: "#06b6d4",
-      bgLight: "#ecfeff",
+      color: "#0f766e",
+      bgLight: "#f0fdfa",
       tagline: "Supply chain pipelines, plant visits & bulk orders",
       points: [
         "Multi-tier dealer & sub-dealer network order tracking",
@@ -74,8 +74,8 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
       id: "field",
       title: "Field Sales & FMCG Distribution",
       icon: Truck,
-      color: "#f97316",
-      bgLight: "#fff7ed",
+      color: "#0f766e",
+      bgLight: "#f0fdfa",
       tagline: "Retailer visits, route tracking & attendance",
       points: [
         "Geofenced shop attendance check-in with offline support",
@@ -87,8 +87,8 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
       id: "dealerships",
       title: "Traders & Wholesale Dealerships",
       icon: Store,
-      color: "#eab308",
-      bgLight: "#fefce8",
+      color: "#475569",
+      bgLight: "#f1f5f9",
       tagline: "Credit limits, inventory requisitions & trade inquiries",
       points: [
         "Quick wholesale order quotes with volume price tiers",
@@ -100,8 +100,8 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
       id: "b2b",
       title: "B2B Tech & Corporate Services",
       icon: Laptop,
-      color: "#10b981",
-      bgLight: "#ecfdf5",
+      color: "#1d4ed8",
+      bgLight: "#eff6ff",
       tagline: "Long sales cycles & consultative proposals",
       points: [
         "Visual deal velocity pipeline tracking high-ticket multi-stage deals",
@@ -113,8 +113,8 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
       id: "bfsi",
       title: "Banking, Financial Services & Insurance",
       icon: Landmark,
-      color: "#ea580c",
-      bgLight: "#fff7ed",
+      color: "#475569",
+      bgLight: "#f1f5f9",
       tagline: "Strict regulatory compliance & customer verification",
       points: [
         "Indian DPDP Act compliant local cloud storage with encrypted fields",
@@ -145,15 +145,15 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
               <span>THE SUBSCRIPTION ADVANTAGE</span>
             </div>
             <h1 className="subpage-hero-title">
-              Why Buy Complex CRM Licenses <br />
+              Why settle for a complex CRM <br />
               <span className="gradient-text">
-                When You Can Rent What You Need?
+                when your team needs clarity?
               </span>
             </h1>
             <p className="subpage-hero-subtitle">
-              A multi-tenant SaaS platform offering cloud CRM modules with
-              flexible subscriptions, secure data isolation, and instant
-              onboarding.
+              SalesAvatar gives Indian sales teams a focused workspace for
+              faster follow-ups, accountable field work, and clear revenue
+              visibility—without a heavy implementation project.
             </p>
 
             <div className="subpage-hero-checks">

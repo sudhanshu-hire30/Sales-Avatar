@@ -2,11 +2,15 @@ import React from 'react';
 import { ArrowRight, CheckCircle2, Clock3, ShieldCheck } from 'lucide-react';
 import usePageSeo from '../utils/usePageSeo';
 import HeroSection from '../components/HeroSection';
-import IndustrySolutionsSection from '../components/IndustrySolutionsSection';
 import WhyUsSection from '../components/WhyUsSection';
+import IndustrySolutionsSection from '../components/IndustrySolutionsSection';
 import ComparisonSection from '../components/ComparisonSection';
+import PricingSection from '../components/PricingSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import TestimonialsAndFAQ from '../components/TestimonialsAndFAQ';
+import WorkflowStorySection from '../components/WorkflowStorySection';
+import RevenueControlRoomSection from '../components/RevenueControlRoomSection';
+import CrmLiveDemoSection from '../components/CrmLiveDemoSection';
 
 export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) {
   usePageSeo({
@@ -24,6 +28,8 @@ export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) 
         onOpenDemo={onOpenDemo}
       />
 
+      <CrmLiveDemoSection onOpenDemo={onOpenDemo} />
+
       {/* Trust & Buying Conversion Bar */}
       <section className="home-conversion-bar" aria-label="SalesAvatar buying benefits">
         <div className="home-conversion-inner">
@@ -38,7 +44,7 @@ export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) 
             <ShieldCheck size={18} />
             <div>
               <strong>Built for Indian teams</strong>
-              <span>100% Indian Cloud &bull; DPDP ready</span>
+              <span>India-region hosting &bull; privacy controls explained</span>
             </div>
           </div>
           <div className="home-conversion-item">
@@ -58,23 +64,27 @@ export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) 
         </div>
       </section>
 
-      {/* 2. Industry-Tailored Solutions (Real Estate, Manufacturing, Solar, Financial, Agencies) */}
-      <IndustrySolutionsSection 
-        onOpenDemo={onOpenDemo}
-      />
-
-      {/* 3. Why Us & Modern Sales Leadership */}
+      {/* Product-led capabilities */}
       <WhyUsSection />
 
-      {/* 4. Honest Comparison: SalesAvatar vs Excel vs Legacy Foreign CRMs */}
-      <ComparisonSection 
-        onOpenDemo={onOpenDemo}
+      <IndustrySolutionsSection onOpenDemo={onOpenDemo} />
+
+      <ComparisonSection onOpenDemo={onOpenDemo} />
+
+      <WorkflowStorySection />
+
+      <RevenueControlRoomSection onOpenDemo={onOpenDemo} />
+
+      <PricingSection
+        compact
+        onSelectPlan={(plan, cycle) => onOpenTrial(plan, cycle)}
+        onOpenEnterprise={onOpenEnterprise}
       />
 
-      {/* 6. Fast 3-Step Onboarding */}
+      {/* Fast 3-step onboarding */}
       <HowItWorksSection />
 
-      {/* 7. Authentic Customer Proof & Testimonials */}
+      {/* Customer proof and common questions */}
       <TestimonialsAndFAQ />
 
     </div>

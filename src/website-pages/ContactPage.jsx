@@ -89,7 +89,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                 <span>NDA & Data Privacy Guaranteed</span>
               </div>
               <div className="subpage-check-item">
-                <Building2 size={14} color="#ea580c" />
+                <Building2 size={14} color="#1d4ed8" />
                 <span>Noida & Mumbai Tech Centers</span>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                   className="stream-item"
                   style={{ textDecoration: 'none' }}
                 >
-                  <div className="stream-icon-box" style={{ background: '#ecfdf5', color: '#10b981' }}>
+                  <div className="stream-icon-box" style={{ background: '#f0fdfa', color: '#0f766e' }}>
                     <Phone size={16} />
                   </div>
                   <div className="stream-content">
@@ -157,7 +157,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                 </a>
 
                 <div className="stream-item">
-                  <div className="stream-icon-box" style={{ background: '#fff7ed', color: '#ea580c' }}>
+                  <div className="stream-icon-box" style={{ background: '#f1f5f9', color: '#475569' }}>
                     <Building2 size={16} />
                   </div>
                   <div className="stream-content">
@@ -173,7 +173,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                 to="/crm-tour"
                 style={{
                   width: '100%',
-                  background: 'linear-gradient(135deg, #ff6b2b 0%, #ea580c 100%)',
+                  background: '#1d4ed8',
                   color: '#ffffff',
                   border: 'none',
                   borderRadius: 12,
@@ -211,7 +211,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                 <div className="contact-details-list">
                   <div className="contact-detail-row">
                     <div className="detail-icon-bubble">
-                      <MapPin size={20} color="#ea580c" />
+                      <MapPin size={20} color="#1d4ed8" />
                     </div>
                     <div className="detail-text">
                       <b>Corporate Headquarters</b>
@@ -241,7 +241,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
 
                   <div className="contact-detail-row">
                     <div className="detail-icon-bubble">
-                      <Phone size={20} color="#f97316" />
+                      <Phone size={20} color="#475569" />
                     </div>
                     <div className="detail-text">
                       <b>Phone / WhatsApp Support</b>
@@ -251,7 +251,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
 
                   <div className="contact-detail-row">
                     <div className="detail-icon-bubble">
-                      <Clock size={20} color="#06b6d4" />
+                      <Clock size={20} color="#0f766e" />
                     </div>
                     <div className="detail-text">
                       <b>Guaranteed Response SLA</b>

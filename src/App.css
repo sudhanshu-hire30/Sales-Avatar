@@ -2255,7 +2255,173 @@ input[type="reset"] {
   .clean-enterprise-home .floating-laptop-tag {
     display: none;
   }
+}
 
+/* Product proof cards: precise, customer-safe examples with quiet motion. */
+.clean-enterprise-home .proof-story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.clean-enterprise-home .proof-story-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 300px;
+  padding: 27px 25px 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  background: linear-gradient(155deg, #fff 15%, #f8fbff 100%);
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.045);
+  transition: transform 260ms cubic-bezier(.2,.8,.2,1), box-shadow 260ms ease, border-color 260ms ease;
+  animation: proof-card-in 600ms both;
+}
+
+.clean-enterprise-home .proof-story-card:nth-child(2) { animation-delay: 100ms; }
+.clean-enterprise-home .proof-story-card:nth-child(3) { animation-delay: 200ms; }
+
+.clean-enterprise-home .proof-story-card::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 180px;
+  height: 180px;
+  right: -100px;
+  top: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96, 165, 250, .16), transparent 70%);
+  transition: transform 400ms ease;
+}
+
+.clean-enterprise-home .proof-story-card:hover {
+  transform: translateY(-6px);
+  border-color: #bfdbfe;
+  box-shadow: 0 20px 48px rgba(37, 99, 235, .10);
+}
+
+.clean-enterprise-home .proof-story-card:hover::after { transform: scale(1.5); }
+
+.clean-enterprise-home .proof-story-number {
+  position: absolute;
+  top: 22px;
+  right: 23px;
+  color: #cbd5e1;
+  font: 700 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.clean-enterprise-home .proof-story-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  margin-bottom: 22px;
+  border: 1px solid #dbeafe;
+  border-radius: 13px;
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.clean-enterprise-home .proof-story-kicker {
+  display: block;
+  margin-bottom: 10px;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .11em;
+}
+
+.clean-enterprise-home .proof-story-card h3 {
+  margin: 0 0 11px;
+  color: #0f172a;
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+}
+
+.clean-enterprise-home .proof-story-card p {
+  margin: 0 0 23px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.clean-enterprise-home .proof-story-result {
+  display: inline-flex;
+  padding: 7px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 99px;
+  color: #475569;
+  background: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.clean-enterprise-home .proof-story-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 25px auto 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.clean-enterprise-home .proof-story-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #1d4ed8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.clean-enterprise-home .hero-audience-note {
+  flex-basis: 100%;
+  margin: 0 0 0 23px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.clean-enterprise-home .hero-demo-data-note {
+  position: absolute;
+  z-index: 4;
+  top: -9px;
+  right: 12px;
+  padding: 5px 9px;
+  border: 1px solid rgba(148,163,184,.3);
+  border-radius: 99px;
+  color: #475569;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 4px 16px rgba(15,23,42,.08);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+@keyframes proof-card-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .clean-enterprise-home .proof-story-grid { grid-template-columns: 1fr; max-width: 640px; }
+  .clean-enterprise-home .proof-story-card { min-height: 0; }
+}
+
+@media (max-width: 600px) {
+  .clean-enterprise-home .proof-story-cta { flex-direction: column; gap: 8px; text-align: center; }
+  .clean-enterprise-home .hero-demo-data-note { top: 3px; right: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clean-enterprise-home .proof-story-card { animation: none; transition: none; }
+  .clean-enterprise-home .proof-story-card:hover { transform: none; }
+}
+
+@media (max-width: 768px) {
   .clean-enterprise-home .hero-title {
     font-size: 34px;
   }

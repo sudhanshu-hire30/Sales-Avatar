@@ -10,7 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
+export default function PricingSection({ onSelectPlan, onOpenEnterprise, compact = false }) {
   const [billingCycle, setBillingCycle] = useState("monthly"); // 'monthly' | 'yearly'
 
   const plans = [
@@ -25,8 +25,8 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       users: "Up to 5 users",
       storage: "Lead & customer management",
       highlight: "Follow-up reminders & dashboard",
-      themeColor: "#10b981",
-      bgLight: "#ecfdf5",
+      themeColor: "#1d4ed8",
+      bgLight: "#eff6ff",
       isPopular: false,
     },
     {
@@ -40,7 +40,7 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       users: "Up to 10 users",
       storage: "Visual sales pipeline",
       highlight: "Automated deal stages & alerts",
-      themeColor: "#2563eb",
+      themeColor: "#0f766e",
       bgLight: "#eff6ff",
       isPopular: false,
     },
@@ -55,8 +55,8 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       users: "Up to 20 users",
       storage: "Advanced reports & analytics",
       highlight: "Sales targets & role permissions",
-      themeColor: "#ea580c",
-      bgLight: "#fff7ed",
+      themeColor: "#1d4ed8",
+      bgLight: "#eff6ff",
       isPopular: true,
       popularLabel: "Most Popular",
     },
@@ -71,8 +71,8 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       users: "Up to 50 users",
       storage: "Field officer & geo-attendance",
       highlight: "Dealer & distributor management",
-      themeColor: "#f59e0b",
-      bgLight: "#fffbeb",
+      themeColor: "#0f766e",
+      bgLight: "#f0fdfa",
       isPopular: false,
     },
     {
@@ -93,8 +93,12 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
     },
   ];
 
+  const visiblePlans = compact
+    ? plans.filter((plan) => ['starter', 'professional', 'enterprise'].includes(plan.id))
+    : plans;
+
   return (
-    <section id="pricing" className="pricing-section">
+    <section id="pricing" className={`pricing-section ${compact ? 'pricing-section-compact' : ''}`}>
       <div className="pricing-container">
         {/* Top Header */}
         <div className="section-center-header">
@@ -141,7 +145,7 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
 
         {/* 5 Plans Grid */}
         <div className="pricing-grid-5">
-          {plans.map((p) => {
+          {visiblePlans.map((p) => {
             const Icon = p.icon;
             const isYearly = billingCycle === "yearly";
             const price = p.isCustom

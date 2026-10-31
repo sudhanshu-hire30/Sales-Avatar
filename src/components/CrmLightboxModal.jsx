@@ -32,6 +32,16 @@ export default function CrmLightboxModal({
   const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
+    // Every screen should open fitted to the available viewport. Zoom is an
+    // explicit choice so the initial full-screen view never requires scrolling.
+    setIsZoomed(false);
+    if (viewportRef.current) {
+      viewportRef.current.scrollLeft = 0;
+      viewportRef.current.scrollTop = 0;
+    }
+  }, [isOpen, currentIndex]);
+
+  useEffect(() => {
     if (!isOpen) return;
 
     const handleKeyDown = (e) => {

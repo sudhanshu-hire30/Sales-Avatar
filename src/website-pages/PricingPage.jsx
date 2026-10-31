@@ -67,15 +67,15 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
 
             <div className="subpage-hero-checks">
               <div className="subpage-check-item">
-                <ShieldCheck size={14} color="#10b981" />
+                <ShieldCheck size={14} color="#0f766e" />
                 <span>Guided onboarding for every plan</span>
               </div>
               <div className="subpage-check-item">
-                <Check size={14} color="#10b981" />
+                <Check size={14} color="#0f766e" />
                 <span>18% GST Invoices with ITC</span>
               </div>
               <div className="subpage-check-item">
-                <Building2 size={14} color="#ea580c" />
+                <Building2 size={14} color="#1d4ed8" />
                 <span>100% Indian Cloud Data Residency</span>
               </div>
             </div>

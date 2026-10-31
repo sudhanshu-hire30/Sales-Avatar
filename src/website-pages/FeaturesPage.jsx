@@ -36,8 +36,8 @@ const featureList = [
       title: 'Lead Management & Automated Ingestion',
       badge: '01. Ingestion',
       icon: Users,
-      color: '#10b981',
-      bgLight: '#ecfdf5',
+      color: '#1d4ed8',
+      bgLight: '#eff6ff',
       screenshotFile: 'ef397b13-affc-4018-9693-fabea53c0aaa.jpg',
       screenshotScreenId: 'sales-leads-table',
       screenshotTitle: '1,248+ Leads Directory & Multi-Stage Table',
@@ -55,8 +55,8 @@ const featureList = [
       title: 'Customer 360° Account Management',
       badge: '02. Accounts',
       icon: Users,
-      color: '#06b6d4',
-      bgLight: '#ecfeff',
+      color: '#0f766e',
+      bgLight: '#f0fdfa',
       screenshotFile: '14c4bfbc-4c28-404d-a836-213b1e0d9519.jpg',
       screenshotScreenId: 'lead-detail-timeline',
       screenshotTitle: 'Lead Profile & Call/WhatsApp Activity Timeline',
@@ -74,7 +74,7 @@ const featureList = [
       title: 'Visual Drag-and-Drop Sales Pipeline',
       badge: '03. Conversions',
       icon: Filter,
-      color: '#2563eb',
+      color: '#1d4ed8',
       bgLight: '#eff6ff',
       screenshotFile: '6766b2b0-f170-47b7-b227-70f5f2c2d8dc.jpg',
       screenshotScreenId: 'dashboard-overview',
@@ -93,8 +93,8 @@ const featureList = [
       title: 'Follow-Up Tasks & Reminder Automation',
       badge: '04. Follow-Ups',
       icon: Calendar,
-      color: '#ea580c',
-      bgLight: '#fff7ed',
+      color: '#475569',
+      bgLight: '#f1f5f9',
       screenshotFile: '96d04885-5c0b-44a5-bfa0-c637795ba64d.jpg',
       screenshotScreenId: 'followup-queue',
       screenshotTitle: 'Due Follow-Ups & One-Click Calling Queue',
@@ -112,8 +112,8 @@ const featureList = [
       title: 'Field Officer Management & Geo-Attendance',
       badge: '05. Field Force',
       icon: MapPin,
-      color: '#f97316',
-      bgLight: '#fff7ed',
+      color: '#0f766e',
+      bgLight: '#f0fdfa',
       screenshotFile: 'fd86ccb8-add2-4a4e-a1b4-badb0740a7cd.jpg',
       screenshotScreenId: 'attendance-tracking',
       screenshotTitle: 'Employee Attendance & Daily Punch Register',
@@ -131,8 +131,8 @@ const featureList = [
       title: 'Dealer & Distributor Network Management',
       badge: '06. Distribution',
       icon: Filter,
-      color: '#8b5cf6',
-      bgLight: '#f5f3ff',
+      color: '#475569',
+      bgLight: '#f1f5f9',
       screenshotFile: 'd5b197d3-4fcf-477a-8e7f-a567647cd704.jpg',
       screenshotScreenId: 'project-sites',
       screenshotTitle: 'Project Sites & 20-Stage Handover Progress',
@@ -150,8 +150,8 @@ const featureList = [
       title: 'Sales Team Management & Target Quotas',
       badge: '07. Performance',
       icon: Trophy,
-      color: '#eab308',
-      bgLight: '#fefce8',
+      color: '#1d4ed8',
+      bgLight: '#eff6ff',
       screenshotFile: 'a6fccb54-6ca5-44ea-84b8-bad25878ac35.jpg',
       screenshotScreenId: 'executive-goals',
       screenshotTitle: 'Executive ₹4.80 Cr Target & Quota Pacing',
@@ -169,8 +169,8 @@ const featureList = [
       title: 'Reports & Executive Analytics',
       badge: '08. Intelligence',
       icon: BarChart2,
-      color: '#10b981',
-      bgLight: '#ecfdf5',
+      color: '#0f766e',
+      bgLight: '#f0fdfa',
       screenshotFile: '83161ec4-f704-4a73-acfc-15e759c7a704.jpg',
       screenshotScreenId: 'pipeline-analytics',
       screenshotTitle: 'Executive Pipeline Analytics & Attribution',
@@ -295,7 +295,7 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
 
               <div className="preview-stream-list">
                 <div className="stream-item">
-                  <div className="stream-icon-box" style={{ background: '#ecfdf5', color: '#10b981' }}>
+                  <div className="stream-icon-box" style={{ background: '#eff6ff', color: '#1d4ed8' }}>
                     <Users size={16} />
                   </div>
                   <div className="stream-content">
@@ -322,7 +322,7 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
                 </div>
 
                 <div className="stream-item">
-                  <div className="stream-icon-box" style={{ background: '#fefce8', color: '#eab308' }}>
+                  <div className="stream-icon-box" style={{ background: '#f1f5f9', color: '#475569' }}>
                     <Trophy size={16} />
                   </div>
                   <div className="stream-content">

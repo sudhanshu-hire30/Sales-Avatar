@@ -162,6 +162,11 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
   const currentScreenMeta = SIDEBAR_SCREENS[sidebarItem] || SIDEBAR_SCREENS['Dashboard'];
 
+  const handleSidebarItemClick = (item) => {
+    setSidebarItem(item);
+    setDashboardMode(item === 'Dashboard' ? 'live' : 'screenshot');
+  };
+
   const handleOpenScreenshot = (screenId) => {
     const targetId = screenId || currentScreenMeta.id;
     const idx = CRM_SCREENSHOTS.findIndex(s => s.id === targetId);
@@ -173,24 +178,35 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
   return (
     <section id="home" className="hero-section">
+      <div className="hero-ambient-orbit hero-ambient-orbit-one" aria-hidden="true">
+        <span className="hero-orbit-dot"></span>
+      </div>
+      <div className="hero-ambient-orbit hero-ambient-orbit-two" aria-hidden="true">
+        <span className="hero-orbit-dot"></span>
+      </div>
       <div className="hero-container">
         {/* Left Column: Hero Copy & CTA */}
         <div className="hero-left">
           {/* Badge */}
           <div className="hero-badge">
             <span className="hero-status-dot"></span>
-            <span>CRM FOR GROWING SALES TEAMS</span>
+            <span>THE SALES CRM BUILT FOR INDIAN TEAMS</span>
+          </div>
+          <div className="hero-live-signal" aria-hidden="true">
+            <span className="hero-live-signal-line"></span>
+            <span>Live workspace signal</span>
           </div>
 
           {/* Headline */}
           <h1 className="hero-title">
-            Turn More Leads Into <br className="hero-title-br" />
-            <span className="gradient-text">Predictable Revenue</span>
+            The sales CRM built for <br className="hero-title-br" />
+            <span className="gradient-text">how Indian teams sell</span>
           </h1>
 
           {/* Subtitle */}
           <p className="hero-subtitle">
-            SalesAvatar brings leads, follow-ups, field teams, and sales reporting into one simple CRM built for Indian businesses.
+            Built for growing Indian sales teams that need faster lead response,
+            clear pipeline ownership, and field activity in one workspace.
           </p>
 
           {/* Trust Checkmarks */}
@@ -201,8 +217,9 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
             </div>
             <div className="check-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>Guided onboarding</span>
+              <span>Guided team onboarding</span>
             </div>
+            <div className="hero-audience-note">For SMBs, multi-branch teams, and field sales operations</div>
           </div>
 
           {/* Action Buttons */}
@@ -228,6 +245,34 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
         {/* Right Column: Realistic Laptop Showcase with Live CRM Dashboard */}
         <div className="hero-right">
+          <div className="hero-proof-cluster" aria-label="Illustrative sales dashboard figures">
+            <span className="hero-proof-label">Illustrative metrics</span>
+            <div className="hero-proof-card hero-proof-card-leads">
+              <span className="hero-proof-icon"><Users size={13} /></span>
+              <span className="hero-proof-copy">
+                <strong>1,248</strong>
+                <small>active leads</small>
+              </span>
+              <span className="hero-proof-trend">+18%</span>
+            </div>
+            <div className="hero-proof-card hero-proof-card-pipeline">
+              <span className="hero-proof-icon"><IndianRupee size={13} /></span>
+              <span className="hero-proof-copy">
+                <strong>₹4.8 Cr</strong>
+                <small>pipeline tracked</small>
+              </span>
+              <span className="hero-proof-pulse" aria-hidden="true"></span>
+            </div>
+            <div className="hero-proof-card hero-proof-card-followups">
+              <span className="hero-proof-icon"><Clock size={13} /></span>
+              <span className="hero-proof-copy">
+                <strong>92%</strong>
+                <small>follow-ups on time</small>
+              </span>
+              <span className="hero-proof-ring" aria-hidden="true"></span>
+            </div>
+          </div>
+
           {/* Floating Badge above laptop */}
           <div
             className="floating-laptop-tag"
@@ -269,48 +314,48 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
                     {/* Nav Items List */}
                     <div className="crm-nav-list">
-                      <div className="crm-nav-item active">
+                      <div className={`crm-nav-item ${sidebarItem === 'Dashboard' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Dashboard')}>
                         <Home size={12} className="crm-nav-icon" />
                         <span>Dashboard</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'Workspace' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Workspace')}>
                         <LayoutGrid size={12} className="crm-nav-icon" />
                         <span>Workspace</span>
                         <span className="crm-badge-red">3</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'Sales' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Sales')}>
                         <Briefcase size={12} className="crm-nav-icon" />
                         <span>Sales</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'Deal approvals' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Deal approvals')}>
                         <ShieldCheck size={12} className="crm-nav-icon" />
                         <span>Deal approvals</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'LOB' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('LOB')}>
                         <Building2 size={12} className="crm-nav-icon" />
                         <span>LOB</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'Project Sites' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Project Sites')}>
                         <HardHat size={12} className="crm-nav-icon" />
                         <span>Project Sites</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'Reports' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Reports')}>
                         <BarChart2 size={12} className="crm-nav-icon" />
                         <span>Reports</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'Goals' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Goals')}>
                         <Target size={12} className="crm-nav-icon" />
                         <span>Goals</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'Marketing' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Marketing')}>
                         <Megaphone size={12} className="crm-nav-icon" />
                         <span>Marketing</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'HR' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('HR')}>
                         <UserCheck size={12} className="crm-nav-icon" />
                         <span>HR</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'WhatsApp' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('WhatsApp')}>
                         <MessageCircle size={12} className="crm-nav-icon" />
                         <span>WhatsApp</span>
                       </div>
@@ -319,15 +364,15 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                     {/* TEAM Section */}
                     <div className="crm-sidebar-team-section">
                       <span className="crm-team-heading">TEAM</span>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'View Team' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('View Team')}>
                         <Users size={12} className="crm-nav-icon" />
                         <span>View Team</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'Help & Tickets' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Help & Tickets')}>
                         <HelpCircle size={12} className="crm-nav-icon" />
                         <span>Help & Tickets</span>
                       </div>
-                      <div className="crm-nav-item">
+                      <div className={`crm-nav-item ${sidebarItem === 'Settings' ? 'active' : ''}`} onClick={() => handleSidebarItemClick('Settings')}>
                         <Settings size={12} className="crm-nav-icon" />
                         <span>Settings</span>
                       </div>

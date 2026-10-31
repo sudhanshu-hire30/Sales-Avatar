@@ -31,13 +31,13 @@ export default function CrmTourPage({ onOpenTrial, onOpenDemo }) {
 
           {/* Main Hero Headline */}
           <h1 className="crm-tour-hero-title">
-            Experience SalesAvatar in Action <br />
-            <span className="gradient-text">Interactive Cloud CRM Tour</span>
+            See how your team moves <br />
+            <span className="gradient-text">from lead to close.</span>
           </h1>
 
           {/* Engaging Subtitle */}
           <p className="crm-tour-hero-subtitle">
-            Zero mockups. Zero generic design templates. Browse verified, high-resolution application screens from actual production deployments — covering lead pipelines, field GPS attendance, WhatsApp messaging, team quotas, and executive business intelligence.
+            Explore real SalesAvatar screens across lead capture, pipeline management, field visits, team performance, and revenue reporting.
           </p>
 
           {/* 4 Modern Stat / Capability Highlight Cards */}
