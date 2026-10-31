@@ -1562,7 +1562,7 @@ body,
 }
 
 .workflow-story-section {
-  padding: 132px 0 0;
+  padding: 84px 0 0;
   background: #f7f9fc;
   overflow: visible;
   --workflow-sticky-offset: 110px;
@@ -1573,12 +1573,12 @@ body,
 }
 
 .workflow-story-section.has-scroll-timeline .workflow-story-intro {
-  min-height: 280px;
+  min-height: 250px;
 }
 
 .workflow-story-intro {
   max-width: 860px;
-  min-height: 420px;
+  min-height: 290px;
   padding: 0 var(--content-gutter);
   margin: 0 auto;
   text-align: center;
@@ -1593,9 +1593,9 @@ body,
 }
 
 .workflow-story-intro h2 {
-  margin: 22px 0 20px;
+  margin: 14px 0 12px;
   color: #172033;
-  font-size: clamp(52px, 8vw, 112px);
+  font-size: clamp(38px, 5.2vw, 72px);
   line-height: 0.98;
   letter-spacing: -0.07em;
 }
@@ -1608,7 +1608,7 @@ body,
   max-width: 470px;
   margin: 0 auto;
   color: #526078;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.55;
 }
 
@@ -1616,20 +1616,28 @@ body,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 82px;
+  margin-top: 36px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 999px;
   color: #718096;
+  background: transparent;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
+  cursor: pointer;
   animation: workflow-cue-bob 2s ease-in-out infinite;
 }
+
+.workflow-story-scroll-cue:hover { color: #1d4ed8; background: #e8f1ff; }
+.workflow-story-scroll-cue:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 3px; }
 
 .workflow-story-track {
   position: relative;
   display: grid;
   gap: 18px;
   max-width: 1280px;
-  padding: 100px var(--content-gutter) 56px;
+  padding: 48px var(--content-gutter) 56px;
   margin: 0 auto;
 }
 
@@ -1701,7 +1709,7 @@ body,
   .workflow-story-section.has-scroll-timeline .workflow-story-panel:nth-child(1) { --stack-depth: 2; }
   .workflow-story-section.has-scroll-timeline .workflow-story-panel:nth-child(2) { --stack-depth: 1; }
   .workflow-story-section.has-scroll-timeline .workflow-story-panel:nth-child(3) { --stack-depth: 0; }
-  .workflow-story-section.has-scroll-timeline .workflow-story-panel:last-child { margin-bottom: 0; }
+  .workflow-story-section.has-scroll-timeline .workflow-story-panel:last-child { margin-bottom: 82vh; }
 }
 
 @keyframes workflow-card-scroll {
@@ -1713,7 +1721,7 @@ body,
 
 .workflow-story-panel-blue { background: #e8f1ff; }
 .workflow-story-panel-teal { background: #dff3ef; }
-.workflow-story-panel-navy { background: #172033; }
+.workflow-story-panel-navy { background: #e8f1ff; }
 
 .workflow-story-panel-copy h3 {
   max-width: 480px;
@@ -1732,10 +1740,11 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-panel-copy h3,
-.workflow-story-panel-navy .workflow-story-panel-copy p,
-.workflow-story-panel-navy .workflow-story-label {
-  color: #ffffff;
+.workflow-story-panel-navy .workflow-story-panel-copy p {
+  color: #172033;
 }
+
+.workflow-story-panel-navy .workflow-story-label { color: #1d4ed8; }
 
 .workflow-story-proof {
   display: inline-flex;
@@ -1748,7 +1757,7 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-proof {
-  color: #93c5fd;
+  color: #1d4ed8;
 }
 
 .workflow-story-visual {
@@ -1834,9 +1843,9 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-floating-chip {
-  background: rgba(38, 50, 72, 0.8);
-  border-color: rgba(147, 197, 253, 0.35);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #bfdbfe;
+  color: #1d4ed8;
 }
 
 @keyframes workflow-rail-pulse {
@@ -1880,8 +1889,8 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-window-body {
-  background: #263248;
-  color: #ffffff;
+  background: #f8fbff;
+  color: #172033;
 }
 
 .workflow-story-icon {
@@ -1901,8 +1910,8 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-icon {
-  color: #93c5fd;
-  background: #34425b;
+  color: #1d4ed8;
+  background: #dbeafe;
 }
 
 .workflow-story-window-body strong {
@@ -1921,7 +1930,7 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-line {
-  background: #43516a;
+  background: #dbeafe;
 }
 
 .workflow-story-action {
@@ -1937,8 +1946,8 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-action {
-  color: #93c5fd;
-  border-color: #43516a;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
 }
 
 @keyframes workflow-panel-rise {
@@ -1973,19 +1982,23 @@ body,
   }
 
   .workflow-story-section {
-    padding-top: 90px;
+    padding-top: 56px;
   }
 
   .workflow-story-intro {
-    min-height: 350px;
+    min-height: 260px;
   }
 
+  .workflow-story-intro h2 { font-size: clamp(36px, 8vw, 58px); }
+
+  .workflow-story-intro p { font-size: 15px; }
+
   .workflow-story-scroll-cue {
-    margin-top: 52px;
+    margin-top: 24px;
   }
 
   .workflow-story-track {
-    padding-top: 64px;
+    padding-top: 36px;
     padding-bottom: 18vh;
     padding-right: var(--content-gutter-mobile);
     padding-left: var(--content-gutter-mobile);
@@ -2004,7 +2017,7 @@ body,
       margin-bottom: 12vh;
     }
 
-    .workflow-story-section.has-scroll-timeline .workflow-story-panel:last-child { margin-bottom: 0; }
+    .workflow-story-section.has-scroll-timeline .workflow-story-panel:last-child { margin-bottom: 12vh; }
   }
 
   .workflow-story-window {
@@ -2668,7 +2681,7 @@ body,
   color: #0f172a;
 }
 
-.workflow-story-panel-navy .workflow-story-window-body > strong { color: #ffffff; }
+.workflow-story-panel-navy .workflow-story-window-body > strong { color: #172033; }
 
 .workflow-activity-list,
 .workflow-visit-preview {
@@ -2795,9 +2808,9 @@ body,
   grid-template-columns: 1fr 1.2fr;
   align-items: center;
   padding: 9px;
-  border: 1px solid #43516a;
+  border: 1px solid #bfdbfe;
   border-radius: 12px;
-  background: #303d54;
+  background: #eaf2ff;
 }
 
 /* Tighten the close-stage preview so the dark card has no oversized blank band. */

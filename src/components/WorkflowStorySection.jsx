@@ -31,6 +31,13 @@ export default function WorkflowStorySection() {
   const [activeStep, setActiveStep] = useState(0);
   const [supportsScrollTimeline, setSupportsScrollTimeline] = useState(false);
 
+  const scrollToFirstStep = () => {
+    const firstPanel = trackRef.current?.querySelector('.workflow-story-panel');
+    if (!firstPanel) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    firstPanel.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  };
+
   useEffect(() => {
     setSupportsScrollTimeline(typeof CSS !== 'undefined' && CSS.supports('animation-timeline: view()') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     const panels = trackRef.current?.querySelectorAll('.workflow-story-panel');
@@ -55,10 +62,10 @@ export default function WorkflowStorySection() {
           <span>to next win.</span>
         </h2>
         <p>One connected rhythm for every person, deal, and customer conversation.</p>
-        <div className="workflow-story-scroll-cue" aria-hidden="true">
+        <button type="button" className="workflow-story-scroll-cue" onClick={scrollToFirstStep} aria-label="Scroll to the first workflow step">
           <ArrowDown size={16} />
           <span>Scroll to explore</span>
-        </div>
+        </button>
       </div>
 
       <div className="workflow-story-track" ref={trackRef}>

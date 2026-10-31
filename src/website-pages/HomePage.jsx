@@ -4,14 +4,13 @@ import usePageSeo from '../utils/usePageSeo';
 import HeroSection from '../components/HeroSection';
 import WhyUsSection from '../components/WhyUsSection';
 import IndustrySolutionsSection from '../components/IndustrySolutionsSection';
-import PricingSection from '../components/PricingSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import TestimonialsAndFAQ from '../components/TestimonialsAndFAQ';
 import WorkflowStorySection from '../components/WorkflowStorySection';
 import RevenueControlRoomSection from '../components/RevenueControlRoomSection';
 import CrmLiveDemoSection from '../components/CrmLiveDemoSection';
 
-export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) {
+export default function HomePage({ onOpenTrial, onOpenDemo }) {
   usePageSeo({
     title: 'SalesAvatar CRM — #1 Cloud Sales CRM for Indian Businesses | Leads, Pipelines & Field GPS',
     description: 'Boost sales velocity with SalesAvatar — India’s top cloud CRM. Automated 30s lead routing, 1-click WhatsApp follow-ups, visual Kanban pipelines, GPS field attendance, and 18% GST invoices. Live in 15 mins.',
@@ -71,12 +70,6 @@ export default function HomePage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) 
       <WorkflowStorySection />
 
       <RevenueControlRoomSection onOpenDemo={onOpenDemo} />
-
-      <PricingSection
-        compact
-        onSelectPlan={(plan, cycle) => onOpenTrial(plan, cycle)}
-        onOpenEnterprise={onOpenEnterprise}
-      />
 
       {/* Fast 3-step onboarding */}
       <HowItWorksSection />
