@@ -52,7 +52,7 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
               </a>
               <Link to="/contact" className="contact-line" title="View office locations & directions">
                 <MapPin size={15} className="contact-icon" />
-                <span>A60 Sector 58, Noida, Uttar Pradesh, India</span>
+                <span>Corporate, head & registered offices in Mumbai and Noida</span>
               </Link>
             </div>
 

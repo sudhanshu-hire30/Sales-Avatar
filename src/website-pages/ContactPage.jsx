@@ -202,10 +202,10 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
             {/* Left: Contact Info & Office Addresses */}
             <div className="contact-info-column">
               <div className="contact-card-box">
-                <span className="contact-box-badge">HEADQUARTERS & HUBS</span>
+                <span className="contact-box-badge">OFFICE LOCATIONS</span>
                 <h3>Bharat Group — SalesAvatar</h3>
                 <p className="contact-box-sub">
-                  Engineered and supported from India's prime technology centers.
+                  Visit our corporate, head, and registered offices.
                 </p>
 
                 <div className="contact-details-list">
@@ -214,8 +214,8 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                       <MapPin size={20} color="#1d4ed8" />
                     </div>
                     <div className="detail-text">
-                      <b>Corporate Headquarters</b>
-                      <span>Bharat Group Tech Center, Sector 62, Noida, Uttar Pradesh 201309, India</span>
+                      <b>Corporate Office – Mumbai</b>
+                      <span>1306–1317, Peninsula Park, Plot No. A4, Veera Desai Industrial Road, Andheri West, Mumbai – 400053</span>
                     </div>
                   </div>
 
@@ -224,8 +224,18 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                       <Building2 size={20} color="#2563eb" />
                     </div>
                     <div className="detail-text">
-                      <b>Regional Tech Hub</b>
-                      <span>Bandra-Kurla Complex (BKC), Mumbai, Maharashtra 400051, India</span>
+                      <b>Head Office – Noida</b>
+                      <span>A-60, A Block, Sector 58, Noida, Uttar Pradesh – 201309</span>
+                    </div>
+                  </div>
+
+                  <div className="contact-detail-row">
+                    <div className="detail-icon-bubble">
+                      <Building2 size={20} color="#2563eb" />
+                    </div>
+                    <div className="detail-text">
+                      <b>Registered Office</b>
+                      <span>BH-32, Sector 70, Noida, Uttar Pradesh – 201301</span>
                     </div>
                   </div>
 
