@@ -122,34 +122,40 @@ export default function LeadDistributionSection({ isEmbedded = false }) {
 
           {/* Method Tabs */}
           <div className="dist-methods-tabs" role="tablist" aria-label="Lead Distribution Methods">
-            {DISTRIBUTION_METHODS.map((method, idx) => {
-              const IconComponent = method.icon;
-              const isActive = activeDistMethod === idx;
-              return (
-                <button
-                  key={method.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  className={`dist-method-tab-btn ${isActive ? 'active' : ''}`}
-                  onClick={() => setActiveDistMethod(idx)}
-                >
-                  <div 
-                    className="tab-icon-box" 
-                    style={{ 
-                      background: isActive ? method.color : method.bgLight, 
-                      color: isActive ? '#fff' : method.color 
-                    }}
+            <div className="dist-methods-track">
+              {[...DISTRIBUTION_METHODS, ...DISTRIBUTION_METHODS].map((method, index) => {
+                const IconComponent = method.icon;
+                const methodIndex = index % DISTRIBUTION_METHODS.length;
+                const isActive = activeDistMethod === methodIndex;
+                const isDuplicate = index >= DISTRIBUTION_METHODS.length;
+                return (
+                  <button
+                    key={`${method.id}-${index}`}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-hidden={isDuplicate}
+                    tabIndex={isDuplicate ? -1 : 0}
+                    className={`dist-method-tab-btn ${isActive ? 'active' : ''}`}
+                    onClick={() => setActiveDistMethod(methodIndex)}
                   >
-                    <IconComponent size={16} />
-                  </div>
-                  <div className="tab-text-wrap">
-                    <span className="tab-name">{method.name}</span>
-                    <span className="tab-tagline">{method.tagline}</span>
-                  </div>
-                </button>
-              );
-            })}
+                    <div
+                      className="tab-icon-box"
+                      style={{
+                        background: isActive ? method.color : method.bgLight,
+                        color: isActive ? '#fff' : method.color
+                      }}
+                    >
+                      <IconComponent size={16} />
+                    </div>
+                    <div className="tab-text-wrap">
+                      <span className="tab-name">{method.name}</span>
+                      <span className="tab-tagline">{method.tagline}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Active Method Deep-Dive Card */}

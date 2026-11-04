@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Bell, Check, CheckCircle2, CircleDollarSign, Clock3, MapPin, MessageSquareText, Pause, Play, TrendingUp, UserRound, Users } from 'lucide-react';
+import { ArrowRight, Bell, Check, CheckCircle2, CircleDollarSign, Clock3, MapPin, MessageSquareText, TrendingUp, UserRound, Users } from 'lucide-react';
 
 const moments = [
   { id: 'capture', step: '01', label: 'New lead assigned', title: 'A new inquiry finds its owner.', detail: 'Priya Sharma · Residential enquiry', action: 'Assigned to Aditi Verma', status: 'Owner assigned', icon: MessageSquareText, badge: 'PS' },
@@ -9,19 +9,26 @@ const moments = [
 
 export default function CrmLiveDemoSection({ onOpenDemo }) {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [saveData, setSaveData] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     const update = () => setReducedMotion(media.matches);
     update();
     media.addEventListener?.('change', update);
-    return () => media.removeEventListener?.('change', update);
+    const connection = navigator.connection;
+    const updateDataPreference = () => setSaveData(Boolean(connection?.saveData || /^(slow-2g|2g)$/.test(connection?.effectiveType || '')));
+    updateDataPreference();
+    connection?.addEventListener?.('change', updateDataPreference);
+    return () => {
+      media.removeEventListener?.('change', update);
+      connection?.removeEventListener?.('change', updateDataPreference);
+    };
   }, []);
 
   useEffect(() => {
-    if (paused || reducedMotion || document.hidden) return undefined;
+    if (reducedMotion || saveData || document.hidden) return undefined;
     const timer = window.setInterval(() => setActive((index) => (index + 1) % moments.length), 2200);
     const onVisibility = () => {
       if (!document.hidden) setActive((index) => (index + 1) % moments.length);
@@ -31,7 +38,7 @@ export default function CrmLiveDemoSection({ onOpenDemo }) {
       window.clearInterval(timer);
       document.removeEventListener('visibilitychange', onVisibility);
     };
-  }, [paused, reducedMotion]);
+  }, [reducedMotion, saveData]);
 
   const moment = moments[active];
   const MomentIcon = moment.icon;
@@ -45,12 +52,9 @@ export default function CrmLiveDemoSection({ onOpenDemo }) {
           <p>From the first inquiry to a field visit, keep every handoff visible in one sales workspace.</p>
           <div className="crm-live-demo-actions">
             <button type="button" className="crm-live-demo-cta" onClick={onOpenDemo}>See it with your workflow <ArrowRight size={16} /></button>
-            <button type="button" className="crm-live-demo-pause" aria-pressed={paused} onClick={() => setPaused((value) => !value)}>
-              {paused ? <Play size={14} /> : <Pause size={14} />}{paused ? 'Play preview' : 'Pause preview'}
-            </button>
           </div>
           <div className="crm-live-demo-dots" role="tablist" aria-label="CRM workflow scenes">
-            {moments.map((item, index) => <button key={item.id} type="button" role="tab" aria-label={`Show ${item.label}`} aria-selected={active === index} className={active === index ? 'active' : ''} onClick={() => { setActive(index); setPaused(true); }} />)}
+            {moments.map((item, index) => <button key={item.id} type="button" role="tab" aria-label={`Show ${item.label}`} aria-selected={active === index} className={active === index ? 'active' : ''} onClick={() => setActive(index)} />)}
           </div>
         </div>
 

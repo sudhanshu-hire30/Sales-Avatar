@@ -1639,6 +1639,7 @@ body,
   max-width: 1280px;
   padding: 48px var(--content-gutter) 56px;
   margin: 0 auto;
+  scroll-behavior: smooth;
 }
 
 .workflow-story-track::before {
@@ -1782,24 +1783,11 @@ body,
 }
 
 .workflow-story-window::after {
-  content: '';
-  position: absolute;
-  top: -20%;
-  left: -60%;
-  width: 34%;
-  height: 150%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-  transform: skewX(-20deg);
-  transition: left 0.8s ease;
-  pointer-events: none;
+  display: none;
 }
 
 .workflow-story-panel:hover .workflow-story-window {
   transform: rotateY(0) rotateX(0) translateY(-8px);
-}
-
-.workflow-story-panel:hover .workflow-story-window::after {
-  left: 130%;
 }
 
 .workflow-floating-chip {
@@ -1998,30 +1986,40 @@ body,
   }
 
   .workflow-story-track {
-    padding-top: 36px;
-    padding-bottom: 18vh;
+    display: block;
+    padding-top: 52px;
+    padding-bottom: 20vh;
     padding-right: var(--content-gutter-mobile);
     padding-left: var(--content-gutter-mobile);
   }
 
   .workflow-story-panel {
+    position: sticky;
+    top: 84px;
     grid-template-columns: 1fr;
     min-height: auto;
+    margin-bottom: 18vh;
     padding: 30px 24px;
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
   }
 
   @supports (animation-timeline: view()) {
     .workflow-story-section.has-scroll-timeline .workflow-story-panel {
       top: calc(72px + var(--step-index) * 8px);
       margin-top: -24px;
-      margin-bottom: 12vh;
+      margin-bottom: 18vh;
     }
 
-    .workflow-story-section.has-scroll-timeline .workflow-story-panel:last-child { margin-bottom: 12vh; }
+    .workflow-story-section.has-scroll-timeline .workflow-story-panel:last-child { margin-bottom: 20vh; }
   }
 
   .workflow-story-window {
     transform: none;
+  }
+
+  .workflow-story-panel::after,
+  .workflow-story-panel:hover::after {
+    display: none;
   }
 
   .workflow-story-track::before,
@@ -2057,8 +2055,7 @@ body,
   .laptop-wrapper::after,
   .hero-proof-card::after,
   .product-pillar-card::after,
-  .pricing-section-compact .pricing-card-col::after,
-  .workflow-story-panel::after {
+  .pricing-section-compact .pricing-card-col::after {
     animation: none;
     transition: none;
   }
@@ -2167,8 +2164,7 @@ body,
 }
 
 .product-pillar-card:hover::after,
-.pricing-section-compact .pricing-card-col:hover::after,
-.workflow-story-panel:hover::after {
+.pricing-section-compact .pricing-card-col:hover::after {
   left: 130%;
 }
 
@@ -2552,14 +2548,23 @@ body,
   }
 
   .revenue-control-room-tabs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 4px;
+    width: 100%;
+    padding: 4px;
   }
 
   .revenue-control-room-tabs button {
+    flex: 1 1 0;
+    width: 0;
     min-width: 0;
-    padding: 10px 5px;
+    min-height: 36px;
+    padding: 9px 4px;
     font-size: 9px;
+    line-height: 1.15;
+    white-space: nowrap;
   }
 
   .revenue-control-room-tabs button svg {
@@ -3110,7 +3115,8 @@ body,
 @media (max-width: 560px) {
   .crm-live-demo { padding: 58px 14px; }
   .crm-live-demo-copy h2 { font-size: 36px; }
-  .crm-live-demo-stage { padding: 25px 0; }
+  .crm-live-demo-stage { width: 100%; max-width: none; padding: 25px 0; }
+  .crm-demo-window { width: 100%; }
   .crm-demo-content { grid-template-columns: 1fr; min-height: 0; }
   .crm-demo-sidebar { display: none; }
   .crm-demo-main { padding: 17px 13px 13px; }

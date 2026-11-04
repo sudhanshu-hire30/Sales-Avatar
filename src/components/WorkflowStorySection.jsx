@@ -30,6 +30,7 @@ export default function WorkflowStorySection() {
   const trackRef = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
   const [supportsScrollTimeline, setSupportsScrollTimeline] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const scrollToFirstStep = () => {
     const firstPanel = trackRef.current?.querySelector('.workflow-story-panel');
@@ -39,7 +40,19 @@ export default function WorkflowStorySection() {
   };
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (section && 'IntersectionObserver' in window) {
+      const visibilityObserver = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { rootMargin: '150px' });
+      visibilityObserver.observe(section);
+      return () => visibilityObserver.disconnect();
+    }
+    setIsVisible(true);
+    return undefined;
+  }, []);
+
+  useEffect(() => {
     setSupportsScrollTimeline(typeof CSS !== 'undefined' && CSS.supports('animation-timeline: view()') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (!isVisible) return undefined;
     const panels = trackRef.current?.querySelectorAll('.workflow-story-panel');
     if (!panels?.length || !('IntersectionObserver' in window)) return undefined;
     const observer = new IntersectionObserver((entries) => {
@@ -50,7 +63,7 @@ export default function WorkflowStorySection() {
     }, { threshold: [0.35, 0.55, 0.75], rootMargin: '-15% 0px -15% 0px' });
     panels.forEach((panel) => observer.observe(panel));
     return () => observer.disconnect();
-  }, []);
+  }, [isVisible]);
 
   return (
     <section ref={sectionRef} className={`workflow-story-section ${supportsScrollTimeline ? 'has-scroll-timeline' : ''}`} aria-labelledby="workflow-story-title">

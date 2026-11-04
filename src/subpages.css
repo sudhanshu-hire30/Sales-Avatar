@@ -706,6 +706,14 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
 }
 
+.dist-methods-track {
+  display: contents;
+}
+
+.dist-methods-track .dist-method-tab-btn[aria-hidden="true"] {
+  display: none;
+}
+
 .dist-method-tab-btn {
   display: inline-flex;
   align-items: center;
@@ -763,6 +771,16 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 11px;
   color: #64748b;
   font-weight: 500;
+}
+
+@keyframes distMethodsMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* Active Method Deep-Dive Card */
@@ -1048,22 +1066,45 @@ h1, h2, h3, h4, h5, h6 {
 
   .dist-methods-tabs {
     flex-wrap: nowrap;
-    overflow-x: auto;
+    overflow: hidden;
     justify-content: flex-start;
-    padding-bottom: 8px;
+    padding: 8px 2px 12px;
+    margin-top: 4px;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(29, 78, 216, 0.4) #f1f5f9;
+    scrollbar-width: none;
+  }
+
+  .dist-methods-track {
+    display: flex;
+    width: max-content;
+    gap: 12px;
+    animation: distMethodsMarquee 26s linear infinite;
   }
 
   .dist-method-tab-btn {
     flex-shrink: 0;
     padding: 8px 14px;
+    transform: none;
+  }
+
+  .dist-methods-track .dist-method-tab-btn[aria-hidden="true"] {
+    display: inline-flex;
+  }
+
+  .dist-method-tab-btn:hover,
+  .dist-method-tab-btn.active {
+    transform: none;
+  }
+
+  .dist-method-tab-btn {
+    min-width: 190px;
   }
 
   .dist-method-card {
+    width: 100%;
     padding: 20px 16px;
     border-radius: 16px;
+    overflow: hidden;
   }
 
   .dist-main-title {
@@ -2025,6 +2066,44 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 640px) {
+  .features-page .subpage-hero-title {
+    margin-top: 12px;
+    margin-bottom: 14px;
+  }
+
+  .features-page .subpage-hero-title br {
+    display: inline;
+  }
+
+  .features-page .subpage-hero-subtitle {
+    margin-bottom: 20px;
+  }
+
+  .features-page .subpage-hero-checks {
+    width: 100%;
+    max-width: none;
+    justify-content: safe center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin: 0 0 24px;
+    padding: 2px 4px 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+
+  .features-page .subpage-hero-checks::-webkit-scrollbar {
+    display: none;
+  }
+
+  .features-page .subpage-check-item {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    scroll-snap-align: start;
+  }
+
   .why-metrics-grid {
     grid-template-columns: 1fr;
   }

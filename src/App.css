@@ -308,12 +308,18 @@ input[type="reset"] {
 .mobile-drawer {
   display: none;
   flex-direction: column;
+  position: fixed;
+  top: 64px;
+  right: 0;
+  left: 0;
+  z-index: 1101;
   padding: 16px 20px 24px;
   background: #ffffff;
   border-top: 1px solid #e2e8f0;
   gap: 6px;
-  max-height: calc(100dvh - 68px);
+  max-height: calc(100dvh - 64px);
   overflow-y: auto;
+  overscroll-behavior: contain;
   box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.12);
   animation: drawerSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -2255,6 +2261,17 @@ input[type="reset"] {
   .clean-enterprise-home .floating-laptop-tag {
     display: none;
   }
+
+/* Keep below-the-fold home sections from doing layout and paint work until needed. */
+.clean-enterprise-home > section:not(.hero-section) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 760px;
+}
+
+.clean-enterprise-home .hero-section,
+.clean-enterprise-home .crm-live-demo {
+  content-visibility: visible;
+}
 }
 
 /* Product proof cards: precise, customer-safe examples with quiet motion. */
@@ -2703,14 +2720,49 @@ input[type="reset"] {
     padding-right: var(--content-gutter-mobile);
   }
 
+  .multi-page-site .subpage-hero-split-container {
+    width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .multi-page-site .subpage-hero-left {
+    width: 100%;
+    min-width: 0;
+  }
+
   .multi-page-site .subpage-hero-title,
   .multi-page-site .crm-tour-hero-title {
+    width: 100%;
+    max-width: 100%;
     font-size: clamp(30px, 8vw, 40px);
   }
 
   .multi-page-site .subpage-hero-subtitle,
   .multi-page-site .crm-tour-hero-subtitle {
+    width: 100%;
+    max-width: 100%;
     font-size: 14.5px;
+  }
+
+  .multi-page-site .subpage-hero-left .section-pill-badge {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .multi-page-site .subpage-hero-cta-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .multi-page-site .subpage-hero-cta-row .btn-subpage-primary,
+  .multi-page-site .subpage-hero-cta-row .btn-subpage-ghost {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 }
 
@@ -2794,7 +2846,8 @@ input[type="reset"] {
   filter: drop-shadow(0 15px 25px rgba(124, 58, 237, 0.25));
 }
 
-.dynamic-image-frame {
+.dynamic-image-frame,
+.clean-enterprise-home .dynamic-image-frame {
   position: relative;
   width: 100%;
   max-width: 440px;
@@ -2978,6 +3031,14 @@ input[type="reset"] {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+}
+
+.benefits-track {
+  display: contents;
+}
+
+.benefits-track .benefit-card[aria-hidden="true"] {
+  display: none;
 }
 
 .benefit-card {
@@ -5295,6 +5356,16 @@ input[type="reset"] {
   gap: 10px;
 }
 
+@keyframes benefitsMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* 13. RESPONSIVE MEDIA QUERIES */
 @media (max-width: 1080px) {
   .hero-container {
@@ -5439,9 +5510,41 @@ input[type="reset"] {
   }
 
   .laptop-wrapper {
-    max-width: 100%;
+    width: calc(100% - 24px);
+    max-width: 760px;
     margin: 0 auto;
     overflow: hidden;
+    order: 2;
+  }
+
+  .hero-proof-cluster {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin: 0 auto 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    order: 1;
+    pointer-events: none;
+  }
+
+  .hero-proof-label {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-bottom: 0;
+  }
+
+  .hero-proof-card {
+    min-width: 0;
+    padding: 8px;
+  }
+
+  .hero-proof-copy strong,
+  .hero-proof-copy small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .laptop-lid {
@@ -5488,7 +5591,31 @@ input[type="reset"] {
   }
 
   .benefits-grid {
-    grid-template-columns: 1fr;
+    overflow: hidden;
+    gap: 12px;
+    width: 100vw;
+    padding: 4px var(--content-gutter-mobile) 12px;
+    margin-left: calc(var(--content-gutter-mobile) * -1);
+  }
+
+  .benefits-track {
+    display: flex;
+    width: max-content;
+    gap: 12px;
+    animation: benefitsMarquee 28s linear infinite;
+  }
+
+  .benefit-card {
+    flex: 0 0 min(74vw, 270px);
+  }
+
+  .benefits-track .benefit-card[aria-hidden="true"] {
+    display: flex;
+  }
+
+  .benefits-grid:hover .benefits-track,
+  .benefits-grid:focus-within .benefits-track {
+    animation-play-state: paused;
   }
 
   .steps-flow-row {
@@ -5562,9 +5689,21 @@ input[type="reset"] {
   }
 
   .dynamic-image-frame {
-    width: 100%;
-    max-width: 380px;
-    height: clamp(280px, 70vw, 420px);
+    align-self: center;
+    width: min(calc(100% - 32px), 320px);
+    max-width: 320px;
+    height: clamp(360px, 100vw, 400px);
+    margin: 0 auto;
+  }
+
+  .why-us-visual {
+    padding-right: var(--content-gutter-mobile);
+    padding-left: var(--content-gutter-mobile);
+  }
+
+  .persona-image {
+    display: block;
+    object-position: center center;
   }
 
   .arrow-backdrop {
@@ -5721,7 +5860,6 @@ input[type="reset"] {
 
 .crm-screen-image-container {
   position: relative;
-  cursor: pointer;
   overflow: hidden;
   background: #f8fafc;
   flex: 1;
@@ -5850,7 +5988,7 @@ input[type="reset"] {
   align-items: center;
   gap: 5px;
   pointer-events: none;
-  opacity: 0.92;
+  opacity: 0;
   transition: opacity 0.2s ease;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
 }

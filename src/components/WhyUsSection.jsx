@@ -10,11 +10,22 @@ export default function WhyUsSection() {
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
-    if (isPaused) return undefined;
-    const interval = setInterval(() => setCurrentIndex((previous) => (previous + 1) % dynamicPersonas.length), 3800);
+    const visual = document.querySelector('.why-us-visual');
+    if (!visual || !('IntersectionObserver' in window)) {
+      setIsVisible(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { rootMargin: '120px' });
+    observer.observe(visual);
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    if (isPaused || !isVisible || document.hidden) return undefined;
+    const interval = setInterval(() => setCurrentIndex((previous) => (previous + 1) % dynamicPersonas.length), 5000);
     return () => clearInterval(interval);
-  }, [isPaused, dynamicPersonas.length]);
+  }, [isPaused, isVisible, dynamicPersonas.length]);
   const currentPersona = dynamicPersonas[currentIndex];
 
   const benefits = [
@@ -51,7 +62,9 @@ export default function WhyUsSection() {
           <h2 className="why-us-title">Everything your team needs to move deals forward</h2>
           <p className="why-us-subtitle">Start with lead management and pipeline visibility, then connect field activity, targets, and reporting as your team grows.</p>
           <div className="benefits-grid">
-            {benefits.map(({ icon: Icon, color, bgLight, title, description }) => <div key={title} className="benefit-card"><div className="benefit-icon-box" style={{ background: bgLight, color }}><Icon size={20} strokeWidth={2.4} /></div><div className="benefit-text"><h4 className="benefit-heading">{title}</h4><p className="benefit-desc">{description}</p></div></div>)}
+            <div className="benefits-track">
+              {[...benefits, ...benefits].map(({ icon: Icon, color, bgLight, title, description }, index) => <div key={`${title}-${index}`} className="benefit-card" aria-hidden={index >= benefits.length}><div className="benefit-icon-box" style={{ background: bgLight, color }}><Icon size={20} strokeWidth={2.4} /></div><div className="benefit-text"><h4 className="benefit-heading">{title}</h4><p className="benefit-desc">{description}</p></div></div>)}
+            </div>
           </div>
         </div>
       </div>

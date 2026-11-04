@@ -276,12 +276,6 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
           {/* Floating Badge above laptop */}
           <div
             className="floating-laptop-tag"
-            onClick={() => {
-              setLightboxIndex(0);
-              setLightboxOpen(true);
-            }}
-            style={{ cursor: 'pointer' }}
-            title="Click to explore the complete CRM application in full resolution"
           >
             <div className="tag-icon-ring">
               <Sparkles size={14} color="#1e40af" />
@@ -786,8 +780,6 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                       <div className="crm-screenshot-scroll">
                         <div
                           className="crm-screen-image-container"
-                          onClick={() => handleOpenScreenshot(currentScreenMeta.id)}
-                          title="Click to open full resolution"
                         >
                           <img
                             src={getScreenshotUrl(currentScreenMeta.file)}
@@ -827,10 +819,6 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                               </button>
                             </div>
                           </div>
-                          <div className="crm-screen-hover-badge">
-                            <Maximize2 size={13} />
-                            <span>Click to Zoom &amp; Inspect (Full Resolution)</span>
-                          </div>
                         </div>
                       </div>
                     )}
@@ -840,8 +828,6 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                 {/* Mobile View: High-Resolution CRM Dashboard Image properly fitted to laptop */}
                 <div
                   className="crm-mobile-screen-view"
-                  onClick={() => handleOpenScreenshot('dashboard-overview')}
-                  title="Click to explore full dashboard resolution"
                 >
                   <img
                     src={getScreenshotUrl('6766b2b0-f170-47b7-b227-70f5f2c2d8dc.jpg')}
@@ -855,8 +841,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                       <span>Executive Dashboard</span>
                     </span>
                     <span className="crm-mobile-badge-tap">
-                      <Maximize2 size={11} />
-                      <span>Tap for full view</span>
+                      <span>Interactive preview</span>
                     </span>
                   </div>
                 </div>

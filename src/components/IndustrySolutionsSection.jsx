@@ -145,25 +145,27 @@ export default function IndustrySolutionsSection({ onOpenDemo }) {
 
         {/* Industry Selector Tabs */}
         <div className="industry-tabs-bar" role="tablist">
-          {INDUSTRIES.map((ind) => {
-            const Icon = ind.icon;
-            const isSelected = selectedIndustry.id === ind.id;
-            return (
-              <button
-                key={ind.id}
-                type="button"
-                role="tab"
-                aria-selected={isSelected}
-                className={`industry-nav-btn ${isSelected ? 'active' : ''}`}
-                onClick={() => setSelectedIndustry(ind)}
-              >
-                <div className="ind-btn-icon-wrap" style={{ color: ind.color }}>
-                  <Icon size={18} />
-                </div>
-                <span className="ind-btn-name">{ind.name}</span>
-              </button>
-            );
-          })}
+          <div className="industry-tabs-track">
+            {INDUSTRIES.map((ind) => {
+              const Icon = ind.icon;
+              const isSelected = selectedIndustry.id === ind.id;
+              return (
+                <button
+                  key={ind.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isSelected}
+                  className={`industry-nav-btn ${isSelected ? 'active' : ''}`}
+                  onClick={() => setSelectedIndustry(ind)}
+                >
+                  <div className="ind-btn-icon-wrap" style={{ color: ind.color }}>
+                    <Icon size={18} />
+                  </div>
+                  <span className="ind-btn-name">{ind.name}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Active Industry Showcase Card */}
