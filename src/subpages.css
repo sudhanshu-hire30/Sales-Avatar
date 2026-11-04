@@ -2129,10 +2129,21 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .subpage-hero-checks {
-    flex-direction: column;
-    gap: 8px;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 4px 8px;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
   }
+
+  .subpage-hero-checks::-webkit-scrollbar { display: none; }
+  .subpage-hero-checks .subpage-check-item { flex: 0 0 auto; white-space: nowrap; scroll-snap-align: start; }
 
   .contact-card-box,
   .contact-form-card,
@@ -2359,14 +2370,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 540px) {
-  .crm-tour-stats-row {
-    grid-template-columns: 1fr;
+  .mobile-auto-marquee.crm-tour-stats-row {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .mobile-auto-marquee.crm-tour-stats-row .mobile-auto-marquee-track {
+    gap: 14px;
+  }
+
+  .mobile-auto-marquee.crm-tour-stats-row .tour-stat-card {
+    flex: 0 0 min(82vw, 300px);
   }
 
   .crm-tour-hero-title {
     font-size: 26px;
   }
 }
+
 
 /* ============================================================
    ADVANCED CAPABILITIES SHOWCASE (Meta CAPI, Loss Forensics, Security)
@@ -3104,4 +3127,16 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: flex-start;
   }
-}
+}
+@media (max-width: 768px) {
+  .multi-page-site .subpage-hero-left .mobile-auto-marquee.subpage-hero-checks {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 2px 4px 8px;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .multi-page-site .subpage-hero-left .mobile-auto-marquee.subpage-hero-checks::-webkit-scrollbar { display: none; }
+}

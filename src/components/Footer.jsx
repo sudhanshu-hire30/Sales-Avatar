@@ -5,6 +5,7 @@ import {
   Mail,
   Phone,
   MapPin,
+  Building2,
   Sparkles,
   ArrowRight,
   ShieldCheck,
@@ -48,12 +49,23 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
               </a>
               <a href="tel:+919876543210" className="contact-line" title="Call customer helpline">
                 <Phone size={15} className="contact-icon" />
-                <span>+91 98765 43210 (Mon-Sat, 9am-7pm)</span>
+                <span>+91 98765 43210 (Mon-Sat, 9:30am - 6:30pm)</span>
               </a>
-              <Link to="/contact" className="contact-line" title="View office locations & directions">
-                <MapPin size={15} className="contact-icon" />
-                <span>Corporate, head & registered offices in Mumbai and Noida</span>
-              </Link>
+            </div>
+
+            <div className="footer-office-list" aria-label="Office addresses">
+              <a className="footer-office-address" href="https://www.google.com/maps/search/?api=1&query=1306%E2%80%931317%2C%20Peninsula%20Park%2C%20Plot%20No.%20A4%2C%20Veera%20Desai%20Industrial%20Road%2C%20Andheri%20West%2C%20Mumbai%20%E2%80%93%20400053" target="_blank" rel="noreferrer">
+                <MapPin size={16} className="footer-office-icon" />
+                <span><strong>Corporate Office – Mumbai</strong>1306–1317, Peninsula Park, Plot No. A4, Veera Desai Industrial Road, Andheri West, Mumbai – 400053</span>
+              </a>
+              <a className="footer-office-address" href="https://www.google.com/maps/search/?api=1&query=A-60%2C%20A%20Block%2C%20Sector%2058%2C%20Noida%2C%20Uttar%20Pradesh%20%E2%80%93%20201309" target="_blank" rel="noreferrer">
+                <MapPin size={16} className="footer-office-icon" />
+                <span><strong>Head Office – Noida</strong>A-60, A Block, Sector 58, Noida, Uttar Pradesh – 201309</span>
+              </a>
+              <a className="footer-office-address" href="https://www.google.com/maps/search/?api=1&query=BH-32%2C%20Sector%2070%2C%20Noida%2C%20Uttar%20Pradesh%20%E2%80%93%20201301" target="_blank" rel="noreferrer">
+                <MapPin size={16} className="footer-office-icon" />
+                <span><strong>Registered Office</strong>BH-32, Sector 70, Noida, Uttar Pradesh – 201301</span>
+              </a>
             </div>
 
             {/* Trust & Compliance Badges */}

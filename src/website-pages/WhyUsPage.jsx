@@ -15,6 +15,7 @@ import {
   Store,
 } from "lucide-react";
 import HowItWorksSection from "../components/HowItWorksSection";
+import MobileAutoMarquee from "../components/MobileAutoMarquee";
 
 export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
   usePageSeo({
@@ -156,7 +157,7 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
               visibility—without a heavy implementation project.
             </p>
 
-            <div className="subpage-hero-checks">
+            <MobileAutoMarquee className="subpage-hero-checks">
               <div className="subpage-check-item">
                 <Check size={14} color="#10b981" />
                 <span>Zero Infrastructure Capex</span>
@@ -169,7 +170,7 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
                 <Check size={14} color="#10b981" />
                 <span>Monthly & Annual Rental Terms</span>
               </div>
-            </div>
+            </MobileAutoMarquee>
 
             <div className="subpage-hero-cta-row">
               <button

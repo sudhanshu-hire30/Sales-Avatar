@@ -8,6 +8,7 @@ import {
   Smartphone
 } from 'lucide-react';
 import CrmProductGallery from '../components/CrmProductGallery';
+import MobileAutoMarquee from '../components/MobileAutoMarquee';
 
 export default function CrmTourPage({ onOpenTrial, onOpenDemo }) {
   usePageSeo({
@@ -41,7 +42,7 @@ export default function CrmTourPage({ onOpenTrial, onOpenDemo }) {
           </p>
 
           {/* 4 Modern Stat / Capability Highlight Cards */}
-          <div className="crm-tour-stats-row">
+          <MobileAutoMarquee className="crm-tour-stats-row">
             <div className="tour-stat-card">
               <div className="stat-icon-wrap icon-blue">
                 <Eye size={18} />
@@ -81,7 +82,7 @@ export default function CrmTourPage({ onOpenTrial, onOpenDemo }) {
                 <span className="stat-desc">Field check-ins + desk portal</span>
               </div>
             </div>
-          </div>
+          </MobileAutoMarquee>
         </div>
       </section>
 

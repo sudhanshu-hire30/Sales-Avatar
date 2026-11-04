@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import usePageSeo from '../utils/usePageSeo';
+import MobileAutoMarquee from '../components/MobileAutoMarquee';
 import {
   Sparkles,
   HelpCircle,
-  Search,
   ChevronDown,
   Phone,
   Mail,
@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 
 export default function FAQPage({ onOpenTrial, onOpenDemo }) {
-  const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('all');
   const [openIndex, setOpenIndex] = useState(0);
 
@@ -98,9 +97,7 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
 
   const filtered = allFaqs.filter(item => {
     const matchesCat = category === 'all' || item.category === category;
-    const matchesSearch = item.q.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.a.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesCat && matchesSearch;
+    return matchesCat;
   });
 
   return (
@@ -122,44 +119,7 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
               Instant answers covering platform onboarding, Indian cloud data residency, GST invoicing, automated lead routing, and mobile GPS field attendance.
             </p>
 
-            {/* Search Input Box */}
-            <div className="faq-search-wrapper" style={{ margin: '0 0 16px', maxWidth: '100%' }}>
-              <div className="faq-search-bar">
-                <Search size={18} color="#aec9f0ff" />
-                <input
-                  type="text"
-                  placeholder="Search questions (e.g. GST invoice, WhatsApp, GPS, export)..."
-                  value={searchTerm}
-                  onChange={e => setSearchTerm(e.target.value)}
-                />
-                {searchTerm && (
-                  <button
-                    type="button"
-                    className="btn-clear-search"
-                    onClick={() => setSearchTerm('')}
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Quick topic tags */}
-            <div className="faq-quick-topics-row" style={{ justifyContent: 'flex-start', margin: '0 0 24px' }}>
-              <span style={{ fontSize: 12, color: '#64748b', fontWeight: 600 }}>Quick Filters:</span>
-              {['Lead Routing', 'GPS Attendance', 'GST Invoices', 'DPDP Act'].map(tag => (
-                <button
-                  key={tag}
-                  type="button"
-                  className="faq-topic-chip"
-                  onClick={() => setSearchTerm(tag)}
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
-
-            <div className="subpage-hero-checks">
+            <MobileAutoMarquee className="subpage-hero-checks">
               <div className="subpage-check-item">
                 <ShieldCheck size={14} color="#10b981" />
                 <span>15-Min Rapid Onboarding</span>
@@ -172,7 +132,7 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
                 <Phone size={14} color="#2563eb" />
                 <span>Direct WhatsApp & Phone Support</span>
               </div>
-            </div>
+            </MobileAutoMarquee>
           </div>
 
           {/* Right Column: Help Center Topic Cards & Direct Desk */}

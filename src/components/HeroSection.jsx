@@ -41,6 +41,7 @@ import {
   getScreenshotUrl
 } from '../data/crmScreenshots';
 import CrmLightboxModal from './CrmLightboxModal';
+import MobileAutoMarquee from './MobileAutoMarquee';
 
 const TRUST_LOGOS = [
   { file: 'company-logos/bharat-eco-fuels.png', alt: 'Bharat Eco Fuels' },
@@ -210,7 +211,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
           </p>
 
           {/* Trust Checkmarks */}
-          <div className="hero-checks">
+          <MobileAutoMarquee className="hero-checks">
             <div className="check-item">
               <CheckCircle2 size={16} className="check-icon" />
               <span>15-minute setup</span>
@@ -219,8 +220,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
               <CheckCircle2 size={16} className="check-icon" />
               <span>Guided team onboarding</span>
             </div>
-            <div className="hero-audience-note">For SMBs, multi-branch teams, and field sales operations</div>
-          </div>
+          </MobileAutoMarquee>
 
           {/* Action Buttons */}
           <div className="hero-cta-group">

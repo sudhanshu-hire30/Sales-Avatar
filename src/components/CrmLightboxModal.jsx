@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { 
   X, 
   ChevronLeft, 
@@ -89,7 +90,7 @@ export default function CrmLightboxModal({
     }
   };
 
-  return (
+  return createPortal((
     <div className="crm-lightbox-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label={current.title}>
       <div 
         className="crm-lightbox-dialog" 
@@ -401,5 +402,5 @@ export default function CrmLightboxModal({
         )}
       </div>
     </div>
-  );
+  ), document.body);
 }

@@ -12,6 +12,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import MobileAutoMarquee from '../components/MobileAutoMarquee';
 
 export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise }) {
   usePageSeo({
@@ -65,7 +66,7 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
               Clear monthly or annual plans, transparent GST invoices, and dedicated onboarding assistance for your sales team.
             </p>
 
-            <div className="subpage-hero-checks">
+            <MobileAutoMarquee className="subpage-hero-checks">
               <div className="subpage-check-item">
                 <ShieldCheck size={14} color="#0f766e" />
                 <span>Guided onboarding for every plan</span>
@@ -78,7 +79,7 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
                 <Building2 size={14} color="#1d4ed8" />
                 <span>100% Indian Cloud Data Residency</span>
               </div>
-            </div>
+            </MobileAutoMarquee>
 
             <div className="subpage-hero-cta-row">
               <button 

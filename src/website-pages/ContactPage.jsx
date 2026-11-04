@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { apiFetch } from '../api';
+import MobileAutoMarquee from '../components/MobileAutoMarquee';
 
 export default function ContactPage({ onOpenTrial, onOpenDemo }) {
   usePageSeo({
@@ -79,7 +80,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
               Whether you need a guided platform walkthrough, custom plan options for 50+ users, or dedicated tenant onboarding, our sales engineering desk responds in under 2 hours.
             </p>
 
-            <div className="subpage-hero-checks">
+            <MobileAutoMarquee className="subpage-hero-checks">
               <div className="subpage-check-item">
                 <Clock size={14} color="#10b981" />
                 <span>Under 2-Hour Response SLA</span>
@@ -92,7 +93,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                 <Building2 size={14} color="#1d4ed8" />
                 <span>Noida & Mumbai Tech Centers</span>
               </div>
-            </div>
+            </MobileAutoMarquee>
 
             <div className="subpage-hero-cta-row">
               <button
