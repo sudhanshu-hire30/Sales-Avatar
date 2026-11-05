@@ -93,12 +93,7 @@ export default function App() {
           />
           <Route
             path="/tour"
-            element={
-              <CrmTourPage
-                onOpenTrial={handleOpenTrial}
-                onOpenDemo={() => setDemoModalOpen(true)}
-              />
-            }
+            element={<Navigate to="/crm-tour" replace />}
           />
           <Route
             path="/features"
@@ -130,12 +125,7 @@ export default function App() {
           />
           <Route
             path="/solutions"
-            element={
-              <WhyUsPage
-                onOpenTrial={handleOpenTrial}
-                onOpenDemo={() => setDemoModalOpen(true)}
-              />
-            }
+            element={<Navigate to="/why-us" replace />}
           />
           <Route
             path="/faq"
@@ -157,18 +147,13 @@ export default function App() {
           />
           <Route
             path="/demo"
-            element={
-              <ContactPage
-                onOpenTrial={handleOpenTrial}
-                onOpenDemo={() => setDemoModalOpen(true)}
-              />
-            }
+            element={<Navigate to="/contact" replace />}
           />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/security" element={<SecurityPage />} />
           <Route path="/cancellation-refund" element={<CancellationRefundPage />} />
-          <Route path="/refund" element={<CancellationRefundPage />} />
+          <Route path="/refund" element={<Navigate to="/cancellation-refund" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

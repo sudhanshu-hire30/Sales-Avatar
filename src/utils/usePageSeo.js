@@ -68,6 +68,13 @@ export function usePageSeo({
     setMetaTag('property', 'og:url', fullCanonical);
     setMetaTag('name', 'twitter:url', fullCanonical);
 
+    // Ensure social previews follow the current route and use a crawlable image.
+    setMetaTag('property', 'og:type', 'website');
+    setMetaTag('property', 'og:site_name', 'SalesAvatar CRM');
+    setMetaTag('property', 'og:image', `${baseUrl}/images/crm-dashboard.jpg`);
+    setMetaTag('name', 'twitter:card', 'summary_large_image');
+    setMetaTag('name', 'twitter:image', `${baseUrl}/images/crm-dashboard.jpg`);
+
     // 4. Inject Dynamic Page JSON-LD (e.g., FAQPage or Product)
     const scriptId = 'page-dynamic-jsonld';
     let scriptEl = document.getElementById(scriptId);
