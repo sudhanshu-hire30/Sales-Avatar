@@ -362,6 +362,7 @@ export function DemoModal({ isOpen, onClose }) {
                 <div className="form-group">
                   <label>Sales Team Size</label>
                   <select
+                    className="demo-team-size-select"
                     value={demoForm.teamSize}
                     onChange={(e) => setDemoForm({ ...demoForm, teamSize: e.target.value })}
                   >

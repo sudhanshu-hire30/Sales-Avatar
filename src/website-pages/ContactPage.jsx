@@ -15,6 +15,7 @@ import {
 import confetti from 'canvas-confetti';
 import { apiFetch } from '../api';
 import MobileAutoMarquee from '../components/MobileAutoMarquee';
+import TeamSizeDropdown from '../components/TeamSizeDropdown';
 
 export default function ContactPage({ onOpenTrial, onOpenDemo }) {
   usePageSeo({
@@ -138,7 +139,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                   <div className="stream-content">
                     <span style={{ fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase' }}>Phone & WhatsApp</span>
                     <b style={{ fontSize: 13.5, color: '#0f172a' }}>+91 98765 43210</b>
-                    <span style={{ fontSize: 11, color: '#10b981', fontWeight: 600 }}>● Lines Open (9 AM – 7 PM IST)</span>
+                    <span style={{ fontSize: 11, color: '#10b981', fontWeight: 600 }}>â— Lines Open (9 AM â€“ 7 PM IST)</span>
                   </div>
                 </a>
 
@@ -204,7 +205,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
             <div className="contact-info-column">
               <div className="contact-card-box">
                 <span className="contact-box-badge">OFFICE LOCATIONS</span>
-                <h3>Bharat Group — SalesAvatar</h3>
+                <h3>Bharat Group â€” SalesAvatar</h3>
                 <p className="contact-box-sub">
                   Visit our corporate, head, and registered offices.
                 </p>
@@ -215,8 +216,8 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                       <MapPin size={20} color="#1d4ed8" />
                     </div>
                     <div className="detail-text">
-                      <b>Corporate Office – Mumbai</b>
-                      <span>1306–1317, Peninsula Park, Plot No. A4, Veera Desai Industrial Road, Andheri West, Mumbai – 400053</span>
+                      <b>Corporate Office â€“ Mumbai</b>
+                      <span>1306â€“1317, Peninsula Park, Plot No. A4, Veera Desai Industrial Road, Andheri West, Mumbai â€“ 400053</span>
                     </div>
                   </div>
 
@@ -225,8 +226,8 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                       <Building2 size={20} color="#2563eb" />
                     </div>
                     <div className="detail-text">
-                      <b>Head Office – Noida</b>
-                      <span>A-60, A Block, Sector 58, Noida, Uttar Pradesh – 201309</span>
+                      <b>Head Office â€“ Noida</b>
+                      <span>A-60, A Block, Sector 58, Noida, Uttar Pradesh â€“ 201309</span>
                     </div>
                   </div>
 
@@ -236,7 +237,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                     </div>
                     <div className="detail-text">
                       <b>Registered Office</b>
-                      <span>BH-32, Sector 70, Noida, Uttar Pradesh – 201301</span>
+                      <span>BH-32, Sector 70, Noida, Uttar Pradesh â€“ 201301</span>
                     </div>
                   </div>
 
@@ -256,7 +257,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                     </div>
                     <div className="detail-text">
                       <b>Phone / WhatsApp Support</b>
-                      <span>+91 98765 43210 (Mon – Sat, 9:00 AM – 7:00 PM IST)</span>
+                      <span>+91 98765 43210 (Mon â€“ Sat, 9:00 AM â€“ 7:00 PM IST)</span>
                     </div>
                   </div>
 
@@ -354,15 +355,10 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                         </div>
                         <div className="form-group">
                           <label>Sales Team Size</label>
-                          <select
+                          <TeamSizeDropdown
                             value={formData.teamSize}
-                            onChange={e => setFormData({ ...formData, teamSize: e.target.value })}
-                          >
-                            <option value="1-10">1 – 10 Sales Reps</option>
-                            <option value="10-50">10 – 50 Sales Reps</option>
-                            <option value="50-100">50 – 100 Sales Reps</option>
-                            <option value="100+">100+ Reps (Enterprise)</option>
-                          </select>
+                            onChange={(teamSize) => setFormData({ ...formData, teamSize })}
+                          />
                         </div>
                       </div>
 
@@ -381,7 +377,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                         className="btn-contact-submit"
                         disabled={isSubmitting}
                       >
-                        {isSubmitting ? 'Sending Message...' : 'Send Inquiry to Sales Team →'}
+                        {isSubmitting ? 'Sending Message...' : 'Send Inquiry to Sales Team â†’'}
                       </button>
                     </form>
                   </>

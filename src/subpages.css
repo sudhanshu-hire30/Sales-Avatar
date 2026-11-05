@@ -1866,6 +1866,69 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
 }
 
+.team-size-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.team-size-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+}
+
+.team-size-dropdown-trigger:focus-visible {
+  outline: 2px solid rgba(29, 78, 216, 0.45);
+  outline-offset: 1px;
+  border-color: #1d4ed8;
+}
+
+.team-size-dropdown-menu {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  max-height: 152px;
+  overflow-y: auto;
+  padding: 4px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
+}
+
+.team-size-dropdown-option {
+  display: block;
+  width: 100%;
+  min-height: 32px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  background: transparent;
+  color: #0f172a;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.team-size-dropdown-option[aria-selected="true"],
+.team-size-dropdown-option:hover,
+.team-size-dropdown-option:focus-visible {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
 .contact-actual-form input:focus,
 .contact-actual-form select:focus,
 .contact-actual-form textarea:focus {

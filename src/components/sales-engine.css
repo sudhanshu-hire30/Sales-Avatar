@@ -2177,6 +2177,9 @@
     margin-left: calc(var(--content-gutter-mobile, 16px) * -1);
     padding: 4px var(--content-gutter-mobile, 16px) 12px;
     -webkit-overflow-scrolling: touch;
+    box-shadow:
+      inset 10px 0 10px -12px rgba(15, 23, 42, 0.42),
+      inset -10px 0 10px -12px rgba(15, 23, 42, 0.42);
   }
 
   .industry-tabs-bar::-webkit-scrollbar {
