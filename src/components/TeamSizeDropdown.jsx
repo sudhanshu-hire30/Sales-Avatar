@@ -8,11 +8,11 @@ const TEAM_SIZE_OPTIONS = [
   { value: '100+', label: '100+ (Enterprise)' }
 ];
 
-export default function TeamSizeDropdown({ value, onChange }) {
+export default function TeamSizeDropdown({ value, onChange, options = TEAM_SIZE_OPTIONS, maxVisibleOptions }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
   const listboxId = useId();
-  const selected = TEAM_SIZE_OPTIONS.find((option) => option.value === value) || TEAM_SIZE_OPTIONS[1];
+  const selected = options.find((option) => option.value === value) || options[0];
 
   useEffect(() => {
     if (!open) return undefined;
@@ -46,8 +46,14 @@ export default function TeamSizeDropdown({ value, onChange }) {
         <ChevronDown size={16} aria-hidden="true" />
       </button>
       {open && (
-        <div className="team-size-dropdown-menu" id={listboxId} role="listbox" aria-label="Sales team size">
-          {TEAM_SIZE_OPTIONS.map((option) => (
+        <div
+          className="team-size-dropdown-menu"
+          id={listboxId}
+          role="listbox"
+          aria-label="Sales team size"
+          style={maxVisibleOptions ? { maxHeight: `${maxVisibleOptions * 32 + 8}px` } : undefined}
+        >
+          {options.map((option) => (
             <button
               key={option.value}
               type="button"

@@ -2084,6 +2084,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .contact-page .hero-preview-glass-card .stream-item {
+    align-items: center;
+    text-align: left;
+  }
+
+  .contact-page .hero-preview-glass-card .stream-content {
+    align-items: flex-start;
+    min-width: 0;
+    text-align: left;
+  }
+
   .subpage-hero-banner,
   .crm-tour-hero-banner {
     padding-top: var(--page-top-spacing-mobile);
@@ -2432,22 +2443,35 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 768px) {
   .mobile-auto-marquee.crm-tour-stats-row {
     display: block;
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-auto-marquee.crm-tour-stats-row::-webkit-scrollbar {
+    display: none;
   }
 
   .mobile-auto-marquee.crm-tour-stats-row .mobile-auto-marquee-track {
+    display: flex;
+    width: max-content;
+    align-items: stretch;
     gap: 14px;
   }
 
   .mobile-auto-marquee.crm-tour-stats-row .tour-stat-card {
     flex: 0 0 min(82vw, 300px);
   }
+}
 
+@media (max-width: 540px) {
   .crm-tour-hero-title {
     font-size: 26px;
   }

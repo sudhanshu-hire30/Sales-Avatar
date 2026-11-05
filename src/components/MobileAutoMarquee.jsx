@@ -7,11 +7,14 @@ export default function MobileAutoMarquee({ className, children }) {
   useEffect(() => {
     const container = containerRef.current;
     if (!container || items.length < 2) return undefined;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
 
     const timer = window.setInterval(() => {
       if (window.innerWidth > 768 || document.hidden || container.scrollWidth <= container.clientWidth + 4) return;
+      const track = container.querySelector('.mobile-auto-marquee-track');
+      if (!track) return;
       const containerLeft = container.getBoundingClientRect().left;
-      const positions = [...container.children].map((item) => ({
+      const positions = [...track.children].map((item) => ({
         item,
         left: item.getBoundingClientRect().left - containerLeft + container.scrollLeft
       }));

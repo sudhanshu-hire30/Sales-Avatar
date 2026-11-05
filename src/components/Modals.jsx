@@ -10,6 +10,15 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { apiFetch } from '../api';
+import TeamSizeDropdown from './TeamSizeDropdown';
+
+const DEMO_TEAM_SIZE_OPTIONS = [
+  { value: '1-5', label: '1–5 reps' },
+  { value: '6-10', label: '6–10 reps' },
+  { value: '11-50', label: '11–50 reps' },
+  { value: '51-200', label: '51–200 reps' },
+  { value: '200+', label: '200+ (Enterprise)' }
+];
 
 export function TrialModal({ isOpen, onClose, defaultPlan = 'Professional', billingCycle = 'monthly' }) {
   if (!isOpen) return null;
@@ -361,17 +370,12 @@ export function DemoModal({ isOpen, onClose }) {
                 </div>
                 <div className="form-group">
                   <label>Sales Team Size</label>
-                  <select
-                    className="demo-team-size-select"
+                  <TeamSizeDropdown
                     value={demoForm.teamSize}
-                    onChange={(e) => setDemoForm({ ...demoForm, teamSize: e.target.value })}
-                  >
-                    <option value="1-5">1 - 5 Reps</option>
-                    <option value="6-10">6 - 10 Reps</option>
-                    <option value="11-50">11 - 50 Reps</option>
-                    <option value="51-200">51 - 200 Reps</option>
-                    <option value="200+">200+ Enterprise</option>
-                  </select>
+                    onChange={(teamSize) => setDemoForm({ ...demoForm, teamSize })}
+                    options={DEMO_TEAM_SIZE_OPTIONS}
+                    maxVisibleOptions={3}
+                  />
                 </div>
               </div>
 
