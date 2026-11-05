@@ -461,9 +461,9 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                           {/* 2. Welcome Greeting & Quick Action Pills */}
                           <div className="crm-welcome-row">
                             <div className="crm-welcome-text">
-                              <h1 className="crm-greeting">
+                              <p className="crm-greeting">
                                 Good afternoon, <span className="greeting-name">Alex</span>
-                              </h1>
+                              </p>
                               <p className="crm-greeting-sub">
                                 Your pipeline at a glance <span className="crm-link-reports">View reports &rarr;</span>
                               </p>

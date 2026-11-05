@@ -12,8 +12,8 @@ import CrmLiveDemoSection from '../components/CrmLiveDemoSection';
 
 export default function HomePage({ onOpenTrial, onOpenDemo }) {
   usePageSeo({
-    title: 'SalesAvatar CRM — #1 Cloud Sales CRM for Indian Businesses | Leads, Pipelines & Field GPS',
-    description: 'Boost sales velocity with SalesAvatar — India’s top cloud CRM. Automated 30s lead routing, 1-click WhatsApp follow-ups, visual Kanban pipelines, GPS field attendance, and 18% GST invoices. Live in 15 mins.',
+    title: 'SalesAvatar CRM for Indian Sales Teams | Leads & Pipelines',
+    description: 'Manage leads, sales pipelines, follow-ups, and field teams in one CRM built for Indian businesses. Explore SalesAvatar features, pricing, and a product tour.',
     keywords: 'CRM software India, best sales CRM India, cloud CRM small business, lead management software, field sales tracking app GPS, WhatsApp CRM India, real estate CRM software, B2B sales pipeline, affordable CRM with GST invoice',
     canonicalPath: '/'
   });
