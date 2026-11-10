@@ -15,7 +15,7 @@ import {
   ZoomOut,
   Move
 } from 'lucide-react';
-import { getScreenshotUrl } from '../data/crmScreenshots';
+import { getScreenshotThumbnailUrl, getScreenshotUrl } from '../data/crmScreenshots';
 
 export default function CrmLightboxModal({
   isOpen,
@@ -369,7 +369,7 @@ export default function CrmLightboxModal({
 
               <div className="crm-filmstrip-scroll" ref={filmstripRef}>
                 {screenshots.map((s, idx) => {
-                  const thumbUrl = getScreenshotUrl(s.file);
+                  const thumbUrl = getScreenshotThumbnailUrl(s.file);
                   const isActive = idx === currentIndex;
                   return (
                     <button
@@ -380,7 +380,7 @@ export default function CrmLightboxModal({
                       onClick={() => onNavigate(idx)}
                       title={`${idx + 1}. ${s.title}`}
                     >
-                      <img src={thumbUrl} alt={s.title} loading="lazy" />
+                      <img src={thumbUrl} alt={s.title} loading="lazy" decoding="async" />
                       <span className="crm-filmstrip-tag">{idx + 1}</span>
                       {isActive && <span className="active-dot-indicator" />}
                     </button>

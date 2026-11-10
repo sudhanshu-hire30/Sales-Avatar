@@ -9,11 +9,12 @@ import {
   Phone,
   Mail,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  ArrowRight
 } from 'lucide-react';
 
 export default function FAQPage({ onOpenTrial, onOpenDemo }) {
-  const [category, setCategory] = useState('all');
+  const [category, udesetCategory] = useState('all');
   const [openIndex, setOpenIndex] = useState(0);
 
   const allFaqs = [
@@ -133,6 +134,22 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
                 <span>Direct WhatsApp & Phone Support</span>
               </div>
             </MobileAutoMarquee>
+
+            <div className="subpage-hero-cta-row">
+              <button
+                type="button"
+                className="btn-subpage-primary"
+                onClick={onOpenDemo}
+              >
+                Book a Demo <ArrowRight size={16} />
+              </button>
+              <Link
+                to="/crm-tour"
+                className="btn-subpage-ghost"
+              >
+                Full Product Tour
+              </Link>
+            </div>
           </div>
 
           {/* Right Column: Help Center Topic Cards & Direct Desk */}

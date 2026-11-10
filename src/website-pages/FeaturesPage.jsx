@@ -27,7 +27,7 @@ import {
 import CrmLightboxModal from '../components/CrmLightboxModal';
 import LeadDistributionSection from '../components/LeadDistributionSection';
 import AdvancedCapabilitiesSection from '../components/AdvancedCapabilitiesSection';
-import { CRM_SCREENSHOTS, getScreenshotUrl } from '../data/crmScreenshots';
+import { CRM_SCREENSHOTS, getScreenshotThumbnailUrl, getScreenshotUrl } from '../data/crmScreenshots';
 
 const featureList = [
     {
@@ -381,7 +381,7 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
           <div className="features-detailed-grid">
             {filteredFeatures.map(f => {
               const Icon = f.icon;
-              const imgUrl = f.screenshotFile ? getScreenshotUrl(f.screenshotFile) : null;
+              const imgUrl = f.screenshotFile ? getScreenshotThumbnailUrl(f.screenshotFile) : null;
               return (
                 <div key={f.id} className="feature-detail-card" id={f.id}>
                   <div className="feature-card-header">
@@ -414,6 +414,7 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
                         alt={f.screenshotTitle || f.title} 
                         className="feature-real-img"
                         loading="lazy"
+                        decoding="async"
                       />
                       <div className="preview-screen-caption">
                         {f.screenshotTitle}

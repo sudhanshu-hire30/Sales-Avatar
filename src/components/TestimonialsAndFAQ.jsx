@@ -44,7 +44,7 @@ export default function TestimonialsAndFAQ() {
                       </div>
                       <p className="testimonial-quote">&ldquo;{testimonial.quote}&rdquo;</p>
                       <div className="testimonial-author">
-                        <img src={testimonial.avatar} alt={testimonial.name} className="author-avatar" onError={(event) => { if (testimonial.fallback && event.currentTarget.src !== testimonial.fallback) event.currentTarget.src = testimonial.fallback; }} />
+                        <img src={testimonial.avatar} alt={testimonial.name} className="author-avatar" loading="lazy" decoding="async" onError={(event) => { if (testimonial.fallback && event.currentTarget.src !== testimonial.fallback) event.currentTarget.src = testimonial.fallback; }} />
                         <div className="author-info"><h4 className="author-name">{testimonial.name}</h4><span className="author-role">{testimonial.role}</span><span className="author-company-line"><strong>{testimonial.company}</strong> &bull; {testimonial.location}</span></div>
                       </div>
                     </article>

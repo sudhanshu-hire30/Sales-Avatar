@@ -47,7 +47,7 @@ export default function WhyUsSection() {
             </svg>
           </div>
           <div className="dynamic-image-frame">
-            {dynamicPersonas.map((persona, index) => <img key={persona.id} src={persona.image} alt={persona.name} className={`persona-image ${index === currentIndex ? 'active' : ''}`} onError={(event) => { if (persona.fallback && event.currentTarget.src !== persona.fallback) event.currentTarget.src = persona.fallback; }} />)}
+            {dynamicPersonas.map((persona, index) => <img key={persona.id} src={persona.image} alt={persona.name} className={`persona-image ${index === currentIndex ? 'active' : ''}`} loading="lazy" decoding="async" onError={(event) => { if (persona.fallback && event.currentTarget.src !== persona.fallback) event.currentTarget.src = persona.fallback; }} />)}
             <div className="image-base-glow" />
             {[['badge-top-right', currentPersona.badges[0], ArrowUpRight], ['badge-mid-right', currentPersona.badges[1], Users], ['badge-bottom-right', currentPersona.badges[2], Zap]].map(([position, badge, Icon]) => (
               <div className={`floating-metric-badge ${position}`} key={position}>

@@ -349,3 +349,7 @@ export const CRM_SCREENSHOTS = [
 export function getScreenshotUrl(filename) {
   return getAssetUrl(`images/crm-screens/${filename}`);
 }
+
+export function getScreenshotThumbnailUrl(filename) {
+  return getAssetUrl(`images/crm-screens-original/${filename}`);
+}

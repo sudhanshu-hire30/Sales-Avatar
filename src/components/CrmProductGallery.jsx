@@ -11,7 +11,7 @@ import {
 import { 
   CRM_CATEGORIES, 
   CRM_SCREENSHOTS, 
-  getScreenshotUrl 
+  getScreenshotThumbnailUrl
 } from '../data/crmScreenshots';
 import CrmLightboxModal from './CrmLightboxModal';
 
@@ -156,7 +156,7 @@ export default function CrmProductGallery({
         {/* Screens Grid */}
         <div className="crm-cards-grid">
           {filteredScreens.map((screen) => {
-            const imgUrl = getScreenshotUrl(screen.file);
+            const imgUrl = getScreenshotThumbnailUrl(screen.file);
             return (
               <div 
                 key={screen.id} 
@@ -169,6 +169,7 @@ export default function CrmProductGallery({
                     src={imgUrl} 
                     alt={screen.title} 
                     loading="lazy" 
+                    decoding="async"
                     className="crm-card-img" 
                   />
                   <div className="crm-card-overlay">
