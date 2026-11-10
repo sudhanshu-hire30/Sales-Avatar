@@ -651,6 +651,11 @@ body,
   border-color: #e4e9f1;
 }
 
+.clean-enterprise-home .how-it-works-section {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
 .floating-sales-popover,
 .floating-trigger-btn {
   display: none !important;
@@ -896,10 +901,35 @@ body,
 }
 
 .pricing-page .pricing-guide-card {
+  padding: 18px 20px 14px;
+  gap: 9px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-color: #e4e9f1;
   box-shadow: 0 16px 36px rgba(23, 32, 51, 0.07);
+}
+
+.pricing-page .pricing-guide-intro {
+  margin-bottom: 12px;
+}
+
+.pricing-page .pricing-guide-intro h3 {
+  font-size: 20px;
+}
+
+.pricing-page .pricing-guide-list {
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.pricing-page .pricing-guide-row {
+  padding: 8px 10px;
+}
+
+.pricing-page .pricing-guide-icon {
+  width: 23px;
+  height: 23px;
+  flex-basis: 23px;
 }
 
 .pricing-page .pricing-guide-icon {

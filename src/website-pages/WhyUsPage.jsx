@@ -175,12 +175,12 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
             <div className="subpage-hero-cta-row">
               <button
                 type="button"
-                className="btn-subpage-primary"
+                className="site-cta-primary"
                 onClick={() => onOpenTrial("Professional")}
               >
                 Get Started <ArrowRight size={16} />
               </button>
-              <Link to="/crm-tour" className="btn-subpage-ghost">
+              <Link to="/crm-tour" className="site-cta-secondary">
                 Full Product Tour
               </Link>
             </div>

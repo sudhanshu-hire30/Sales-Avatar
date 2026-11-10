@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 export default function FAQPage({ onOpenTrial, onOpenDemo }) {
-  const [category, udesetCategory] = useState('all');
+  const [category, setCategory] = useState('all');
   const [openIndex, setOpenIndex] = useState(0);
 
   const allFaqs = [
@@ -138,14 +138,14 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
             <div className="subpage-hero-cta-row">
               <button
                 type="button"
-                className="btn-subpage-primary"
+                className="site-cta-primary"
                 onClick={onOpenDemo}
               >
                 Book a Demo <ArrowRight size={16} />
               </button>
               <Link
                 to="/crm-tour"
-                className="btn-subpage-ghost"
+                className="site-cta-secondary"
               >
                 Full Product Tour
               </Link>
@@ -226,16 +226,7 @@ export default function FAQPage({ onOpenTrial, onOpenDemo }) {
                 </div>
                 <Link
                   to="/crm-tour"
-                  style={{
-                    background: '#dbeafe',
-                    color: '#1e40af',
-                    border: 'none',
-                    borderRadius: 8,
-                    padding: '6px 12px',
-                    fontSize: 11.5,
-                    fontWeight: 700,
-                    cursor: 'pointer'
-                  }}
+                  className="site-cta-secondary"
                 >
                   Full Product Tour
                 </Link>

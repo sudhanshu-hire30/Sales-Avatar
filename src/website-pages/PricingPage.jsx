@@ -84,7 +84,7 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
             <div className="subpage-hero-cta-row">
               <button 
                 type="button" 
-                className="btn-subpage-primary"
+                className="site-cta-primary"
                 onClick={() => {
                   const el = document.getElementById('pricing-plans-section');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -95,7 +95,7 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
               </button>
               <Link
                 to="/crm-tour"
-                className="btn-subpage-ghost"
+                className="site-cta-secondary"
               >
                 Full Product Tour
               </Link>

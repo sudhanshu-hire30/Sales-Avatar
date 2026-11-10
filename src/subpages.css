@@ -129,6 +129,55 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
 }
 
+.site-cta-primary,
+.site-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.site-cta-primary {
+  padding: 14px 24px;
+  border: none;
+  background: #1e40af;
+  color: #ffffff;
+  font-size: 15.5px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px -5px rgba(30, 64, 175, 0.4);
+}
+
+.site-cta-primary:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -5px rgba(30, 64, 175, 0.45);
+}
+
+.site-cta-secondary {
+  padding: 13px 20px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.site-cta-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+.contact-tour-cta {
+  width: 100%;
+}
+
 .btn-subpage-primary {
   background: var(--primary-gradient, linear-gradient(135deg, #2563eb 0%, #1d4ed8 45%, #1e40af 75%, #3b82f6 100%));
   color: #ffffff;
@@ -519,6 +568,12 @@ h1, h2, h3, h4, h5, h6 {
   max-width: var(--content-max-width);
   margin: 0 auto;
   padding: 64px var(--content-gutter);
+}
+
+.why-metrics-container,
+.why-compare-container {
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .features-filter-nav {
@@ -2127,6 +2182,12 @@ h1, h2, h3, h4, h5, h6 {
   .pricing-enterprise-callout {
     padding-left: var(--content-gutter-mobile);
     padding-right: var(--content-gutter-mobile);
+  }
+
+  .why-metrics-container,
+  .why-compare-container {
+    padding-top: 44px;
+    padding-bottom: 44px;
   }
 
   .comparison-table-wrapper {

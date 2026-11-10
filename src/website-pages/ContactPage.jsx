@@ -99,7 +99,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
             <div className="subpage-hero-cta-row">
               <button
                 type="button"
-                className="btn-subpage-primary"
+                className="site-cta-primary"
                 onClick={() => {
                   const el = document.getElementById('contact-form-section');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -109,7 +109,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
               </button>
               <Link
                 to="/crm-tour"
-                className="btn-subpage-ghost"
+                className="site-cta-secondary"
               >
                 Full Product Tour
               </Link>
@@ -173,21 +173,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
               {/* Instant Action CTA */}
               <Link
                 to="/crm-tour"
-                style={{
-                  width: '100%',
-                  background: '#1d4ed8',
-                  color: '#ffffff',
-                  border: 'none',
-                  borderRadius: 12,
-                  padding: '11px',
-                  fontSize: 13,
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: 8
-                }}
+                className="site-cta-secondary contact-tour-cta"
               >
                 <span>Full Product Tour</span>
                 <ArrowRight size={14} />
@@ -293,7 +279,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                     </p>
                     <button
                       type="button"
-                      className="btn-subpage-primary"
+                      className="site-cta-primary"
                       onClick={() => setSubmitted(false)}
                       style={{ marginTop: 20 }}
                     >

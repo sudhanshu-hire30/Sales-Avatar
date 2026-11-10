@@ -268,14 +268,14 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
             <div className="subpage-hero-cta-row">
               <button 
                 type="button" 
-                className="btn-subpage-primary" 
+                className="site-cta-primary"
                 onClick={() => onOpenTrial('Business')}
               >
                 Request CRM Setup <ArrowRight size={16} />
               </button>
               <Link
                 to="/crm-tour"
-                className="btn-subpage-ghost" 
+                className="site-cta-secondary"
               >
                 Full Product Tour
               </Link>

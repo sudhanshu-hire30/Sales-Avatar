@@ -35,23 +35,12 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
                   <span className="brand-purple">Avatar</span>
                 </div>
                 <span className="brand-tagline">Sell &bull; Manage &bull; Grow</span>
-              </div>
+              </div> 
             </Link>
 
-            <p className="footer-desc">
+            {/* <p className="footer-desc">
               Modern cloud CRM rental platform built for Indian businesses. Streamline lead tracking, field GPS visits, deal approvals, and automated revenue reporting.
-            </p>
-
-            <div className="footer-contact-items">
-              <a href="mailto:support@salesavatar.com" className="contact-line" title="Send email to support">
-                <Mail size={15} className="contact-icon" />
-                <span>support@salesavatar.com</span>
-              </a>
-              <a href="tel:+919876543210" className="contact-line" title="Call customer helpline">
-                <Phone size={15} className="contact-icon" />
-                <span>+91 98765 43210 (Mon-Sat, 9:30am - 6:30pm)</span>
-              </a>
-            </div>
+            </p> */}
 
             <div className="footer-office-list" aria-label="Office addresses">
               <a className="footer-office-address" href="https://www.google.com/maps/search/?api=1&query=1306%E2%80%931317%2C%20Peninsula%20Park%2C%20Plot%20No.%20A4%2C%20Veera%20Desai%20Industrial%20Road%2C%20Andheri%20West%2C%20Mumbai%20%E2%80%93%20400053" target="_blank" rel="noreferrer">
@@ -67,17 +56,15 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
                 <span><strong>Registered Office</strong>BH-32, Sector 70, Noida, Uttar Pradesh – 201301</span>
               </a>
             </div>
-
-            {/* Trust & Compliance Badges */}
-            <div className="footer-compliance-row">
-              <Link to="/security" className="compliance-chip clickable" title="Read about data protection and privacy controls">
-                <ShieldCheck size={13} className="chip-icon" />
-                <span>Privacy & data controls</span>
-              </Link>
-              <Link to="/security" className="compliance-chip clickable" title="Read about encryption and access controls">
-                <Lock size={13} className="chip-icon" />
-                <span>Encryption details</span>
-              </Link>
+             <div className="footer-contact-items">
+              <a href="mailto:support@salesavatar.com" className="contact-line" title="Send email to support">
+                <Mail size={15} className="contact-icon" />
+                <span>support@salesavatar.com</span>
+              </a>
+              <a href="tel:+919876543210" className="contact-line" title="Call customer helpline">
+                <Phone size={15} className="contact-icon" />
+                <span>+91 98765 43210 (Mon-Sat, 9:30am - 6:30pm)</span>
+              </a>
             </div>
           </div>
 

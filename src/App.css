@@ -2048,7 +2048,12 @@ input[type="reset"] {
 /* Homepage: restrained enterprise presentation */
 .clean-enterprise-home .hero-section {
   background: #ffffff;
+  padding-top: 40px;
   padding-bottom: 24px;
+}
+
+.clean-enterprise-home .hero-container {
+  min-height: 420px;
 }
 
 .clean-enterprise-home .hero-badge,
@@ -2439,6 +2444,10 @@ input[type="reset"] {
 }
 
 @media (max-width: 768px) {
+  .clean-enterprise-home .hero-section {
+    padding-top: 24px;
+  }
+
   .clean-enterprise-home .hero-title {
     font-size: 34px;
   }
@@ -2477,7 +2486,7 @@ input[type="reset"] {
 .multi-page-site .crm-tour-hero-banner {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
-  padding: var(--page-top-spacing) 0 24px;
+  padding: 40px 0 24px;
 }
 
 .multi-page-site .subpage-hero-banner::before,
@@ -2492,7 +2501,11 @@ input[type="reset"] {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 48px;
   align-items: center;
-  min-height: 460px;
+  min-height: 420px;
+}
+
+.multi-page-site .pricing-page .subpage-hero-split-container {
+  align-items: start;
 }
 
 .multi-page-site .subpage-hero-left .section-pill-badge,
@@ -2731,7 +2744,7 @@ input[type="reset"] {
 @media (max-width: 768px) {
   .multi-page-site .subpage-hero-banner,
   .multi-page-site .crm-tour-hero-banner {
-    padding-top: var(--page-top-spacing-mobile);
+    padding-top: 24px;
     padding-bottom: 24px;
     padding-left: var(--content-gutter-mobile);
     padding-right: var(--content-gutter-mobile);
@@ -4566,7 +4579,7 @@ input[type="reset"] {
   display: grid;
   grid-template-columns: minmax(340px, 2.4fr) repeat(3, minmax(125px, 1fr)) minmax(170px, 1.2fr);
   gap: 28px;
-  margin-bottom: 44px;
+  margin-bottom: 20px;
   align-items: start;
 }
 
@@ -7794,4 +7807,3 @@ input[type="reset"] {
     white-space: nowrap;
   }
 }
-
