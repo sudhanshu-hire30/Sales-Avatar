@@ -26,7 +26,7 @@ export default function HomePage({ onOpenTrial, onOpenDemo }) {
         onOpenDemo={onOpenDemo}
       />
 
-      {/* <CrmLiveDemoSection onOpenDemo={onOpenDemo} /> */}
+      <CrmLiveDemoSection onOpenDemo={onOpenDemo} />
 
       {/* Trust & Buying Conversion Bar */}
       <section className="home-conversion-bar" aria-label="SalesAvatar buying benefits">

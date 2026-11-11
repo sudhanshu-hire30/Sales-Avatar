@@ -29,61 +29,50 @@ export default function WorkflowStorySection() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
-  const [supportsScrollTimeline, setSupportsScrollTimeline] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const scrollToFirstStep = () => {
-    const firstPanel = trackRef.current?.querySelector('.workflow-story-panel');
-    if (!firstPanel) return;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    firstPanel.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-  };
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (section && 'IntersectionObserver' in window) {
-      const visibilityObserver = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { rootMargin: '150px' });
-      visibilityObserver.observe(section);
-      return () => visibilityObserver.disconnect();
-    }
-    setIsVisible(true);
-    return undefined;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return undefined;
+    const rotationTimer = window.setInterval(() => {
+      setActiveStep((currentStep) => (currentStep + 1) % workflowSteps.length);
+    }, 4200);
+    return () => window.clearInterval(rotationTimer);
   }, []);
 
   useEffect(() => {
-    setSupportsScrollTimeline(typeof CSS !== 'undefined' && CSS.supports('animation-timeline: view()') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-    if (!isVisible) return undefined;
-    const panels = trackRef.current?.querySelectorAll('.workflow-story-panel');
-    if (!panels?.length || !('IntersectionObserver' in window)) return undefined;
-    const observer = new IntersectionObserver((entries) => {
-      const mostVisible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
-      if (mostVisible) setActiveStep(Number(mostVisible.target.dataset.stepIndex));
-    }, { threshold: [0.35, 0.55, 0.75], rootMargin: '-15% 0px -15% 0px' });
-    panels.forEach((panel) => observer.observe(panel));
-    return () => observer.disconnect();
-  }, [isVisible]);
+    const section = sectionRef.current;
+    if (!section) return undefined;
+    const pauseRotation = () => section.classList.add('is-paused');
+    const resumeRotation = () => section.classList.remove('is-paused');
+    section.addEventListener('mouseenter', pauseRotation);
+    section.addEventListener('mouseleave', resumeRotation);
+    section.addEventListener('focusin', pauseRotation);
+    section.addEventListener('focusout', resumeRotation);
+    return () => {
+      section.removeEventListener('mouseenter', pauseRotation);
+      section.removeEventListener('mouseleave', resumeRotation);
+      section.removeEventListener('focusin', pauseRotation);
+      section.removeEventListener('focusout', resumeRotation);
+    };
+  }, []);
 
   return (
-    <section ref={sectionRef} className={`workflow-story-section ${supportsScrollTimeline ? 'has-scroll-timeline' : ''}`} aria-labelledby="workflow-story-title">
+    <section ref={sectionRef} className="workflow-story-section" aria-labelledby="workflow-story-title">
       <div className="workflow-story-intro">
         <span className="workflow-story-kicker">MAKE SALES WORK FLOW</span>
         <h2 id="workflow-story-title">
-          From first inquiry
-          <br />
-          <span>to next win.</span>
+          From first inquiry <span>to next win.</span>
         </h2>
         <p>One connected rhythm for every person, deal, and customer conversation.</p>
-        <button type="button" className="workflow-story-scroll-cue" onClick={scrollToFirstStep} aria-label="Scroll to the first workflow step">
+        <div className="workflow-story-scroll-cue" aria-live="polite">
           <ArrowDown size={16} />
-          <span>Scroll to explore</span>
-        </button>
+          <span>Auto-playing workflow</span>
+        </div>
       </div>
 
       <div className="workflow-story-track" ref={trackRef}>
         {workflowSteps.map(({ icon: Icon, label, title, detail, color }, index) => (
-          <article className={`workflow-story-panel workflow-story-panel-${color} ${activeStep === index ? 'is-active' : ''}`} data-step-index={index} key={label} style={{ '--step-index': index }}>
+          <article className={`workflow-story-panel workflow-story-panel-${color} ${activeStep === index ? 'is-active' : ''}`} data-step-index={index} key={label} aria-hidden={activeStep !== index}>
             <div className="workflow-story-panel-copy">
               <span className="workflow-story-label">{label}</span>
               <h3>{title}</h3>
