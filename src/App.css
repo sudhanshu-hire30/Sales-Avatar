@@ -3118,7 +3118,7 @@ input[type="reset"] {
 
 /* 7. HOW IT WORKS SECTION */
 .how-it-works-section {
-  padding: 96px 0;
+  padding: 46px 0;
   background: #f8fafc;
   border-top: 1px solid #f1f5f9;
   border-bottom: 1px solid #f1f5f9;
@@ -3313,7 +3313,7 @@ input[type="reset"] {
 
 /* 8. PRICING SECTION */
 .pricing-section {
-  padding: 68px 0 76px;
+  padding: 58px 0 62px;
   background: #ffffff;
   position: relative;
 }

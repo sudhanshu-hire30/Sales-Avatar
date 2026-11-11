@@ -57,6 +57,18 @@ export default function WorkflowStorySection() {
   }, []);
 
   useEffect(() => {
+    const track = trackRef.current;
+    const activePanel = trackRef.current?.querySelector(`[data-step-index="${activeStep}"]`);
+    if (!track || !activePanel) return;
+
+    const panelLeft = activePanel.offsetLeft - (track.clientWidth - activePanel.clientWidth) / 2;
+    track.scrollTo({
+      left: panelLeft,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  }, [activeStep]);
+
+  useEffect(() => {
     const section = sectionRef.current;
     if (!section) return undefined;
     const pauseRotation = () => {
@@ -87,10 +99,6 @@ export default function WorkflowStorySection() {
           From first inquiry <span>to next win.</span>
         </h2>
         <p>One connected rhythm for every person, deal, and customer conversation.</p>
-        <div className="workflow-story-scroll-cue" aria-live="polite">
-          <ArrowDown size={16} />
-          <span>Auto-playing workflow</span>
-        </div>
       </div>
 
       <div className="workflow-story-track" ref={trackRef}>

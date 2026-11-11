@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import usePageSeo from '../utils/usePageSeo';
 import { 
@@ -14,6 +14,8 @@ import {
   ShieldCheck,
   Eye,
   Maximize2,
+  ChevronLeft,
+  ChevronRight,
   RefreshCw,
   Scale,
   Percent,
@@ -193,6 +195,7 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
   });
 
   const [activeCategory, setActiveCategory] = useState('all');
+  const featuresGridRef = useRef(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const location = useLocation();
@@ -230,6 +233,30 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
   const filteredFeatures = activeCategory === 'all' 
     ? featureList 
     : featureList.filter(f => f.category === activeCategory);
+
+  const scrollFeatureCards = (direction) => {
+    const grid = featuresGridRef.current;
+    const card = grid?.firstElementChild;
+    if (!grid || !card) return;
+    const gap = parseFloat(window.getComputedStyle(grid).columnGap) || 0;
+    grid.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const grid = featuresGridRef.current;
+    if (!grid) return;
+    grid.scrollLeft = 0;
+    if (filteredFeatures.length <= 3 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const timer = window.setInterval(() => {
+      if (grid.matches(':hover, :focus-within')) return;
+      const cards = Array.from(grid.children);
+      const nextCard = cards.find((card) => card.offsetLeft > grid.scrollLeft + 8);
+      grid.scrollTo({ left: nextCard ? nextCard.offsetLeft : 0, behavior: 'smooth' });
+    }, 3500);
+
+    return () => window.clearInterval(timer);
+  }, [activeCategory, filteredFeatures.length]);
 
   return (
     <div className="subpage-view features-page">
@@ -378,7 +405,22 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
           </div>
 
           {/* Detailed Features Grid */}
-          <div className="features-detailed-grid">
+          <div className={`features-carousel-shell${filteredFeatures.length > 3 ? ' has-arrows' : ''}`}>
+            {filteredFeatures.length > 3 && (
+              <button
+                type="button"
+                className="features-carousel-arrow features-carousel-arrow-prev"
+                onClick={() => scrollFeatureCards(-1)}
+                aria-label="Show previous feature cards"
+              >
+                <ChevronLeft size={21} />
+              </button>
+            )}
+            <div
+              ref={featuresGridRef}
+              className={`features-detailed-grid${filteredFeatures.length > 3 ? ' is-auto-scrolling' : ''}`}
+              aria-label="CRM feature cards"
+            >
             {filteredFeatures.map(f => {
               const Icon = f.icon;
               const imgUrl = f.screenshotFile ? getScreenshotThumbnailUrl(f.screenshotFile) : null;
@@ -454,6 +496,17 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
                 </div>
               );
             })}
+            </div>
+            {filteredFeatures.length > 3 && (
+              <button
+                type="button"
+                className="features-carousel-arrow features-carousel-arrow-next"
+                onClick={() => scrollFeatureCards(1)}
+                aria-label="Show next feature cards"
+              >
+                <ChevronRight size={21} />
+              </button>
+            )}
           </div>
 
           {/* Automated Lead Distribution Engine (5 Routing Rules) */}

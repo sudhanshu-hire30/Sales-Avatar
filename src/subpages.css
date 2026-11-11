@@ -567,7 +567,7 @@ h1, h2, h3, h4, h5, h6 {
 .legal-container {
   max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: 64px var(--content-gutter);
+  padding: 54px var(--content-gutter);
 }
 
 .why-metrics-container,
@@ -610,11 +610,100 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* 3. Features Detailed Grid */
+.features-carousel-shell {
+  position: relative;
+}
+
+.features-carousel-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #dbe5f2;
+  border-radius: 50%;
+  color: #1d4ed8;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(23, 32, 51, 0.16);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.features-carousel-arrow:hover {
+  color: #ffffff;
+  background: #1d4ed8;
+  box-shadow: 0 8px 22px rgba(29, 78, 216, 0.28);
+}
+
+.features-carousel-arrow:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+.features-carousel-arrow-prev {
+  left: -18px;
+}
+
+.features-carousel-arrow-next {
+  right: -18px;
+}
+
 .features-detailed-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 32px;
   margin-bottom: 72px;
+}
+
+.features-detailed-grid.is-auto-scrolling {
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #bfdbfe transparent;
+  padding: 4px 2px 14px;
+}
+
+.features-detailed-grid.is-auto-scrolling > .feature-detail-card {
+  flex: 0 0 calc((100% - 64px) / 3);
+  min-width: 320px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 992px) {
+  .features-detailed-grid.is-auto-scrolling > .feature-detail-card {
+    flex-basis: calc((100% - 32px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .features-detailed-grid.is-auto-scrolling > .feature-detail-card {
+    flex-basis: 88%;
+  }
+
+  .features-carousel-arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .features-carousel-arrow-prev {
+    left: -10px;
+  }
+
+  .features-carousel-arrow-next {
+    right: -10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .features-detailed-grid.is-auto-scrolling {
+    scroll-behavior: auto;
+  }
 }
 
 .feature-detail-card {

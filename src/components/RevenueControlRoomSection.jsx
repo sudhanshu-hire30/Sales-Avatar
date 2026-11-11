@@ -82,9 +82,7 @@ export default function RevenueControlRoomSection({ onOpenDemo }) {
       <div className="revenue-control-room-header">
         <span className="revenue-control-room-kicker">YOUR SALES, IN ONE FRAME</span>
         <h2 id="revenue-control-room-title">
-          Stop collecting updates.
-          <br />
-          <span>Start seeing momentum.</span>
+          One clear view of every deal.
         </h2>
         <p>See how SalesAvatar can present the same customer story differently for each role.</p>
       </div>
