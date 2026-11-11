@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowRight, CheckCircle2, MapPin, MessageSquareText, TrendingUp, Clock3, UserRound, Phone, CalendarCheck, CircleDollarSign } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowRight, CheckCircle2, MapPin, MessageSquareText, TrendingUp, Clock3, UserRound, Phone, CalendarCheck, CircleDollarSign } from 'lucide-react';
 
 const workflowSteps = [
   {
@@ -28,22 +28,45 @@ const workflowSteps = [
 export default function WorkflowStorySection() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
+  const isPausedRef = useRef(false);
   const [activeStep, setActiveStep] = useState(0);
+
+  const pauseAutoPlay = () => {
+    isPausedRef.current = true;
+    sectionRef.current?.classList.add('is-paused');
+  };
+
+  const showPreviousStep = () => {
+    pauseAutoPlay();
+    setActiveStep((currentStep) => (currentStep - 1 + workflowSteps.length) % workflowSteps.length);
+  };
+
+  const showNextStep = () => {
+    pauseAutoPlay();
+    setActiveStep((currentStep) => (currentStep + 1) % workflowSteps.length);
+  };
 
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) return undefined;
     const rotationTimer = window.setInterval(() => {
+      if (isPausedRef.current) return;
       setActiveStep((currentStep) => (currentStep + 1) % workflowSteps.length);
-    }, 4200);
+    }, 3500);
     return () => window.clearInterval(rotationTimer);
   }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return undefined;
-    const pauseRotation = () => section.classList.add('is-paused');
-    const resumeRotation = () => section.classList.remove('is-paused');
+    const pauseRotation = () => {
+      isPausedRef.current = true;
+      section.classList.add('is-paused');
+    };
+    const resumeRotation = () => {
+      isPausedRef.current = false;
+      section.classList.remove('is-paused');
+    };
     section.addEventListener('mouseenter', pauseRotation);
     section.addEventListener('mouseleave', resumeRotation);
     section.addEventListener('focusin', pauseRotation);
@@ -71,6 +94,14 @@ export default function WorkflowStorySection() {
       </div>
 
       <div className="workflow-story-track" ref={trackRef}>
+        <div className="workflow-story-controls" aria-label="Workflow cards">
+          <button type="button" className="workflow-story-arrow workflow-story-arrow-previous" onClick={showPreviousStep} aria-label="Show previous workflow card">
+            <ArrowLeft size={18} />
+          </button>
+          <button type="button" className="workflow-story-arrow workflow-story-arrow-next" onClick={showNextStep} aria-label="Show next workflow card">
+            <ArrowRight size={18} />
+          </button>
+        </div>
         {workflowSteps.map(({ icon: Icon, label, title, detail, color }, index) => (
           <article className={`workflow-story-panel workflow-story-panel-${color} ${activeStep === index ? 'is-active' : ''}`} data-step-index={index} key={label} aria-hidden={activeStep !== index}>
             <div className="workflow-story-panel-copy">
