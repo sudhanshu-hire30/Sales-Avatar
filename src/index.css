@@ -1786,7 +1786,7 @@ body,
 
 .workflow-story-panel-blue { background: #e8f1ff; }
 .workflow-story-panel-teal { background: #dff3ef; }
-.workflow-story-panel-navy { background: #e8f1ff; }
+.workflow-story-panel-navy { background: #f1e8ff; }
 
 .workflow-story-panel-copy h3 {
   max-width: 480px;
@@ -1809,7 +1809,7 @@ body,
   color: #172033;
 }
 
-.workflow-story-panel-navy .workflow-story-label { color: #1d4ed8; }
+.workflow-story-panel-navy .workflow-story-label { color: #7c3aed; }
 
 .workflow-story-proof {
   display: inline-flex;
@@ -1822,7 +1822,7 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-proof {
-  color: #1d4ed8;
+  color: #7c3aed;
 }
 
 .workflow-story-visual {
@@ -1896,8 +1896,8 @@ body,
 
 .workflow-story-panel-navy .workflow-floating-chip {
   background: rgba(255, 255, 255, 0.9);
-  border-color: #bfdbfe;
-  color: #1d4ed8;
+  border-color: #ddd6fe;
+  color: #7c3aed;
 }
 
 @keyframes workflow-rail-pulse {
@@ -1941,7 +1941,7 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-window-body {
-  background: #f8fbff;
+  background: #fcfaff;
   color: #172033;
 }
 
@@ -1962,8 +1962,8 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-icon {
-  color: #1d4ed8;
-  background: #dbeafe;
+  color: #7c3aed;
+  background: #ede9fe;
 }
 
 .workflow-story-window-body strong {
@@ -1982,7 +1982,7 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-line {
-  background: #dbeafe;
+  background: #ddd6fe;
 }
 
 .workflow-story-action {
@@ -1998,8 +1998,8 @@ body,
 }
 
 .workflow-story-panel-navy .workflow-story-action {
-  color: #1d4ed8;
-  border-color: #bfdbfe;
+  color: #7c3aed;
+  border-color: #ddd6fe;
 }
 
 @keyframes workflow-panel-rise {
@@ -2052,9 +2052,10 @@ body,
   }
 
   .workflow-story-track {
-    display: block;
+    display: grid;
+    gap: 0;
     padding-top: 24px;
-    padding-bottom: 10vh;
+    padding-bottom: 24px;
     padding-right: var(--content-gutter-mobile);
     padding-left: var(--content-gutter-mobile);
   }
@@ -2067,6 +2068,14 @@ body,
     margin-bottom: 0;
     padding: 24px 20px;
     box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
+  }
+
+  .workflow-story-track .workflow-story-panel:nth-child(odd) {
+    transform: translate3d(-72px, 0, 0);
+  }
+
+  .workflow-story-track .workflow-story-panel.is-active {
+    transform: translate3d(0, 0, 0);
   }
 
   @supports (animation-timeline: view()) {
