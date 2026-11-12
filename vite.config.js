@@ -6,10 +6,6 @@ export default defineConfig({
     base: process.env.VITE_BASE_PATH || '/',
     plugins: [react()],
     server: {
-        port: 5173,
-        proxy: {
-            '/api': 'http://localhost:5000',
-            '/uploads': 'http://localhost:5000'
-        }
+        port: 5173
     }
 });

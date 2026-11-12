@@ -6,7 +6,8 @@ export function PrivacyPage() {
   usePageSeo({
     title: 'Privacy Policy & DPDP Act Compliance | SalesAvatar CRM',
     description: 'Read the SalesAvatar Privacy Policy. Learn how we safeguard Indian customer records, sales leads, and business data under the DPDP Act 2023.',
-    canonicalPath: '/privacy'
+    canonicalPath: '/privacy',
+    robots: 'noindex, follow'
   });
 
   return (
@@ -64,7 +65,8 @@ export function TermsPage() {
   usePageSeo({
     title: 'Terms of Service & SaaS User Agreement | SalesAvatar CRM',
     description: 'Read the SalesAvatar Terms of Service. Understand subscription rights, 99.9% uptime SLA, user seat allocation, and fair usage guidelines.',
-    canonicalPath: '/terms'
+    canonicalPath: '/terms',
+    robots: 'noindex, follow'
   });
 
   return (
@@ -117,7 +119,8 @@ export function SecurityPage() {
   usePageSeo({
     title: 'Enterprise Security Architecture & DPDP Data Residency | SalesAvatar CRM',
     description: 'Learn about SalesAvatar data handling, access controls, encryption, and hosting arrangements.',
-    canonicalPath: '/security'
+    canonicalPath: '/security',
+    robots: 'noindex, follow'
   });
 
   return (
@@ -189,7 +192,8 @@ export function CancellationRefundPage() {
   usePageSeo({
     title: 'Cancellation & Refund Policy | SalesAvatar CRM',
     description: 'Review our transparent subscription cancellation and refund guidelines. Cancel anytime from your portal with active access until cycle end.',
-    canonicalPath: '/cancellation-refund'
+    canonicalPath: '/cancellation-refund',
+    robots: 'noindex, follow'
   });
 
   return (

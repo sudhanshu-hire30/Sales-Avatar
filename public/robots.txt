@@ -3,11 +3,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /admin/
-Disallow: /leads
-Disallow: /api/
-Disallow: /login
 
 # Sitemaps
 Sitemap: https://salesavatar.com/sitemap.xml

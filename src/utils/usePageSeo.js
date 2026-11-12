@@ -15,7 +15,7 @@ export function usePageSeo({
   keywords,
   canonicalPath = '',
   jsonLd = null,
-  robots = 'index, follow'
+  robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 }) {
   useEffect(() => {
     // 1. Update Document Title
@@ -56,7 +56,8 @@ export function usePageSeo({
 
     // 3. Update Canonical Link
     const baseUrl = 'https://salesavatar.com';
-    const fullCanonical = `${baseUrl}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`;
+    const normalizedPath = canonicalPath ? `/${canonicalPath.replace(/^\/+|\/+$/g, '')}` : '/';
+    const fullCanonical = `${baseUrl}${normalizedPath}`;
     
     let canonicalEl = document.querySelector('link[rel="canonical"]');
     if (!canonicalEl) {
@@ -72,8 +73,12 @@ export function usePageSeo({
     setMetaTag('property', 'og:type', 'website');
     setMetaTag('property', 'og:site_name', 'SalesAvatar CRM');
     setMetaTag('property', 'og:image', `${baseUrl}/images/crm-dashboard.jpg`);
+    setMetaTag('property', 'og:image:alt', 'SalesAvatar CRM dashboard preview');
     setMetaTag('name', 'twitter:card', 'summary_large_image');
     setMetaTag('name', 'twitter:image', `${baseUrl}/images/crm-dashboard.jpg`);
+
+    // Keep the document language aligned with the India-focused site content.
+    document.documentElement.lang = 'en-IN';
 
     // 4. Inject Dynamic Page JSON-LD (e.g., FAQPage or Product)
     const scriptId = 'page-dynamic-jsonld';
